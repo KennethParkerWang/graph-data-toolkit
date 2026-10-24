@@ -1,0 +1,1339 @@
+{
+  "networkx_version": "3.5",
+  "numpy_version": "2.3.5",
+  "scipy_version": "1.16.3",
+  "randomness": "none",
+  "cases": [
+    {
+      "name": "path4",
+      "directed": false,
+      "adjacency": [
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "expected": [
+        {
+          "metric_id": "degree_assortativity",
+          "parameters": {
+            "source_degree": "out",
+            "target_degree": "in"
+          },
+          "values": -0.4999999999999988,
+          "imaginary": []
+        },
+        {
+          "metric_id": "modularity",
+          "parameters": {
+            "partition": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "resolution": 0.7
+          },
+          "values": 0.3166666666666667,
+          "imaginary": []
+        },
+        {
+          "metric_id": "modularity",
+          "parameters": {
+            "partition": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "resolution": 1.0
+          },
+          "values": 0.16666666666666663,
+          "imaginary": []
+        },
+        {
+          "metric_id": "modularity",
+          "parameters": {
+            "partition": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "resolution": 1.5
+          },
+          "values": -0.08333333333333337,
+          "imaginary": []
+        },
+        {
+          "metric_id": "adjacency_spectral_radius",
+          "parameters": {},
+          "values": 1.618033988749894,
+          "imaginary": []
+        },
+        {
+          "metric_id": "average_neighbor_degree",
+          "parameters": {},
+          "values": [
+            2.0,
+            1.5,
+            1.5,
+            2.0
+          ],
+          "imaginary": []
+        },
+        {
+          "metric_id": "rich_club",
+          "parameters": {
+            "thresholds": [
+              0,
+              1
+            ]
+          },
+          "values": [
+            0.5,
+            1.0
+          ],
+          "imaginary": []
+        },
+        {
+          "metric_id": "adjacency_spectrum",
+          "parameters": {},
+          "values": [
+            -1.618033988749895,
+            -0.6180339887498949,
+            0.6180339887498949,
+            1.6180339887498951
+          ],
+          "imaginary": []
+        },
+        {
+          "metric_id": "laplacian_spectrum",
+          "parameters": {},
+          "values": [
+            5.0450834795003976e-17,
+            0.585786437626905,
+            2.0,
+            3.414213562373094
+          ],
+          "imaginary": []
+        },
+        {
+          "metric_id": "algebraic_connectivity",
+          "parameters": {},
+          "values": 0.585786437626905,
+          "imaginary": []
+        },
+        {
+          "metric_id": "natural_connectivity",
+          "parameters": {},
+          "values": 0.6465446878711332,
+          "imaginary": []
+        },
+        {
+          "metric_id": "effective_resistance",
+          "parameters": {},
+          "values": [
+            [
+              0.0,
+              1.0,
+              2.0000000000000004,
+              2.9999999999999987
+            ],
+            [
+              1.0,
+              0.0,
+              1.0,
+              1.9999999999999991
+            ],
+            [
+              2.0000000000000004,
+              1.0,
+              0.0,
+              0.9999999999999997
+            ],
+            [
+              2.9999999999999987,
+              1.9999999999999993,
+              0.9999999999999997,
+              0.0
+            ]
+          ],
+          "imaginary": []
+        },
+        {
+          "metric_id": "kirchhoff_index",
+          "parameters": {},
+          "values": 9.999999999999996,
+          "imaginary": []
+        }
+      ]
+    },
+    {
+      "name": "cycle4",
+      "directed": false,
+      "adjacency": [
+        [
+          0.0,
+          1.0,
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "expected": [
+        {
+          "metric_id": "modularity",
+          "parameters": {
+            "partition": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "resolution": 0.7
+          },
+          "values": 0.15000000000000002,
+          "imaginary": []
+        },
+        {
+          "metric_id": "modularity",
+          "parameters": {
+            "partition": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "resolution": 1.0
+          },
+          "values": 0.0,
+          "imaginary": []
+        },
+        {
+          "metric_id": "modularity",
+          "parameters": {
+            "partition": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "resolution": 1.5
+          },
+          "values": -0.25,
+          "imaginary": []
+        },
+        {
+          "metric_id": "adjacency_spectral_radius",
+          "parameters": {},
+          "values": 1.9999999999999993,
+          "imaginary": []
+        },
+        {
+          "metric_id": "average_neighbor_degree",
+          "parameters": {},
+          "values": [
+            2.0,
+            2.0,
+            2.0,
+            2.0
+          ],
+          "imaginary": []
+        },
+        {
+          "metric_id": "rich_club",
+          "parameters": {
+            "thresholds": [
+              0,
+              1
+            ]
+          },
+          "values": [
+            0.6666666666666666,
+            0.6666666666666666
+          ],
+          "imaginary": []
+        },
+        {
+          "metric_id": "adjacency_spectrum",
+          "parameters": {},
+          "values": [
+            -2.0,
+            -2.905111491433635e-17,
+            3.83752535977116e-17,
+            2.0
+          ],
+          "imaginary": []
+        },
+        {
+          "metric_id": "laplacian_spectrum",
+          "parameters": {},
+          "values": [
+            -8.586881206085195e-16,
+            1.9999999999999998,
+            2.0000000000000004,
+            3.9999999999999996
+          ],
+          "imaginary": []
+        },
+        {
+          "metric_id": "algebraic_connectivity",
+          "parameters": {},
+          "values": 1.9999999999999998,
+          "imaginary": []
+        },
+        {
+          "metric_id": "natural_connectivity",
+          "parameters": {},
+          "values": 0.8675616609660544,
+          "imaginary": []
+        },
+        {
+          "metric_id": "effective_resistance",
+          "parameters": {},
+          "values": [
+            [
+              0.0,
+              0.7500000000000002,
+              1.0000000000000002,
+              0.7500000000000001
+            ],
+            [
+              0.7500000000000002,
+              0.0,
+              0.7500000000000001,
+              1.0
+            ],
+            [
+              1.0000000000000002,
+              0.7500000000000001,
+              0.0,
+              0.7500000000000002
+            ],
+            [
+              0.7500000000000001,
+              1.0,
+              0.7500000000000002,
+              0.0
+            ]
+          ],
+          "imaginary": []
+        },
+        {
+          "metric_id": "kirchhoff_index",
+          "parameters": {},
+          "values": 5.000000000000001,
+          "imaginary": []
+        }
+      ]
+    },
+    {
+      "name": "star5",
+      "directed": false,
+      "adjacency": [
+        [
+          0.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "expected": [
+        {
+          "metric_id": "degree_assortativity",
+          "parameters": {
+            "source_degree": "out",
+            "target_degree": "in"
+          },
+          "values": -1.0,
+          "imaginary": []
+        },
+        {
+          "metric_id": "modularity",
+          "parameters": {
+            "partition": [
+              0,
+              0,
+              1,
+              1,
+              1
+            ],
+            "resolution": 0.7
+          },
+          "values": -0.12187499999999998,
+          "imaginary": []
+        },
+        {
+          "metric_id": "modularity",
+          "parameters": {
+            "partition": [
+              0,
+              0,
+              1,
+              1,
+              1
+            ],
+            "resolution": 1.0
+          },
+          "values": -0.28125,
+          "imaginary": []
+        },
+        {
+          "metric_id": "modularity",
+          "parameters": {
+            "partition": [
+              0,
+              0,
+              1,
+              1,
+              1
+            ],
+            "resolution": 1.5
+          },
+          "values": -0.546875,
+          "imaginary": []
+        },
+        {
+          "metric_id": "adjacency_spectral_radius",
+          "parameters": {},
+          "values": 2.0,
+          "imaginary": []
+        },
+        {
+          "metric_id": "average_neighbor_degree",
+          "parameters": {},
+          "values": [
+            1.0,
+            4.0,
+            4.0,
+            4.0,
+            4.0
+          ],
+          "imaginary": []
+        },
+        {
+          "metric_id": "rich_club",
+          "parameters": {
+            "thresholds": [
+              0
+            ]
+          },
+          "values": [
+            0.4
+          ],
+          "imaginary": []
+        },
+        {
+          "metric_id": "adjacency_spectrum",
+          "parameters": {},
+          "values": [
+            -2.0,
+            0.0,
+            0.0,
+            0.0,
+            2.0
+          ],
+          "imaginary": []
+        },
+        {
+          "metric_id": "laplacian_spectrum",
+          "parameters": {},
+          "values": [
+            0.0,
+            1.0,
+            1.0,
+            1.0,
+            5.0
+          ],
+          "imaginary": []
+        },
+        {
+          "metric_id": "algebraic_connectivity",
+          "parameters": {},
+          "values": 1.0,
+          "imaginary": []
+        },
+        {
+          "metric_id": "natural_connectivity",
+          "parameters": {},
+          "values": 0.7442576395400116,
+          "imaginary": []
+        },
+        {
+          "metric_id": "effective_resistance",
+          "parameters": {},
+          "values": [
+            [
+              0.0,
+              1.0,
+              1.0,
+              1.0,
+              1.0000000000000002
+            ],
+            [
+              1.0,
+              0.0,
+              1.9999999999999998,
+              1.9999999999999998,
+              2.0
+            ],
+            [
+              1.0,
+              1.9999999999999998,
+              0.0,
+              1.9999999999999996,
+              2.0
+            ],
+            [
+              1.0,
+              1.9999999999999998,
+              1.9999999999999996,
+              0.0,
+              2.0
+            ],
+            [
+              1.0000000000000002,
+              2.0,
+              2.0,
+              2.0,
+              0.0
+            ]
+          ],
+          "imaginary": []
+        },
+        {
+          "metric_id": "kirchhoff_index",
+          "parameters": {},
+          "values": 16.0,
+          "imaginary": []
+        }
+      ]
+    },
+    {
+      "name": "complete4",
+      "directed": false,
+      "adjacency": [
+        [
+          0.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0,
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "expected": [
+        {
+          "metric_id": "modularity",
+          "parameters": {
+            "partition": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "resolution": 0.7
+          },
+          "values": -0.016666666666666607,
+          "imaginary": []
+        },
+        {
+          "metric_id": "modularity",
+          "parameters": {
+            "partition": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "resolution": 1.0
+          },
+          "values": -0.16666666666666669,
+          "imaginary": []
+        },
+        {
+          "metric_id": "modularity",
+          "parameters": {
+            "partition": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "resolution": 1.5
+          },
+          "values": -0.4166666666666667,
+          "imaginary": []
+        },
+        {
+          "metric_id": "adjacency_spectral_radius",
+          "parameters": {},
+          "values": 3.0,
+          "imaginary": []
+        },
+        {
+          "metric_id": "average_neighbor_degree",
+          "parameters": {},
+          "values": [
+            3.0,
+            3.0,
+            3.0,
+            3.0
+          ],
+          "imaginary": []
+        },
+        {
+          "metric_id": "rich_club",
+          "parameters": {
+            "thresholds": [
+              0,
+              1,
+              2
+            ]
+          },
+          "values": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "imaginary": []
+        },
+        {
+          "metric_id": "adjacency_spectrum",
+          "parameters": {},
+          "values": [
+            -1.0,
+            -1.0,
+            -0.9999999999999999,
+            3.0
+          ],
+          "imaginary": []
+        },
+        {
+          "metric_id": "laplacian_spectrum",
+          "parameters": {},
+          "values": [
+            1.1102230246251565e-16,
+            3.9999999999999964,
+            4.0,
+            4.0
+          ],
+          "imaginary": []
+        },
+        {
+          "metric_id": "algebraic_connectivity",
+          "parameters": {},
+          "values": 3.9999999999999964,
+          "imaginary": []
+        },
+        {
+          "metric_id": "natural_connectivity",
+          "parameters": {},
+          "values": 1.6671960885860428,
+          "imaginary": []
+        },
+        {
+          "metric_id": "effective_resistance",
+          "parameters": {},
+          "values": [
+            [
+              0.0,
+              0.5000000000000002,
+              0.5000000000000002,
+              0.5000000000000001
+            ],
+            [
+              0.5000000000000002,
+              0.0,
+              0.5000000000000003,
+              0.5000000000000001
+            ],
+            [
+              0.5000000000000002,
+              0.5000000000000003,
+              0.0,
+              0.5
+            ],
+            [
+              0.5000000000000001,
+              0.5000000000000001,
+              0.5,
+              0.0
+            ]
+          ],
+          "imaginary": []
+        },
+        {
+          "metric_id": "kirchhoff_index",
+          "parameters": {},
+          "values": 3.000000000000001,
+          "imaginary": []
+        }
+      ]
+    },
+    {
+      "name": "barbell6",
+      "directed": false,
+      "adjacency": [
+        [
+          0.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          1.0,
+          1.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          0.0
+        ]
+      ],
+      "expected": [
+        {
+          "metric_id": "degree_assortativity",
+          "parameters": {
+            "source_degree": "out",
+            "target_degree": "in"
+          },
+          "values": -0.16666666666666508,
+          "imaginary": []
+        },
+        {
+          "metric_id": "modularity",
+          "parameters": {
+            "partition": [
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ],
+            "resolution": 0.7
+          },
+          "values": 0.5071428571428571,
+          "imaginary": []
+        },
+        {
+          "metric_id": "modularity",
+          "parameters": {
+            "partition": [
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ],
+            "resolution": 1.0
+          },
+          "values": 0.35714285714285715,
+          "imaginary": []
+        },
+        {
+          "metric_id": "modularity",
+          "parameters": {
+            "partition": [
+              0,
+              0,
+              0,
+              1,
+              1,
+              1
+            ],
+            "resolution": 1.5
+          },
+          "values": 0.1071428571428572,
+          "imaginary": []
+        },
+        {
+          "metric_id": "adjacency_spectral_radius",
+          "parameters": {},
+          "values": 2.4142135623730963,
+          "imaginary": []
+        },
+        {
+          "metric_id": "average_neighbor_degree",
+          "parameters": {},
+          "values": [
+            2.5,
+            2.5,
+            2.3333333333333335,
+            2.3333333333333335,
+            2.5,
+            2.5
+          ],
+          "imaginary": []
+        },
+        {
+          "metric_id": "rich_club",
+          "parameters": {
+            "thresholds": [
+              0,
+              1,
+              2
+            ]
+          },
+          "values": [
+            0.4666666666666667,
+            0.4666666666666667,
+            1.0
+          ],
+          "imaginary": []
+        },
+        {
+          "metric_id": "adjacency_spectrum",
+          "parameters": {},
+          "values": [
+            -1.732050807568876,
+            -0.9999999999999999,
+            -0.9999999999999998,
+            -0.4142135623730948,
+            1.7320508075688776,
+            2.4142135623730945
+          ],
+          "imaginary": []
+        },
+        {
+          "metric_id": "laplacian_spectrum",
+          "parameters": {},
+          "values": [
+            3.677613769070831e-16,
+            0.43844718719116976,
+            2.9999999999999982,
+            3.0,
+            3.0,
+            4.561552812808832
+          ],
+          "imaginary": []
+        },
+        {
+          "metric_id": "algebraic_connectivity",
+          "parameters": {},
+          "values": 0.43844718719116976,
+          "imaginary": []
+        },
+        {
+          "metric_id": "natural_connectivity",
+          "parameters": {},
+          "values": 1.1209578305945849,
+          "imaginary": []
+        },
+        {
+          "metric_id": "effective_resistance",
+          "parameters": {},
+          "values": [
+            [
+              0.0,
+              0.6666666666666665,
+              0.6666666666666661,
+              1.6666666666666654,
+              2.333333333333331,
+              2.333333333333331
+            ],
+            [
+              0.6666666666666665,
+              0.0,
+              0.6666666666666659,
+              1.666666666666665,
+              2.3333333333333304,
+              2.333333333333331
+            ],
+            [
+              0.6666666666666661,
+              0.6666666666666659,
+              0.0,
+              1.0000000000000002,
+              1.666666666666666,
+              1.666666666666666
+            ],
+            [
+              1.6666666666666652,
+              1.666666666666665,
+              1.0,
+              0.0,
+              0.6666666666666667,
+              0.6666666666666665
+            ],
+            [
+              2.3333333333333313,
+              2.3333333333333304,
+              1.666666666666666,
+              0.6666666666666667,
+              0.0,
+              0.6666666666666665
+            ],
+            [
+              2.3333333333333304,
+              2.3333333333333304,
+              1.666666666666666,
+              0.6666666666666665,
+              0.6666666666666665,
+              0.0
+            ]
+          ],
+          "imaginary": []
+        },
+        {
+          "metric_id": "kirchhoff_index",
+          "parameters": {},
+          "values": 20.999999999999986,
+          "imaginary": []
+        }
+      ]
+    },
+    {
+      "name": "directed4",
+      "directed": true,
+      "adjacency": [
+        [
+          0.0,
+          1.0,
+          1.0,
+          0.0
+        ],
+        [
+          1.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "expected": [
+        {
+          "metric_id": "degree_assortativity",
+          "parameters": {
+            "source_degree": "in",
+            "target_degree": "in"
+          },
+          "values": -0.4082482904638645,
+          "imaginary": []
+        },
+        {
+          "metric_id": "degree_assortativity",
+          "parameters": {
+            "source_degree": "in",
+            "target_degree": "out"
+          },
+          "values": -0.801783725737275,
+          "imaginary": []
+        },
+        {
+          "metric_id": "degree_assortativity",
+          "parameters": {
+            "source_degree": "out",
+            "target_degree": "in"
+          },
+          "values": 0.40824829046386113,
+          "imaginary": []
+        },
+        {
+          "metric_id": "degree_assortativity",
+          "parameters": {
+            "source_degree": "out",
+            "target_degree": "out"
+          },
+          "values": 0.801783725737272,
+          "imaginary": []
+        },
+        {
+          "metric_id": "modularity",
+          "parameters": {
+            "partition": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "resolution": 0.7
+          },
+          "values": 0.29200000000000004,
+          "imaginary": []
+        },
+        {
+          "metric_id": "modularity",
+          "parameters": {
+            "partition": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "resolution": 1.0
+          },
+          "values": 0.16000000000000003,
+          "imaginary": []
+        },
+        {
+          "metric_id": "modularity",
+          "parameters": {
+            "partition": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "resolution": 1.5
+          },
+          "values": -0.05999999999999994,
+          "imaginary": []
+        },
+        {
+          "metric_id": "adjacency_spectral_radius",
+          "parameters": {},
+          "values": 1.0,
+          "imaginary": []
+        },
+        {
+          "metric_id": "reciprocity",
+          "parameters": {},
+          "values": 0.4,
+          "imaginary": []
+        },
+        {
+          "metric_id": "average_neighbor_degree",
+          "parameters": {
+            "neighbor_mode": "in",
+            "target_degree": "in"
+          },
+          "values": [
+            1.0,
+            1.0,
+            1.0,
+            2.0
+          ],
+          "imaginary": []
+        },
+        {
+          "metric_id": "average_neighbor_degree",
+          "parameters": {
+            "neighbor_mode": "in",
+            "target_degree": "out"
+          },
+          "values": [
+            2.0,
+            2.0,
+            2.0,
+            1.0
+          ],
+          "imaginary": []
+        },
+        {
+          "metric_id": "average_neighbor_degree",
+          "parameters": {
+            "neighbor_mode": "in",
+            "target_degree": "total"
+          },
+          "values": [
+            3.0,
+            3.0,
+            3.0,
+            3.0
+          ],
+          "imaginary": []
+        }
+      ]
+    },
+    {
+      "name": "directed_cycle4",
+      "directed": true,
+      "adjacency": [
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ],
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      ],
+      "expected": [
+        {
+          "metric_id": "modularity",
+          "parameters": {
+            "partition": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "resolution": 0.7
+          },
+          "values": 0.15000000000000002,
+          "imaginary": []
+        },
+        {
+          "metric_id": "modularity",
+          "parameters": {
+            "partition": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "resolution": 1.0
+          },
+          "values": 0.0,
+          "imaginary": []
+        },
+        {
+          "metric_id": "modularity",
+          "parameters": {
+            "partition": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "resolution": 1.5
+          },
+          "values": -0.25,
+          "imaginary": []
+        },
+        {
+          "metric_id": "adjacency_spectral_radius",
+          "parameters": {},
+          "values": 1.0000000000000004,
+          "imaginary": []
+        },
+        {
+          "metric_id": "reciprocity",
+          "parameters": {},
+          "values": 0.0,
+          "imaginary": []
+        },
+        {
+          "metric_id": "average_neighbor_degree",
+          "parameters": {
+            "neighbor_mode": "in",
+            "target_degree": "in"
+          },
+          "values": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "imaginary": []
+        },
+        {
+          "metric_id": "average_neighbor_degree",
+          "parameters": {
+            "neighbor_mode": "in",
+            "target_degree": "out"
+          },
+          "values": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "imaginary": []
+        },
+        {
+          "metric_id": "average_neighbor_degree",
+          "parameters": {
+            "neighbor_mode": "in",
+            "target_degree": "total"
+          },
+          "values": [
+            2.0,
+            2.0,
+            2.0,
+            2.0
+          ],
+          "imaginary": []
+        },
+        {
+          "metric_id": "average_neighbor_degree",
+          "parameters": {
+            "neighbor_mode": "out",
+            "target_degree": "in"
+          },
+          "values": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "imaginary": []
+        },
+        {
+          "metric_id": "average_neighbor_degree",
+          "parameters": {
+            "neighbor_mode": "out",
+            "target_degree": "out"
+          },
+          "values": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "imaginary": []
+        },
+        {
+          "metric_id": "average_neighbor_degree",
+          "parameters": {
+            "neighbor_mode": "out",
+            "target_degree": "total"
+          },
+          "values": [
+            2.0,
+            2.0,
+            2.0,
+            2.0
+          ],
+          "imaginary": []
+        }
+      ]
+    }
+  ]
+}

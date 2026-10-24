@@ -1,0 +1,33 @@
+# Python environments and caches
+.venv/
+**/.venv/
+__pycache__/
+**/__pycache__/
+.pytest_cache/
+.ruff_cache/
+*.py[cod]
+
+# MATLAB generated files
+*.asv
+*.m~
+*.mex*
+
+# Local runs and generated scientific outputs
+_local/
+artifacts/
+datasets/original_graphs/
+datasets/source_archives/
+datasets/archive_batches/
+datasets/intermediate_data/
+datasets/analysis_results/
+datasets/training_data/
+datasets/validation_samples/
+*.log
+*.tmp
+*.lock
+
+# Local editor and OS files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

@@ -1,0 +1,466 @@
+[
+  {
+    "metric_id": "degree_assortativity",
+    "name": "Degree assortativity",
+    "category": "correlation",
+    "metric_version": "1.0.0",
+    "definition": "Degree assortativity",
+    "formula": "corr(k_source(u),k_target(v)) over arcs; each undirected edge appears in both orientations.",
+    "sources": [
+      "https://networkx.org/documentation/networkx-3.5/_modules/networkx/algorithms/assortativity/correlation.html"
+    ],
+    "source_version": "NetworkX 3.5 definitions/reference algorithms; MATLAB R2024b numerical kernels; cited paper publication version",
+    "license": "Original formula/algorithm implementation; no third-party code copied. Inspected NetworkX 3.5 is BSD-3-Clause; MATLAB runtime uses its own license.",
+    "graph_types": [
+      "directed",
+      "undirected"
+    ],
+    "scope": "graph",
+    "complexity": "O(N+M)",
+    "method": "exact",
+    "parameter_defaults": {
+      "source_degree": "out",
+      "target_degree": "in"
+    },
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed_matlab_R2024b_analytic_permutation_dispatch_and_schema; independent_NetworkX3.5_where_definition_matches",
+    "conditions": "No-edge or constant endpoint degree: undefined; directed in-in/in-out/out-in/out-out use explicit parameters."
+  },
+  {
+    "metric_id": "average_neighbor_degree",
+    "name": "Average neighbor degree",
+    "category": "correlation",
+    "metric_version": "1.0.0",
+    "definition": "Distinct-neighbor mean degree; all mode counts a reciprocated neighbor once.",
+    "formula": "k_nn(i)=sum_{j in selected distinct neighbors(i)} k_target(j) / |neighbors(i)|.",
+    "sources": [
+      "https://networkx.org/documentation/networkx-3.5/_modules/networkx/algorithms/assortativity/neighbor_degree.html"
+    ],
+    "source_version": "NetworkX 3.5 definitions/reference algorithms; MATLAB R2024b numerical kernels; cited paper publication version",
+    "license": "Original formula/algorithm implementation; no third-party code copied. Inspected NetworkX 3.5 is BSD-3-Clause; MATLAB runtime uses its own license.",
+    "graph_types": [
+      "directed",
+      "undirected"
+    ],
+    "scope": "node",
+    "complexity": "O(N+M)",
+    "method": "exact",
+    "parameter_defaults": {
+      "neighbor_mode": "out",
+      "target_degree": "total"
+    },
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed_matlab_R2024b_analytic_permutation_dispatch_and_schema; independent_NetworkX3.5_where_definition_matches",
+    "conditions": "neighbor_mode=in/out/all (all is distinct union); target_degree=in/out/total. Undirected choices reduce to degree. No selected neighbor: invalid NaN."
+  },
+  {
+    "metric_id": "reciprocity",
+    "name": "Arc reciprocity",
+    "category": "correlation",
+    "metric_version": "1.0.0",
+    "definition": "Arc reciprocity",
+    "formula": "nnz(A .* A_transpose)/M",
+    "sources": [
+      "https://networkx.org/documentation/networkx-3.5/_modules/networkx/algorithms/reciprocity.html"
+    ],
+    "source_version": "NetworkX 3.5 definitions/reference algorithms; MATLAB R2024b numerical kernels; cited paper publication version",
+    "license": "Original formula/algorithm implementation; no third-party code copied. Inspected NetworkX 3.5 is BSD-3-Clause; MATLAB runtime uses its own license.",
+    "graph_types": [
+      "directed"
+    ],
+    "scope": "graph",
+    "complexity": "O(N+M)",
+    "method": "exact",
+    "parameter_defaults": {},
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed_matlab_R2024b_analytic_permutation_dispatch_and_schema; independent_NetworkX3.5_where_definition_matches",
+    "conditions": "No arcs: undefined. Counts reciprocal arcs, not reciprocal pairs."
+  },
+  {
+    "metric_id": "rich_club",
+    "name": "Unnormalized rich-club curve",
+    "category": "correlation",
+    "metric_version": "1.0.0",
+    "definition": "Unnormalized rich-club curve",
+    "formula": "phi(k)=2 E_{degree>k}/[N_{degree>k}(N_{degree>k}-1)]",
+    "sources": [
+      "https://networkx.org/documentation/networkx-3.5/_modules/networkx/algorithms/richclub.html"
+    ],
+    "source_version": "NetworkX 3.5 definitions/reference algorithms; MATLAB R2024b numerical kernels; cited paper publication version",
+    "license": "Original formula/algorithm implementation; no third-party code copied. Inspected NetworkX 3.5 is BSD-3-Clause; MATLAB runtime uses its own license.",
+    "graph_types": [
+      "undirected"
+    ],
+    "scope": "distribution",
+    "complexity": "O(K*(N+M))",
+    "method": "exact",
+    "parameter_defaults": {
+      "thresholds": []
+    },
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed_matlab_R2024b_analytic_permutation_dispatch_and_schema; independent_NetworkX3.5_where_definition_matches",
+    "conditions": "Empty thresholds chooses 0:max(degree); fewer than two selected nodes is undefined. No random reference normalization."
+  },
+  {
+    "metric_id": "modularity",
+    "name": "Modularity of supplied partition",
+    "category": "community",
+    "metric_version": "1.0.0",
+    "definition": "Modularity of supplied partition",
+    "formula": "Undirected sum_c[L_c/M-gamma*(K_c/(2M))^2]; directed sum_c[L_c/M-gamma*K_out,c*K_in,c/M^2].",
+    "sources": [
+      "https://networkx.org/documentation/networkx-3.5/_modules/networkx/algorithms/community/quality.html"
+    ],
+    "source_version": "NetworkX 3.5 definitions/reference algorithms; MATLAB R2024b numerical kernels; cited paper publication version",
+    "license": "Original formula/algorithm implementation; no third-party code copied. Inspected NetworkX 3.5 is BSD-3-Clause; MATLAB runtime uses its own license.",
+    "graph_types": [
+      "directed",
+      "undirected"
+    ],
+    "scope": "graph",
+    "complexity": "O(C*(N+M))",
+    "method": "exact",
+    "parameter_defaults": {
+      "resolution": 1
+    },
+    "required_parameters": [
+      "partition"
+    ],
+    "implementation_status": "implemented",
+    "validation_status": "passed_matlab_R2024b_analytic_permutation_dispatch_and_schema; independent_NetworkX3.5_where_definition_matches",
+    "conditions": "partition has N integer labels in ctx.node_ids order; resolution>0; zero edges: undefined."
+  },
+  {
+    "metric_id": "community_sizes",
+    "name": "Supplied community sizes",
+    "category": "community",
+    "metric_version": "1.0.0",
+    "definition": "Supplied community sizes",
+    "formula": "size(c)=sum_i 1[partition_i=c]",
+    "sources": [
+      "https://networkx.org/documentation/networkx-3.5/_modules/networkx/algorithms/community/quality.html"
+    ],
+    "source_version": "NetworkX 3.5 definitions/reference algorithms; MATLAB R2024b numerical kernels; cited paper publication version",
+    "license": "Original formula/algorithm implementation; no third-party code copied. Inspected NetworkX 3.5 is BSD-3-Clause; MATLAB runtime uses its own license.",
+    "graph_types": [
+      "directed",
+      "undirected"
+    ],
+    "scope": "distribution",
+    "complexity": "O(N*C)",
+    "method": "exact",
+    "parameter_defaults": {},
+    "required_parameters": [
+      "partition"
+    ],
+    "implementation_status": "implemented",
+    "validation_status": "passed_matlab_R2024b_analytic_permutation_dispatch_and_schema; independent_NetworkX3.5_where_definition_matches",
+    "conditions": "One integer label per node; axis IDs are sorted supplied labels; empty partition valid for N=0."
+  },
+  {
+    "metric_id": "greedy_modularity_communities",
+    "name": "Greedy modularity communities",
+    "category": "community",
+    "metric_version": "1.0.0",
+    "definition": "Dense exact delta-Q agglomeration; original implementation of the greedy modularity principle, not the NetworkX heap implementation.",
+    "formula": "Start singleton partition; repeatedly merge the pair with maximum delta Q>gain_tolerance.",
+    "sources": [
+      "https://networkx.org/documentation/networkx-3.5/_modules/networkx/algorithms/community/modularity_max.html",
+      "https://networkx.org/documentation/networkx-3.5/_modules/networkx/algorithms/community/quality.html"
+    ],
+    "source_version": "NetworkX 3.5 definitions/reference algorithms; MATLAB R2024b numerical kernels; cited paper publication version",
+    "license": "Original formula/algorithm implementation; no third-party code copied. Inspected NetworkX 3.5 is BSD-3-Clause; MATLAB runtime uses its own license.",
+    "graph_types": [
+      "directed",
+      "undirected"
+    ],
+    "scope": "node",
+    "complexity": "O(N^3) time; O(N^2) memory",
+    "method": "heuristic",
+    "parameter_defaults": {
+      "resolution": 1,
+      "gain_tolerance": 1e-12,
+      "max_nodes": 2000
+    },
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed_matlab_R2024b_analytic_permutation_dispatch_and_schema; independent_NetworkX3.5_where_definition_matches",
+    "conditions": "Deterministic tie break by smallest representative original node IDs; labels are representative IDs; no global optimum guarantee; M=0 undefined; max_nodes refusal explicit."
+  },
+  {
+    "metric_id": "adjacency_spectrum",
+    "name": "Adjacency spectrum",
+    "category": "spectral",
+    "metric_version": "1.0.0",
+    "definition": "Adjacency spectrum",
+    "formula": "eigenvalues(A)",
+    "sources": [
+      "https://networkx.org/documentation/networkx-3.5/_modules/networkx/linalg/spectrum.html",
+      "https://www.mathworks.com/help/matlab/ref/eig.html"
+    ],
+    "source_version": "NetworkX 3.5 definitions/reference algorithms; MATLAB R2024b numerical kernels; cited paper publication version",
+    "license": "Original formula/algorithm implementation; no third-party code copied. Inspected NetworkX 3.5 is BSD-3-Clause; MATLAB runtime uses its own license.",
+    "graph_types": [
+      "directed",
+      "undirected"
+    ],
+    "scope": "distribution",
+    "complexity": "O(N^3) time; O(N^2) memory",
+    "method": "numerical",
+    "parameter_defaults": {
+      "max_nodes": 2000
+    },
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed_matlab_R2024b_analytic_permutation_dispatch_and_schema; independent_NetworkX3.5_where_definition_matches",
+    "conditions": "Directed eigenvalues may be complex; sorted by real then imaginary part. Empty spectrum valid. Full eig; no silent truncation."
+  },
+  {
+    "metric_id": "adjacency_spectral_radius",
+    "name": "Adjacency spectral radius",
+    "category": "spectral",
+    "metric_version": "1.0.0",
+    "definition": "Adjacency spectral radius",
+    "formula": "rho(A)=max_i abs(lambda_i(A))",
+    "sources": [
+      "https://networkx.org/documentation/networkx-3.5/_modules/networkx/linalg/spectrum.html",
+      "https://www.mathworks.com/help/matlab/ref/eig.html"
+    ],
+    "source_version": "NetworkX 3.5 definitions/reference algorithms; MATLAB R2024b numerical kernels; cited paper publication version",
+    "license": "Original formula/algorithm implementation; no third-party code copied. Inspected NetworkX 3.5 is BSD-3-Clause; MATLAB runtime uses its own license.",
+    "graph_types": [
+      "directed",
+      "undirected"
+    ],
+    "scope": "graph",
+    "complexity": "O(N^3) time; O(N^2) memory",
+    "method": "numerical",
+    "parameter_defaults": {
+      "max_nodes": 2000
+    },
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed_matlab_R2024b_analytic_permutation_dispatch_and_schema; independent_NetworkX3.5_where_definition_matches",
+    "conditions": "N=0 undefined; N>0 no edges gives zero; full eigenvalues including complex directed spectrum."
+  },
+  {
+    "metric_id": "laplacian_spectrum",
+    "name": "Undirected Laplacian spectrum",
+    "category": "spectral",
+    "metric_version": "1.0.0",
+    "definition": "Undirected Laplacian spectrum",
+    "formula": "eigenvalues(diag(k)-A), ascending",
+    "sources": [
+      "https://networkx.org/documentation/networkx-3.5/_modules/networkx/linalg/spectrum.html",
+      "https://www.mathworks.com/help/matlab/ref/eig.html"
+    ],
+    "source_version": "NetworkX 3.5 definitions/reference algorithms; MATLAB R2024b numerical kernels; cited paper publication version",
+    "license": "Original formula/algorithm implementation; no third-party code copied. Inspected NetworkX 3.5 is BSD-3-Clause; MATLAB runtime uses its own license.",
+    "graph_types": [
+      "undirected"
+    ],
+    "scope": "distribution",
+    "complexity": "O(N^3) time; O(N^2) memory",
+    "method": "numerical",
+    "parameter_defaults": {
+      "max_nodes": 2000
+    },
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed_matlab_R2024b_analytic_permutation_dispatch_and_schema; independent_NetworkX3.5_where_definition_matches",
+    "conditions": "Unnormalized Laplacian only; no directed interpretation. Empty spectrum valid."
+  },
+  {
+    "metric_id": "algebraic_connectivity",
+    "name": "Algebraic connectivity",
+    "category": "spectral",
+    "metric_version": "1.0.0",
+    "definition": "Second-smallest unnormalized Laplacian eigenvalue (Fiedler algebraic connectivity).",
+    "formula": "lambda_2(diag(k)-A)",
+    "sources": [
+      "https://networkx.org/documentation/networkx-3.5/_modules/networkx/linalg/spectrum.html",
+      "https://www.mathworks.com/help/matlab/ref/eig.html"
+    ],
+    "source_version": "NetworkX 3.5 definitions/reference algorithms; MATLAB R2024b numerical kernels; cited paper publication version",
+    "license": "Original formula/algorithm implementation; no third-party code copied. Inspected NetworkX 3.5 is BSD-3-Clause; MATLAB runtime uses its own license.",
+    "graph_types": [
+      "undirected"
+    ],
+    "scope": "graph",
+    "complexity": "O(N^3) time; O(N^2) memory",
+    "method": "numerical",
+    "parameter_defaults": {
+      "max_nodes": 2000
+    },
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed_matlab_R2024b_analytic_permutation_dispatch_and_schema; independent_NetworkX3.5_where_definition_matches",
+    "conditions": "N<2 undefined; disconnected graphs exactly zero from component test; roundoff-negative eigenvalue clipped at zero."
+  },
+  {
+    "metric_id": "natural_connectivity",
+    "name": "Natural connectivity",
+    "category": "spectral",
+    "metric_version": "1.0.0",
+    "definition": "Natural connectivity",
+    "formula": "log((1/N)*sum_i exp(lambda_i(A)))",
+    "sources": [
+      "https://arxiv.org/abs/1009.3430",
+      "https://www.mathworks.com/help/matlab/ref/eig.html"
+    ],
+    "source_version": "NetworkX 3.5 definitions/reference algorithms; MATLAB R2024b numerical kernels; cited paper publication version",
+    "license": "Original formula/algorithm implementation; no third-party code copied. Inspected NetworkX 3.5 is BSD-3-Clause; MATLAB runtime uses its own license.",
+    "graph_types": [
+      "undirected"
+    ],
+    "scope": "graph",
+    "complexity": "O(N^3) time; O(N^2) memory",
+    "method": "numerical",
+    "parameter_defaults": {
+      "max_nodes": 2000
+    },
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed_matlab_R2024b_analytic_permutation_dispatch_and_schema; independent_NetworkX3.5_where_definition_matches",
+    "conditions": "N=0 undefined; evaluated with stable log-sum-exp; no directed complex-spectrum extension."
+  },
+  {
+    "metric_id": "effective_resistance",
+    "name": "Unit-edge effective resistance matrix",
+    "category": "electrical",
+    "metric_version": "1.0.0",
+    "definition": "Unit-edge effective resistance matrix",
+    "formula": "R_ij=(e_i-e_j)'*L_pseudoinverse*(e_i-e_j) within components; +Inf between components.",
+    "sources": [
+      "https://networkx.org/documentation/networkx-3.5/_modules/networkx/algorithms/distance_measures.html"
+    ],
+    "source_version": "NetworkX 3.5 definitions/reference algorithms; MATLAB R2024b numerical kernels; cited paper publication version",
+    "license": "Original formula/algorithm implementation; no third-party code copied. Inspected NetworkX 3.5 is BSD-3-Clause; MATLAB runtime uses its own license.",
+    "graph_types": [
+      "undirected"
+    ],
+    "scope": "matrix",
+    "complexity": "O(sum_c n_c^3) time; O(N^2) memory",
+    "method": "numerical",
+    "parameter_defaults": {
+      "max_nodes": 2000
+    },
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed_matlab_R2024b_analytic_permutation_dispatch_and_schema; independent_NetworkX3.5_where_definition_matches",
+    "conditions": "Every undirected edge is a unit resistor; diagonal zero; disconnected +Inf is valid extended-real resistance; axes preserve node IDs."
+  },
+  {
+    "metric_id": "kirchhoff_index",
+    "name": "Kirchhoff index",
+    "category": "electrical",
+    "metric_version": "1.0.0",
+    "definition": "Kirchhoff index",
+    "formula": "Kf=sum_{i<j}R_ij; connected equivalent N*sum_{k=2}^N 1/lambda_k(L).",
+    "sources": [
+      "https://networkx.org/documentation/networkx-3.5/_modules/networkx/algorithms/distance_measures.html"
+    ],
+    "source_version": "NetworkX 3.5 definitions/reference algorithms; MATLAB R2024b numerical kernels; cited paper publication version",
+    "license": "Original formula/algorithm implementation; no third-party code copied. Inspected NetworkX 3.5 is BSD-3-Clause; MATLAB runtime uses its own license.",
+    "graph_types": [
+      "undirected"
+    ],
+    "scope": "graph",
+    "complexity": "O(sum_c n_c^3) time; O(N^2) memory",
+    "method": "numerical",
+    "parameter_defaults": {
+      "max_nodes": 2000
+    },
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed_matlab_R2024b_analytic_permutation_dispatch_and_schema; independent_NetworkX3.5_where_definition_matches",
+    "conditions": "N=0 undefined; N=1 zero; disconnected N>1 gives valid +Inf; this is the unordered-pair total."
+  },
+  {
+    "metric_id": "structural_driver_count",
+    "name": "Minimum general structural input count",
+    "category": "controllability",
+    "metric_version": "1.0.0",
+    "definition": "Minimum independent general input channels for generic structural controllability, with accessibility wiring in details.",
+    "formula": "N_inputs=max(1,N-|maximum_bipartite_matching(A)|) for N>0; N=0 gives 0.",
+    "sources": [
+      "https://www.nature.com/articles/nature10011",
+      "https://pages.up.pt/~up519521/publications/TAC2016_StrSys.pdf"
+    ],
+    "source_version": "NetworkX 3.5 definitions/reference algorithms; MATLAB R2024b numerical kernels; cited paper publication version",
+    "license": "Original formula/algorithm implementation; no third-party code copied. Inspected NetworkX 3.5 is BSD-3-Clause; MATLAB runtime uses its own license.",
+    "graph_types": [
+      "directed"
+    ],
+    "scope": "graph",
+    "complexity": "O(N*(N+M)) time",
+    "method": "exact",
+    "parameter_defaults": {},
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed_matlab_R2024b_analytic_permutation_dispatch_and_schema; independent_NetworkX3.5_where_definition_matches",
+    "conditions": "xdot=A_state*x+B*u, A_state pattern=A transpose; independent free nonzero entries. General B allows one input to fan out to multiple source SCCs; NOT minimum dedicated actuator count. Constructed B pattern ensures accessibility."
+  },
+  {
+    "metric_id": "structural_dedicated_feasibility",
+    "name": "Specified dedicated-input structural feasibility",
+    "category": "controllability",
+    "metric_version": "1.0.0",
+    "definition": "Lin structural conditions evaluated for a fixed dedicated input pattern.",
+    "formula": "input_reachable_all_states AND maximum_matching([A;B_transpose])=N",
+    "sources": [
+      "https://pages.up.pt/~up519521/publications/TAC2016_StrSys.pdf"
+    ],
+    "source_version": "NetworkX 3.5 definitions/reference algorithms; MATLAB R2024b numerical kernels; cited paper publication version",
+    "license": "Original formula/algorithm implementation; no third-party code copied. Inspected NetworkX 3.5 is BSD-3-Clause; MATLAB runtime uses its own license.",
+    "graph_types": [
+      "directed"
+    ],
+    "scope": "graph",
+    "complexity": "O((N+K)*(N+M+K)) time",
+    "method": "exact",
+    "parameter_defaults": {},
+    "required_parameters": [
+      "driver_node_ids"
+    ],
+    "implementation_status": "implemented",
+    "validation_status": "passed_matlab_R2024b_analytic_permutation_dispatch_and_schema; independent_NetworkX3.5_where_definition_matches",
+    "conditions": "Each listed existing original node ID gets its own independent input; empty drivers allowed. Tests supplied pattern only; no actuator placement minimization."
+  },
+  {
+    "metric_id": "exact_numeric_driver_count",
+    "name": "Fixed-matrix minimum general input count",
+    "category": "controllability",
+    "metric_version": "1.0.0",
+    "definition": "Fixed-matrix minimum general input count",
+    "formula": "max_{lambda in spectrum(S)} [N-rank(S-lambda I)]",
+    "sources": [
+      "https://www.nature.com/articles/ncomms3447",
+      "https://www.mathworks.com/help/matlab/ref/eig.html"
+    ],
+    "source_version": "NetworkX 3.5 definitions/reference algorithms; MATLAB R2024b numerical kernels; cited paper publication version",
+    "license": "Original formula/algorithm implementation; no third-party code copied. Inspected NetworkX 3.5 is BSD-3-Clause; MATLAB runtime uses its own license.",
+    "graph_types": [
+      "directed",
+      "undirected"
+    ],
+    "scope": "graph",
+    "complexity": "O(N^4) worst-case time; O(N^2) workspace",
+    "method": "numerical",
+    "parameter_defaults": {
+      "rank_tolerance": 1e-9,
+      "eigenvalue_tolerance": 1e-7,
+      "max_nodes": 2000
+    },
+    "required_parameters": [
+      "state_matrix"
+    ],
+    "implementation_status": "implemented",
+    "validation_status": "passed_matlab_R2024b_analytic_permutation_dispatch_and_schema; independent_NetworkX3.5_where_definition_matches",
+    "conditions": "Explicit finite real N-by-N state_matrix in ctx.node_ids order; unrestricted real B. Tolerances relative to max(1,norm(S,2)); complete-link eigenvalue grouping. Near defective/repeated eigenvalues are tolerance-sensitive; inconsistent estimates not_computed. No symbolic guarantee, no universal N-rank(S)."
+  }
+]

@@ -1,0 +1,91 @@
+{
+  "purpose": "test-only in-memory fixtures; no original graph files",
+  "fixtures": [
+    {
+      "fixture_name": "path4",
+      "directed": false,
+      "node_count": 4,
+      "arcs_one_based": [
+        [
+          2,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          3
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "test_identity": {
+        "graph_id": "d5ecbcafbe86ebace0cc4320ee5749fe96688362f2d3f24e8f2eb65a99a5e7eb",
+        "topology_hash": "1ce06e9542c1fbffc2b10680c5aee86360cdc16d90dcf806adb56b7057587949",
+        "origin_graph_id": "d5ecbcafbe86ebace0cc4320ee5749fe96688362f2d3f24e8f2eb65a99a5e7eb"
+      }
+    },
+    {
+      "fixture_name": "directed_mixed",
+      "directed": true,
+      "node_count": 5,
+      "arcs_one_based": [
+        [
+          2,
+          1
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "test_identity": {
+        "graph_id": "6bdbfb89e6d5b9673515e7d8fb0821b60b0b1d0f106a11298f9cd521db94bec7",
+        "topology_hash": "489cf38792d06a76cd3b62edf5709ce6a6e4ae6b4e482ebeb5856e730654c0b0",
+        "origin_graph_id": "6bdbfb89e6d5b9673515e7d8fb0821b60b0b1d0f106a11298f9cd521db94bec7"
+      }
+    },
+    {
+      "fixture_name": "isolates3",
+      "directed": false,
+      "node_count": 3,
+      "arcs_one_based": [],
+      "test_identity": {
+        "graph_id": "0c8a15571fe879d0a9f8f0bde47ba76ca8c8ff38553567b8d792377534bb248e",
+        "topology_hash": "9f97bffa4109649f137cdc87d256de353b739900cc76eaa1272c5c0627513b48",
+        "origin_graph_id": "0c8a15571fe879d0a9f8f0bde47ba76ca8c8ff38553567b8d792377534bb248e"
+      }
+    },
+    {
+      "fixture_name": "empty0",
+      "directed": false,
+      "node_count": 0,
+      "arcs_one_based": [],
+      "test_identity": {
+        "graph_id": "d48b8149e63bfc8e40c5d49fc3b0cfc44dfe752f60870cf3f6b6779c28819fd6",
+        "topology_hash": "3cda216a0f0f6930a89a417ad180e602d667a69237021dc48a8437535fcbce87",
+        "origin_graph_id": "d48b8149e63bfc8e40c5d49fc3b0cfc44dfe752f60870cf3f6b6779c28819fd6"
+      }
+    }
+  ]
+}

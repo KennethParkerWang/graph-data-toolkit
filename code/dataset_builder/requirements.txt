@@ -1,0 +1,7 @@
+numpy>=1.26
+scipy>=1.11
+h5py>=3.10
+pytest>=8
+# Install the CPU-only torch wheel from https://download.pytorch.org/whl/cpu
+torch>=2.2
+torch-geometric>=2.5

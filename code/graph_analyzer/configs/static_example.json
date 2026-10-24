@@ -1,0 +1,11 @@
+{
+  "description": "Example selection only; never automatically applied to a dataset.",
+  "selections": [
+    {"metric_id": "node_count", "parameters": {}},
+    {"metric_id": "edge_count", "parameters": {}},
+    {"metric_id": "degree", "parameters": {}},
+    {"metric_id": "global_efficiency", "parameters": {}},
+    {"metric_id": "edge_betweenness", "parameters": {}}
+  ],
+  "options": {"preview": true, "writer_id": "serial"}
+}

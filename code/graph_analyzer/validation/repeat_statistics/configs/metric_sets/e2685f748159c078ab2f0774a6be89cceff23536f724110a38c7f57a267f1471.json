@@ -1,0 +1,1 @@
+{"configuration":{"implementation_sha256":"1bd28fe3c8da531977a54f32093aa84a5ef88c48d7ed5ba32bde57b298cc6ad2","implementation_version":"1.0.0","protocol_id":"","selections":{"metric_id":"largest_component_size","metric_version":"1.0.0","parameters":{"component_mode":"weak"}},"summary_selections":[]},"identity_version":"metric-set-v1"}

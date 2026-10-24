@@ -1,0 +1,49 @@
+{
+  "purpose": "Synthetic small in-memory graph; identities are not task1 graph identities",
+  "node_count": 4,
+  "arcs_one_based": [
+    [
+      1,
+      2
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      3,
+      1
+    ],
+    [
+      3,
+      4
+    ],
+    [
+      4,
+      2
+    ]
+  ],
+  "full_edge_repeats": 4,
+  "seeds": [
+    101,
+    102,
+    103,
+    104
+  ],
+  "grid_requested_fraction": [
+    0,
+    0.1,
+    0.25,
+    0.5,
+    0.75,
+    1
+  ],
+  "grid_actual_count": [
+    0,
+    1,
+    2,
+    3,
+    5
+  ],
+  "aggregate_count": 3
+}

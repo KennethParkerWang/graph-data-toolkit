@@ -1,0 +1,36 @@
+{
+  "snapshot_date": "2026-10-07",
+  "snap_commit": "6924a035aabd1ce0a547b94e995e142f29eb5040",
+  "files": [
+    {
+      "file": "dc_sbm.pdf",
+      "url": "https://arxiv.org/pdf/1008.3926v1",
+      "bytes": 813098,
+      "sha256": "9660c03d16b46b41abccbb5b00b725d15ac4c70053ed6100aeadbed756498c95"
+    },
+    {
+      "file": "rhg.pdf",
+      "url": "https://arxiv.org/pdf/1006.5169",
+      "bytes": 4626478,
+      "sha256": "19aa7ccd1ec48ba5be68fad75e00372b668daad866b5d91949aaa5a8ac404a69"
+    },
+    {
+      "file": "forest_fire.pdf",
+      "url": "https://www-cs.stanford.edu/~jure/pubs/powergrowth-kdd05.pdf",
+      "bytes": 329772,
+      "sha256": "bc3412b1f7f9e8cdb5b425c6807317ec3216c8b531bfcebf3b3e7ebd06152893"
+    },
+    {
+      "file": "snap_ff.cpp",
+      "url": "https://raw.githubusercontent.com/snap-stanford/snap/6924a035aabd1ce0a547b94e995e142f29eb5040/snap-core/ff.cpp",
+      "bytes": 35649,
+      "sha256": "5ea16d127824f91a0f7c5993aec3ba21250a7a13bf48393ed4427f4f9079f193"
+    },
+    {
+      "file": "SNAP_LICENSE.txt",
+      "url": "https://api.github.com/repos/snap-stanford/snap/contents/License.txt?ref=6924a035aabd1ce0a547b94e995e142f29eb5040",
+      "bytes": 1540,
+      "sha256": "b99f6d50680265ca2ea515f14b9a32955b99137223c18e52fd847934a2f6e61b"
+    }
+  ]
+}

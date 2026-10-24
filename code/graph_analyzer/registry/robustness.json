@@ -1,0 +1,201 @@
+[
+  {
+    "metric_id": "robustness_schneider",
+    "name": "Schneider connectivity robustness",
+    "category": "robustness",
+    "metric_version": "1.0.0",
+    "definition": "Schneider connectivity robustness",
+    "formula": "R = sum_{Q=1}^N LCC(Q) / N^2; original N; excludes Q=0; includes empty Q=N",
+    "sources": [
+      "https://doi.org/10.1073/pnas.1009440108"
+    ],
+    "source_version": "Primary published equations; accessed 2026-09-27",
+    "license": "Original implementation from cited mathematics; no third-party source code copied",
+    "graph_types": [
+      "undirected"
+    ],
+    "scope": "graph",
+    "complexity": "O(T) time and space for T observed states",
+    "method": "exact",
+    "parameter_defaults": {},
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "analytic tests in tests/test_attacks.m",
+    "conditions": "Runtime trajectory supplied by mc.summarize. Full single-node undirected trajectory, N>0. Requires largest_component_size. Does not silently generalize to edge attacks or directed graphs."
+  },
+  {
+    "metric_id": "robustness_control_node",
+    "name": "Lou node-removal control robustness",
+    "category": "robustness",
+    "metric_version": "1.0.0",
+    "definition": "Lou node-removal control robustness",
+    "formula": "RcN = (1/N) sum_{i=0}^{N-1} ND(i)/(N-i)",
+    "sources": [
+      "https://doi.org/10.1016/j.cnsns.2021.105780"
+    ],
+    "source_version": "Primary published equations; accessed 2026-09-27",
+    "license": "Original implementation from cited mathematics; no third-party source code copied",
+    "graph_types": [
+      "directed",
+      "undirected"
+    ],
+    "scope": "graph",
+    "complexity": "O(T) time and space for T observed states",
+    "method": "exact",
+    "parameter_defaults": {},
+    "required_parameters": [
+      "driver_metric_id"
+    ],
+    "implementation_status": "implemented",
+    "validation_status": "analytic tests in tests/test_attacks.m",
+    "conditions": "Runtime trajectory supplied by mc.summarize. Full single-node path, N>0; supplied structural_driver_count or exact_numeric_driver_count retains its system and general-input model; lower is more robust."
+  },
+  {
+    "metric_id": "robustness_control_edge",
+    "name": "Lou edge-removal control robustness",
+    "category": "robustness",
+    "metric_version": "1.0.0",
+    "definition": "Lou edge-removal control robustness",
+    "formula": "RcE = (1/(M+1)) sum_{i=0}^{M} ND(i)/N",
+    "sources": [
+      "https://doi.org/10.1016/j.cnsns.2021.105780"
+    ],
+    "source_version": "Primary published equations; accessed 2026-09-27",
+    "license": "Original implementation from cited mathematics; no third-party source code copied",
+    "graph_types": [
+      "directed",
+      "undirected"
+    ],
+    "scope": "graph",
+    "complexity": "O(T) time and space for T observed states",
+    "method": "exact",
+    "parameter_defaults": {},
+    "required_parameters": [
+      "driver_metric_id"
+    ],
+    "implementation_status": "implemented",
+    "validation_status": "analytic tests in tests/test_attacks.m",
+    "conditions": "Runtime trajectory supplied by mc.summarize. Full single-edge path, N>0, M=0 permitted. Counts and input model must be valid; lower is more robust."
+  },
+  {
+    "metric_id": "sampled_curve_auc",
+    "name": "Trapezoidal area of observed scalar curve",
+    "category": "robustness",
+    "metric_version": "1.1.0",
+    "definition": "Trapezoidal area of observed scalar curve",
+    "formula": "sum_j (x[j+1]-x[j])*(y[j+1]+y[j])/2 on actual observed fractions; optional y/y(0)",
+    "sources": [
+      "https://www.mathworks.com/help/matlab/ref/trapz.html"
+    ],
+    "source_version": "Primary published equations; accessed 2026-09-27",
+    "license": "Original implementation from cited mathematics; no third-party source code copied",
+    "graph_types": [
+      "directed",
+      "undirected"
+    ],
+    "scope": "graph",
+    "complexity": "O(T) time and space for T observed states",
+    "method": "numerical_quadrature",
+    "parameter_defaults": {
+      "source": "sampled",
+      "interval": [
+        0,
+        1
+      ],
+      "normalize_initial": false,
+      "metric_parameters": []
+    },
+    "required_parameters": [
+      "metric_id"
+    ],
+    "implementation_status": "implemented",
+    "validation_status": "analytic tests in tests/test_attacks.m",
+    "conditions": "Runtime trajectory supplied by mc.summarize. Observed interval endpoints required; missing values invalidate integral; repeated identical positions deduplicated; no extrapolation. Initial normalization undefined when y(0)=0. metric_parameters optionally selects exact normalized source parameters; empty requires an unambiguous metric ID."
+  },
+  {
+    "metric_id": "first_threshold_fraction",
+    "name": "First observed threshold crossing fraction",
+    "category": "robustness",
+    "metric_version": "1.1.0",
+    "definition": "First observed threshold crossing fraction",
+    "formula": "min observed x with y<=threshold (or y>=threshold)",
+    "sources": [
+      "Project-defined observed-threshold statistic, version 1.0.0"
+    ],
+    "source_version": "Primary published equations; accessed 2026-09-27",
+    "license": "Original implementation from cited mathematics; no third-party source code copied",
+    "graph_types": [
+      "directed",
+      "undirected"
+    ],
+    "scope": "graph",
+    "complexity": "O(T) time and space for T observed states",
+    "method": "exact",
+    "parameter_defaults": {
+      "relation": "le",
+      "metric_parameters": []
+    },
+    "required_parameters": [
+      "metric_id",
+      "threshold"
+    ],
+    "implementation_status": "implemented",
+    "validation_status": "analytic tests in tests/test_attacks.m",
+    "conditions": "Runtime trajectory supplied by mc.summarize. Reports first observed crossing only; batch gaps are not interpolated. Not reached is undefined with reached=false; unavailable earlier observations are not_computed. metric_parameters optionally selects exact normalized source parameters; empty requires an unambiguous metric ID."
+  },
+  {
+    "metric_id": "efficiency_retention_curve",
+    "name": "Efficiency relative to initial efficiency",
+    "category": "robustness",
+    "metric_version": "1.0.0",
+    "definition": "Efficiency relative to initial efficiency",
+    "formula": "E(Q)/E(0) using explicit observed states",
+    "sources": [
+      "https://doi.org/10.1103/PhysRevLett.87.198701"
+    ],
+    "source_version": "Primary published equations; accessed 2026-09-27",
+    "license": "Original implementation from cited mathematics; no third-party source code copied",
+    "graph_types": [
+      "directed",
+      "undirected"
+    ],
+    "scope": "trajectory",
+    "complexity": "O(T) time and space for T observed states",
+    "method": "exact",
+    "parameter_defaults": {
+      "metric_id": "global_efficiency"
+    },
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "analytic tests in tests/test_attacks.m",
+    "conditions": "Runtime trajectory supplied by mc.summarize. Initial efficiency must be finite and nonzero; retains per-step masks; no clipping to [0,1]."
+  },
+  {
+    "metric_id": "connectivity_robustness",
+    "name": "Edge and directed connectivity full-path robustness",
+    "category": "robustness",
+    "metric_version": "1.0.0",
+    "definition": "Original-population-normalized largest weak/strong component summed after every deletion; undirected node removal uses robustness_schneider.",
+    "formula": "R_mode = sum_{q=1}^{T0} L_mode(q)/(T0*N0), T0=M0 for edge removal or N0 for directed node removal; excludes q=0, includes q=T0",
+    "sources": [
+      "https://arxiv.org/abs/1203.2982",
+      "Project-defined directed weak/strong extension; docs/connectivity_robustness.md"
+    ],
+    "source_version": "Zeng and Liu arXiv:1203.2982v1 (2012), Eq. (1); verified 2026-09-28. Its adaptive highest-edge-betweenness attack is not imposed on user protocols.",
+    "license": "Original implementation from cited mathematics; no third-party source code copied",
+    "graph_types": [
+      "directed",
+      "undirected"
+    ],
+    "scope": "graph",
+    "complexity": "O(T) time and space for T observed states",
+    "method": "exact",
+    "parameter_defaults": {
+      "component_mode": "weak"
+    },
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "Analytic tests in tests/test_connectivity_extensions.m",
+    "conditions": "Runtime trajectory via mc.summarize; all counts 0:T0, N0>0,T0>0; undirected edge uses weak; directed weak/strong explicit. No coarse-grid substitution or initial-component normalization. Final edge state retains all N0 nodes and L=1. Node-only undirected delegates to existing Schneider metric."
+  }
+]

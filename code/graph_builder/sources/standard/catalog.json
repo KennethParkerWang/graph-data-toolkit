@@ -1,0 +1,579 @@
+{
+  "catalog_version": "2.1.0",
+  "entries": [
+    {
+      "generator_id": "gen_er_undirected",
+      "function": "gen_er_undirected",
+      "model": "er",
+      "direction": "undirected",
+      "supported": true,
+      "classification": "reference_probability_model",
+      "reference_files": [
+        "sources/standard/networkx_3_5/random_graphs.py"
+      ],
+      "citation": "NetworkX 3.5 gnp_random_graph",
+      "code_url": "https://github.com/networkx/networkx/blob/networkx-3.5/networkx/generators/random_graphs.py",
+      "reference_version": "NetworkX 3.5",
+      "license": "sources/standard/networkx_3_5/LICENSE.txt (BSD-3-Clause)",
+      "parameters": [
+        "N",
+        "p"
+      ]
+    },
+    {
+      "generator_id": "gen_er_gnm_undirected",
+      "function": "gen_er_gnm_undirected",
+      "model": "er_gnm",
+      "direction": "undirected",
+      "supported": true,
+      "classification": "reference_probability_model",
+      "reference_files": [
+        "sources/standard/networkx_3_5/random_graphs.py"
+      ],
+      "citation": "NetworkX 3.5 gnm_random_graph",
+      "code_url": "https://github.com/networkx/networkx/blob/networkx-3.5/networkx/generators/random_graphs.py",
+      "reference_version": "NetworkX 3.5",
+      "license": "sources/standard/networkx_3_5/LICENSE.txt (BSD-3-Clause)",
+      "parameters": [
+        "N",
+        "M"
+      ]
+    },
+    {
+      "generator_id": "gen_ba_undirected",
+      "function": "gen_ba_undirected",
+      "model": "ba",
+      "direction": "undirected",
+      "supported": true,
+      "classification": "reference_code_port",
+      "reference_files": [
+        "sources/standard/networkx_3_5/random_graphs.py",
+        "sources/standard/cpython_setobject.c"
+      ],
+      "citation": "NetworkX 3.5 barabasi_albert_graph",
+      "code_url": "https://github.com/networkx/networkx/blob/networkx-3.5/networkx/generators/random_graphs.py",
+      "reference_version": "NetworkX 3.5",
+      "license": "sources/standard/networkx_3_5/LICENSE.txt (BSD-3-Clause); sources/standard/CPYTHON_LICENSE.txt (PSF License Version 2)",
+      "parameters": [
+        "N",
+        "m"
+      ]
+    },
+    {
+      "generator_id": "gen_sf_undirected",
+      "function": "gen_sf_undirected",
+      "model": "sf",
+      "direction": "undirected",
+      "supported": true,
+      "classification": "paper_algorithm",
+      "reference_files": [
+        "sources/standard/static_sf.pdf"
+      ],
+      "citation": "Goh, Kahng, Kim (2001), Universal Behavior of Load Distribution in Scale-free Networks; DOI 10.1103/PhysRevLett.87.278701",
+      "code_url": "https://arxiv.org/abs/cond-mat/0106565v2",
+      "reference_version": "arXiv:cond-mat/0106565v2",
+      "license": "Algorithm implemented from paper; no third-party code copied.",
+      "parameters": [
+        "N",
+        "M",
+        "sigma"
+      ]
+    },
+    {
+      "generator_id": "gen_ws_undirected",
+      "function": "gen_ws_undirected",
+      "model": "ws",
+      "direction": "undirected",
+      "supported": true,
+      "classification": "reference_probability_model",
+      "reference_files": [
+        "sources/standard/networkx_3_5/random_graphs.py"
+      ],
+      "citation": "NetworkX 3.5 watts_strogatz_graph",
+      "code_url": "https://github.com/networkx/networkx/blob/networkx-3.5/networkx/generators/random_graphs.py",
+      "reference_version": "NetworkX 3.5",
+      "license": "sources/standard/networkx_3_5/LICENSE.txt (BSD-3-Clause)",
+      "parameters": [
+        "N",
+        "K",
+        "beta"
+      ]
+    },
+    {
+      "generator_id": "gen_nw_undirected",
+      "function": "gen_nw_undirected",
+      "model": "nw",
+      "direction": "undirected",
+      "supported": true,
+      "classification": "reference_code_port",
+      "reference_files": [
+        "sources/standard/networkx_3_5/random_graphs.py"
+      ],
+      "citation": "NetworkX 3.5 newman_watts_strogatz_graph",
+      "code_url": "https://github.com/networkx/networkx/blob/networkx-3.5/networkx/generators/random_graphs.py",
+      "reference_version": "NetworkX 3.5",
+      "license": "sources/standard/networkx_3_5/LICENSE.txt (BSD-3-Clause)",
+      "parameters": [
+        "N",
+        "K",
+        "beta"
+      ]
+    },
+    {
+      "generator_id": "gen_qs_undirected",
+      "function": "gen_qs_undirected",
+      "model": "qs",
+      "direction": "undirected",
+      "supported": false,
+      "classification": "unsupported_direction",
+      "reference_files": [],
+      "citation": "",
+      "code_url": "",
+      "reference_version": "",
+      "license": "",
+      "parameters": []
+    },
+    {
+      "generator_id": "gen_sbm_undirected",
+      "function": "gen_sbm_undirected",
+      "model": "sbm",
+      "direction": "undirected",
+      "supported": true,
+      "classification": "reference_probability_model",
+      "reference_files": [
+        "sources/standard/networkx_3_5/community.py"
+      ],
+      "citation": "NetworkX 3.5 stochastic_block_model",
+      "code_url": "https://github.com/networkx/networkx/blob/networkx-3.5/networkx/generators/community.py",
+      "reference_version": "NetworkX 3.5",
+      "license": "sources/standard/networkx_3_5/LICENSE.txt (BSD-3-Clause)",
+      "parameters": [
+        "sizes",
+        "P"
+      ]
+    },
+    {
+      "generator_id": "gen_rgg_undirected",
+      "function": "gen_rgg_undirected",
+      "model": "rgg",
+      "direction": "undirected",
+      "supported": true,
+      "classification": "reference_probability_model",
+      "reference_files": [
+        "sources/standard/networkx_3_5/geometric.py"
+      ],
+      "citation": "NetworkX 3.5 random_geometric_graph",
+      "code_url": "https://github.com/networkx/networkx/blob/networkx-3.5/networkx/generators/geometric.py",
+      "reference_version": "NetworkX 3.5",
+      "license": "sources/standard/networkx_3_5/LICENSE.txt (BSD-3-Clause)",
+      "parameters": [
+        "N",
+        "radius",
+        "dim"
+      ]
+    },
+    {
+      "generator_id": "gen_random_regular_undirected",
+      "function": "gen_random_regular_undirected",
+      "model": "random_regular",
+      "direction": "undirected",
+      "supported": true,
+      "classification": "reference_code_port",
+      "reference_files": [
+        "sources/standard/networkx_3_5/random_graphs.py"
+      ],
+      "citation": "NetworkX 3.5 random_regular_graph",
+      "code_url": "https://github.com/networkx/networkx/blob/networkx-3.5/networkx/generators/random_graphs.py",
+      "reference_version": "NetworkX 3.5",
+      "license": "sources/standard/networkx_3_5/LICENSE.txt (BSD-3-Clause)",
+      "parameters": [
+        "N",
+        "d"
+      ]
+    },
+    {
+      "generator_id": "gen_hk_undirected",
+      "function": "gen_hk_undirected",
+      "model": "hk",
+      "direction": "undirected",
+      "supported": true,
+      "classification": "reference_code_port",
+      "reference_files": [
+        "sources/standard/networkx_3_5/random_graphs.py",
+        "sources/standard/cpython_setobject.c"
+      ],
+      "citation": "NetworkX 3.5 powerlaw_cluster_graph",
+      "code_url": "https://github.com/networkx/networkx/blob/networkx-3.5/networkx/generators/random_graphs.py",
+      "reference_version": "NetworkX 3.5",
+      "license": "sources/standard/networkx_3_5/LICENSE.txt (BSD-3-Clause); sources/standard/CPYTHON_LICENSE.txt (PSF License Version 2)",
+      "parameters": [
+        "N",
+        "m",
+        "triad_probability"
+      ]
+    },
+    {
+      "generator_id": "gen_chung_lu_undirected",
+      "function": "gen_chung_lu_undirected",
+      "model": "chung_lu",
+      "direction": "undirected",
+      "supported": true,
+      "classification": "reference_probability_model",
+      "reference_files": [
+        "sources/standard/networkx_3_5/degree_seq.py"
+      ],
+      "citation": "NetworkX 3.5 expected_degree_graph",
+      "code_url": "https://github.com/networkx/networkx/blob/networkx-3.5/networkx/generators/degree_seq.py",
+      "reference_version": "NetworkX 3.5",
+      "license": "sources/standard/networkx_3_5/LICENSE.txt (BSD-3-Clause)",
+      "parameters": [
+        "w"
+      ]
+    },
+    {
+      "generator_id": "gen_er_directed",
+      "function": "gen_er_directed",
+      "model": "er",
+      "direction": "directed",
+      "supported": true,
+      "classification": "reference_probability_model",
+      "reference_files": [
+        "sources/standard/networkx_3_5/random_graphs.py"
+      ],
+      "citation": "NetworkX 3.5 gnp_random_graph",
+      "code_url": "https://github.com/networkx/networkx/blob/networkx-3.5/networkx/generators/random_graphs.py",
+      "reference_version": "NetworkX 3.5",
+      "license": "sources/standard/networkx_3_5/LICENSE.txt (BSD-3-Clause)",
+      "parameters": [
+        "N",
+        "p"
+      ]
+    },
+    {
+      "generator_id": "gen_er_gnm_directed",
+      "function": "gen_er_gnm_directed",
+      "model": "er_gnm",
+      "direction": "directed",
+      "supported": true,
+      "classification": "reference_probability_model",
+      "reference_files": [
+        "sources/standard/networkx_3_5/random_graphs.py"
+      ],
+      "citation": "NetworkX 3.5 gnm_random_graph",
+      "code_url": "https://github.com/networkx/networkx/blob/networkx-3.5/networkx/generators/random_graphs.py",
+      "reference_version": "NetworkX 3.5",
+      "license": "sources/standard/networkx_3_5/LICENSE.txt (BSD-3-Clause)",
+      "parameters": [
+        "N",
+        "M"
+      ]
+    },
+    {
+      "generator_id": "gen_ba_directed",
+      "function": "gen_ba_directed",
+      "model": "ba",
+      "direction": "directed",
+      "supported": false,
+      "classification": "unsupported_direction",
+      "reference_files": [],
+      "citation": "",
+      "code_url": "",
+      "reference_version": "",
+      "license": "",
+      "parameters": []
+    },
+    {
+      "generator_id": "gen_sf_directed",
+      "function": "gen_sf_directed",
+      "model": "sf",
+      "direction": "directed",
+      "supported": true,
+      "classification": "paper_algorithm",
+      "reference_files": [
+        "sources/standard/static_sf.pdf"
+      ],
+      "citation": "Goh, Kahng, Kim (2001), Universal Behavior of Load Distribution in Scale-free Networks; DOI 10.1103/PhysRevLett.87.278701",
+      "code_url": "https://arxiv.org/abs/cond-mat/0106565v2",
+      "reference_version": "arXiv:cond-mat/0106565v2",
+      "license": "Algorithm implemented from paper; no third-party code copied.",
+      "parameters": [
+        "N",
+        "M",
+        "sigma_out",
+        "sigma_in"
+      ]
+    },
+    {
+      "generator_id": "gen_ws_directed",
+      "function": "gen_ws_directed",
+      "model": "ws",
+      "direction": "directed",
+      "supported": false,
+      "classification": "unsupported_direction",
+      "reference_files": [],
+      "citation": "",
+      "code_url": "",
+      "reference_version": "",
+      "license": "",
+      "parameters": []
+    },
+    {
+      "generator_id": "gen_nw_directed",
+      "function": "gen_nw_directed",
+      "model": "nw",
+      "direction": "directed",
+      "supported": false,
+      "classification": "unsupported_direction",
+      "reference_files": [],
+      "citation": "",
+      "code_url": "",
+      "reference_version": "",
+      "license": "",
+      "parameters": []
+    },
+    {
+      "generator_id": "gen_qs_directed",
+      "function": "gen_qs_directed",
+      "model": "qs",
+      "direction": "directed",
+      "supported": true,
+      "classification": "paper_algorithm",
+      "reference_files": [
+        "sources/standard/snapback.pdf"
+      ],
+      "citation": "Lou, Wang, Chen (2018), Toward Stronger Robustness of Network Controllability: A Snapback Network Model; DOI 10.1109/TCSI.2018.2821124",
+      "code_url": "https://arxiv.org/abs/1801.06082",
+      "reference_version": "arXiv:1801.06082, downloaded 2026-09-28",
+      "license": "Algorithm implemented from paper; no third-party code copied.",
+      "parameters": [
+        "N",
+        "r",
+        "q"
+      ]
+    },
+    {
+      "generator_id": "gen_sbm_directed",
+      "function": "gen_sbm_directed",
+      "model": "sbm",
+      "direction": "directed",
+      "supported": true,
+      "classification": "reference_probability_model",
+      "reference_files": [
+        "sources/standard/networkx_3_5/community.py"
+      ],
+      "citation": "NetworkX 3.5 stochastic_block_model",
+      "code_url": "https://github.com/networkx/networkx/blob/networkx-3.5/networkx/generators/community.py",
+      "reference_version": "NetworkX 3.5",
+      "license": "sources/standard/networkx_3_5/LICENSE.txt (BSD-3-Clause)",
+      "parameters": [
+        "sizes",
+        "P"
+      ]
+    },
+    {
+      "generator_id": "gen_rgg_directed",
+      "function": "gen_rgg_directed",
+      "model": "rgg",
+      "direction": "directed",
+      "supported": false,
+      "classification": "unsupported_direction",
+      "reference_files": [],
+      "citation": "",
+      "code_url": "",
+      "reference_version": "",
+      "license": "",
+      "parameters": []
+    },
+    {
+      "generator_id": "gen_random_regular_directed",
+      "function": "gen_random_regular_directed",
+      "model": "random_regular",
+      "direction": "directed",
+      "supported": false,
+      "classification": "unsupported_direction",
+      "reference_files": [],
+      "citation": "",
+      "code_url": "",
+      "reference_version": "",
+      "license": "",
+      "parameters": []
+    },
+    {
+      "generator_id": "gen_hk_directed",
+      "function": "gen_hk_directed",
+      "model": "hk",
+      "direction": "directed",
+      "supported": false,
+      "classification": "unsupported_direction",
+      "reference_files": [],
+      "citation": "",
+      "code_url": "",
+      "reference_version": "",
+      "license": "",
+      "parameters": []
+    },
+    {
+      "generator_id": "gen_chung_lu_directed",
+      "function": "gen_chung_lu_directed",
+      "model": "chung_lu",
+      "direction": "directed",
+      "supported": false,
+      "classification": "unsupported_direction",
+      "reference_files": [],
+      "citation": "",
+      "code_url": "",
+      "reference_version": "",
+      "license": "",
+      "parameters": []
+    },
+    {
+      "generator_id": "gen_lfr_undirected",
+      "function": "gen_lfr_undirected",
+      "model": "lfr",
+      "direction": "undirected",
+      "supported": true,
+      "classification": "reference_code_port_with_explicit_simple_graph_differences",
+      "reference_files": [
+        "sources/standard/networkx_3_5/community.py"
+      ],
+      "citation": "Lancichinetti, Fortunato, Radicchi (2008), Physical Review E 78, 046110, DOI:10.1103/PhysRevE.78.046110; NetworkX 3.5 LFR_benchmark_graph.",
+      "code_url": "https://github.com/networkx/networkx/blob/networkx-3.5/networkx/generators/community.py",
+      "reference_version": "NetworkX 3.5: discrete power-law and explicit wiring, no-self-loop port with finite budgets",
+      "license": "sources/standard/networkx_3_5/LICENSE.txt (BSD-3-Clause; reference code)",
+      "parameters": [
+        "N",
+        "tau1",
+        "tau2",
+        "mu",
+        "average_degree",
+        "min_community",
+        "max_community",
+        "max_degree",
+        "max_iters"
+      ]
+    },
+    {
+      "generator_id": "gen_degree_sequence_undirected",
+      "function": "gen_degree_sequence_undirected",
+      "model": "degree_sequence",
+      "direction": "undirected",
+      "supported": true,
+      "classification": "havel_hakimi_then_finite_degree_preserving_swaps_not_uniform",
+      "reference_files": [
+        "sources/standard/networkx_3_5/degree_seq.py",
+        "sources/standard/networkx_3_5/swap.py"
+      ],
+      "citation": "Havel (1955); Hakimi (1962), On Realizability of a Set of Integers as Degrees of the Vertices of a Linear Graph, DOI:10.1137/0110037; NetworkX 3.5 havel_hakimi_graph and double_edge_swap used for comparison.",
+      "code_url": "https://doi.org/10.1137/0110037",
+      "reference_version": "Havel-Hakimi construction plus a fixed budget of simple-graph degree-preserving swaps",
+      "license": "Independent MATLAB implementation; sources/standard/networkx_3_5/LICENSE.txt (BSD-3-Clause; reference code)",
+      "parameters": [
+        "degrees",
+        "swap_attempts"
+      ]
+    },
+    {
+      "generator_id": "gen_dc_sbm_undirected",
+      "function": "gen_dc_sbm_undirected",
+      "model": "dc_sbm",
+      "direction": "undirected",
+      "supported": true,
+      "classification": "poisson_block_model_simple_projection_without_loops",
+      "reference_files": [
+        "sources/standard/papers_20261007/dc_sbm.pdf"
+      ],
+      "citation": "Karrer and Newman (2011), Stochastic blockmodels and community structure in networks, Physical Review E 83, 016107, DOI:10.1103/PhysRevE.83.016107.",
+      "code_url": "https://arxiv.org/abs/1008.3926",
+      "reference_version": "arXiv:1008.3926v1; simple no-loop projection p_ij=1-exp(-theta_i*theta_j*omega_rs)",
+      "license": "Independent MATLAB implementation; reference paper retains its original copyright and redistribution terms.",
+      "parameters": [
+        "sizes",
+        "theta",
+        "omega"
+      ]
+    },
+    {
+      "generator_id": "gen_waxman_undirected",
+      "function": "gen_waxman_undirected",
+      "model": "waxman",
+      "direction": "undirected",
+      "supported": true,
+      "classification": "waxman1_actual_euclidean_distances",
+      "reference_files": [
+        "sources/standard/networkx_3_5/geometric.py"
+      ],
+      "citation": "Waxman (1988), Routing of multipoint connections, IEEE JSAC 6, 1617-1622, DOI:10.1109/49.12889; NetworkX 3.5 waxman_graph.",
+      "code_url": "https://github.com/networkx/networkx/blob/networkx-3.5/networkx/generators/geometric.py",
+      "reference_version": "NetworkX 3.5 Waxman-1: unit square, actual maximum pair distance",
+      "license": "sources/standard/networkx_3_5/LICENSE.txt (BSD-3-Clause; reference code)",
+      "parameters": [
+        "N",
+        "alpha",
+        "beta"
+      ]
+    },
+    {
+      "generator_id": "gen_duplication_divergence_undirected",
+      "function": "gen_duplication_divergence_undirected",
+      "model": "duplication_divergence",
+      "direction": "undirected",
+      "supported": true,
+      "classification": "networkx_connected_duplication_with_attempt_budget",
+      "reference_files": [
+        "sources/standard/networkx_3_5/duplication.py"
+      ],
+      "citation": "Ispolatov, Krapivsky, Yuryev (2005), Duplication-divergence model of protein interaction network, Physical Review E 71, 061911, DOI:10.1103/PhysRevE.71.061911; NetworkX 3.5 duplication_divergence_graph.",
+      "code_url": "https://github.com/networkx/networkx/blob/networkx-3.5/networkx/generators/duplication.py",
+      "reference_version": "NetworkX 3.5 connected-replica rule, with an explicit finite attempt budget",
+      "license": "sources/standard/networkx_3_5/LICENSE.txt (BSD-3-Clause; reference code)",
+      "parameters": [
+        "N",
+        "p",
+        "max_attempts"
+      ]
+    },
+    {
+      "generator_id": "gen_rhg_undirected",
+      "function": "gen_rhg_undirected",
+      "model": "rhg",
+      "direction": "undirected",
+      "supported": true,
+      "classification": "hyperbolic_radial_distribution_fermi_connection",
+      "reference_files": [
+        "sources/standard/papers_20261007/rhg.pdf"
+      ],
+      "citation": "Krioukov et al. (2010), Hyperbolic geometry of complex networks, Physical Review E 82, 036106, DOI:10.1103/PhysRevE.82.036106.",
+      "code_url": "https://arxiv.org/abs/1006.5169",
+      "reference_version": "arXiv:1006.5169 local snapshot; curvature -1 radial CDF and threshold/Fermi connection",
+      "license": "Independent MATLAB implementation; reference paper retains its original copyright and redistribution terms.",
+      "parameters": [
+        "N",
+        "R",
+        "alpha",
+        "T"
+      ]
+    },
+    {
+      "generator_id": "gen_forest_fire_directed",
+      "function": "gen_forest_fire_directed",
+      "model": "forest_fire",
+      "direction": "directed",
+      "supported": true,
+      "classification": "snap_zero_based_geometric_new_to_old_dag",
+      "reference_files": [
+        "sources/standard/papers_20261007/forest_fire.pdf",
+        "sources/standard/papers_20261007/snap_ff.cpp",
+        "sources/standard/papers_20261007/SNAP_LICENSE.txt"
+      ],
+      "citation": "Leskovec, Kleinberg, Faloutsos (2005), Graphs over Time: Densification Laws, Shrinking Diameters and Possible Explanations, KDD 2005, DOI:10.1145/1081870.1081893; SNAP ForestFire convention.",
+      "code_url": "https://github.com/snap-stanford/snap/blob/6924a035aabd1ce0a547b94e995e142f29eb5040/snap-core/ff.cpp",
+      "reference_version": "KDD 2005; SNAP commit 6924a035aabd1ce0a547b94e995e142f29eb5040; zero-based geometric counts and new-to-old edges",
+      "license": "Independent MATLAB implementation; reference paper retains its original copyright and redistribution terms. SNAP reference code: sources/standard/papers_20261007/SNAP_LICENSE.txt.",
+      "parameters": [
+        "N",
+        "p_forward",
+        "p_backward"
+      ]
+    }
+  ]
+}

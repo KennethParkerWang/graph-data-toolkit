@@ -1,0 +1,4 @@
+# Separate environment for the pinned independent reference scripts.
+networkx==3.5
+numpy
+scipy

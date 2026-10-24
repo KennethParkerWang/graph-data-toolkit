@@ -1,0 +1,12 @@
+{
+  "schema_version": "repeat-summary-1.0.0",
+  "aggregate_id": "dc41640ff17a1d442d1fddef5bb032d2f0443fb40dc5f5b8ae1bb2bcd816b96c",
+  "graph_id": "d2ee9b76a8eac200b0a6d496610ef66b174366152d502e9cb672a7130f9e5132",
+  "metric_set_id": "3e7d3b6d90974cec0fad5f5add7e541d7a1aa312a8d409556f510e43ded9549f",
+  "protocol_id": "b3c066cfde236628a0c659a71f8b52c0500041f769faa23e89bf8dcc32e66787",
+  "path": "analyses/repeat_statistics/dc41640ff17a1d442d1fddef5bb032d2f0443fb40dc5f5b8ae1bb2bcd816b96c.mat",
+  "file_sha256": "1aa66beaefd01eb75cee50fdb8f87e229ce23e11464eeb8376b4d4df0efa7985",
+  "file_bytes": 2554,
+  "number_repeats": 4,
+  "created_utc": "2026-09-27T23:12:05Z"
+}

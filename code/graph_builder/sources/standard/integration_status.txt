@@ -1,0 +1,27 @@
+Standard models integration decisions (2026-09-28, implementation complete; MATLAB runtime delegated to root)
+
+Supported undirected: er, er_gnm, ba, sf, ws, nw, sbm, rgg, random_regular, hk, chung_lu (11).
+Supported directed: er, er_gnm, sf, qs, sbm (5).
+Unsupported (error graphgen:UnsupportedModelDirection): undirected qs; directed ba, ws, nw, rgg, random_regular, hk, chung_lu.
+
+Signature changes:
+- gen_sf_undirected(N,M,sigma,seed): remove offset (paper rank weights i^-sigma only).
+- gen_sf_directed(N,M,sigma_out,sigma_in,seed): native original double-rank-weight algorithm, M <= N*(N-1), both sigmas default .5. No random orientation.
+- gen_random_regular_undirected(N,d,seed): replace finite switches with NetworkX3.5 Steger-Wormald pairing/restart; remove num_swaps.
+- gen_rgg_undirected(N,radius,dim,seed): remove periodic extension; standard open unit cube.
+- other supported signatures unchanged.
+
+BA changes clique to NetworkX3.5 default star, edge count m*(N-m).
+HK follows pinned reference initial m isolates (not clique), see final doc/test for exact set-target behavior.
+NW changes original edge enumeration to NetworkX Graph.edges() source opportunities.
+Source networkx3.5 obtained GitHub API with blob SHA and SHA256, BSD-3-Clause copied; source files under sources/standard/networkx_3_5.
+Original static SF and QS PDFs fetched and parsed, native directed SF confirmed.
+
+Public source catalog: sources/standard/catalog.json, top-level entries array (24 entries, supported flag, parameters, reference_files etc.).
+Critical bounds: HK supports 1<=m<=N (m=N returns empty graph). BA remains 1<=m<N.
+ChungLu follows source clipping min(1,p), so remove precheck error on probability>1.
+Metadata parameters now use API names K, d, w (not K_per_side, degree, weights).
+HK source behavior includes repeated fallback edges; meta.duplicate_fallbacks counts them and M=m*(N-m)-duplicate_fallbacks. Preserved, not silently fixed.
+Verification entrypoint: addpath('validation'); report=test_standard_models();
+No MATLAB process started here. Python verified four downloaded NetworkX files equal installed 3.5 source, 64 CPython set-order fixtures, and generated four independent 1024-sample reference diagnostics. mlint found no syntax errors, only one sparse-index performance suggestion.
+Main source/readme: docs/standard_models.md. All changes limited to assigned 24 generators, one private helper, standard sources, this doc, and the validation entrypoint.

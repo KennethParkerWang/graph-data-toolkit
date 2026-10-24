@@ -1,0 +1,41 @@
+{
+  "description": "Explicit small-graph examples. Each repeat is a separately saved run; replace external IDs only with original graph IDs.",
+  "examples": [
+    {
+      "name": "random_single_node",
+      "protocol": {"target": "node", "strategy": "random", "sample_fractions": [0, 0.25, 0.5, 0.75, 1]},
+      "run": {"seed": 23, "repeat_index": 1},
+      "observed_metrics": ["node_count", "edge_count", "largest_component_size", "global_efficiency"],
+      "summary_metrics": ["robustness_schneider"]
+    },
+    {
+      "name": "adaptive_degree_single_node",
+      "protocol": {
+        "target": "node", "strategy": "ranked", "ranking": "adaptive",
+        "rank_metric": {"metric_id": "degree", "parameters": {}},
+        "tie_break": "original_id", "recompute_interval": 1,
+        "sample_fractions": [0, 0.25, 0.5, 0.75, 1]
+      },
+      "run": {"seed": null, "repeat_index": 1},
+      "observed_metrics": ["node_count", "largest_component_size"]
+    },
+    {
+      "name": "adaptive_betweenness_batched_edges",
+      "protocol": {
+        "target": "edge", "strategy": "ranked", "ranking": "adaptive",
+        "rank_metric": {"metric_id": "edge_betweenness", "parameters": {"normalized": false}},
+        "deletion_mode": "batch", "batch_size": 2, "recompute_interval": 1,
+        "sample_fractions": [0, 0.25, 0.5, 0.75, 1], "rounding": "floor", "sample_policy": "exact"
+      },
+      "run": {"seed": null, "repeat_index": 1},
+      "observed_metrics": ["node_count", "edge_count", "largest_component_size"],
+      "note": "Counts between batch observations remain not_computed. This is a different protocol from per-edge reranking."
+    },
+    {
+      "name": "external_node_sequence_for_four_node_test",
+      "protocol": {"target": "node", "strategy": "external", "external_sequence": [1, 2, 3, 4]},
+      "run": {"seed": null, "repeat_index": 1},
+      "observed_metrics": ["node_count", "largest_component_size"]
+    }
+  ]
+}

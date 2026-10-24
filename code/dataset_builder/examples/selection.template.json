@@ -1,0 +1,25 @@
+{
+  "feature_keys": {
+    "node_feature": {
+      "metric_id": "REPLACE_WITH_PUBLISHED_METRIC_ID",
+      "metric_version": "REPLACE_WITH_PUBLISHED_VERSION",
+      "parameters": {},
+      "scope": "node",
+      "metric_set_id": "REPLACE_WITH_PUBLISHED_METRIC_SET_SHA256",
+      "protocol_id": ""
+    }
+  },
+  "target_keys": {
+    "curve_target": {
+      "metric_id": "REPLACE_WITH_PUBLISHED_TRAJECTORY_METRIC_ID",
+      "metric_version": "REPLACE_WITH_PUBLISHED_VERSION",
+      "parameters": {},
+      "scope": "trajectory",
+      "metric_set_id": "REPLACE_WITH_PUBLISHED_METRIC_SET_SHA256",
+      "protocol_id": "REPLACE_WITH_PUBLISHED_PROTOCOL_SHA256"
+    }
+  },
+  "repeat_mode": "keep",
+  "missing": "error",
+  "run_ids": "all"
+}

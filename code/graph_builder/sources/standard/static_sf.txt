@@ -1,0 +1,890 @@
+arXiv:cond-mat/0106565v2  [cond-mat.stat-mech]  1 Nov 2001
+Universal Behavior of Load Distribution in Scale-free Networks
+K.-I. Goh, B. Kahng, and D. Kim
+School of Physics and Center for Theoretical Physics, Seoul National University, Seoul 151-747, Korea
+(October 22, 2018)
+We study a problem of data packet transport in scale-free networks whose degree distribution
+follows a power-law with the exponent γ. Load, or betweenness centrality of a vertex is the accu-
+mulated total number of data packets passing through that vertex when every pair of vertices send
+and receive a data packet along the shortest path connecting the pair. It is found that the load
+distribution follows a power-law with the exponent δ ≈2.2(1), insensitive to diﬀerent values of γ in
+the range, 2 < γ ≤3, and diﬀerent mean degrees, which is valid for both undirected and directed
+cases. Thus, we conjecture that the load exponent is a universal quantity to characterize scale-free
+networks.
+PACS numbers: 89.70.+c, 89.75.-k, 05.10.-a
+Complex systems consist of many constituents such as
+individuals, substrates, and companies in social, biolog-
+ical, and economic systems, respectively, showing coop-
+erative phenomena between constituents through diverse
+interactions and adaptations to the pattern they create
+[1,2]. Interactions may be described in terms of graphs,
+consisting of vertices and edges, where vertices (edges)
+represent the constituents (their interactions). This ap-
+proach was initiated by Erd¨os and R´enyi (ER) [3]. In the
+ER model, the number of vertices is ﬁxed, while edges
+connecting one vertex to another occur randomly with
+certain probability. However, the ER model is too ran-
+dom to describe real complex systems. Recently, Watts
+and Strogatz (WS) [4] introduced a small-world network,
+where a fraction of edges on a regular lattice is rewired
+with probability pWS to other vertices. More recently,
+Barab´asi and Albert (BA) [5–7] introduced an evolving
+network where the number of vertices N increases lin-
+early with time rather than ﬁxed, and a newly intro-
+duced vertex is connected to m already existing vertices,
+following the so-called preferential attachment (PA) rule.
+When the number of edges k incident upon a vertex is
+called the degree of the vertex, the PA rule means that
+the probability for the new vertex to connect to an al-
+ready existing vertex is proportional to the degree k of
+the selected vertex. Then the degree distribution PD(k)
+follows a power-law PD(k) ∼k−γ with γ = 3 for the BA
+model, while for the ER and WS models, it follows a Pois-
+son distribution. Networks whose degree distribution fol-
+lows a power-law, called scale-free (SF) networks [8], are
+ubiquitous in real-world networks such as the world-wide
+web [9–11], the Internet [12–14], the citation network [15]
+and the author collaboration network of scientiﬁc papers
+[16–18], and the metabolic networks in biological organ-
+isms [19]. On the other hand, there also exist random
+networks such as the actor network whose degree distri-
+bution follows a power-law but has a sharp cut-oﬀin its
+tail [20].
+Thus, it has been proposed that the degree
+distribution can be used to classify a variety of diverse
+real-world networks [20]. In SF networks, one may won-
+der if the exponent γ is universal in analogy with the
+theory of critical phenomena; however, the exponent γ
+turns out to be sensitive to the detail of network struc-
+ture. Thus, a universal quantity for SF networks is yet to
+be found. From a theoretical viewpoint, it is important
+to ﬁnd a universal quantity for SF networks, which is a
+purpose of this Letter.
+A common feature between the WS and SF networks
+would be the small-world property that the mean sep-
+aration between two vertices, averaged over all pairs of
+vertices (called the diameter hereafter), is shorter than
+that of a regular lattice. The small-world property in SF
+networks results from the presence of a few vertices with
+high degree. In particular, the hub, the vertex whose de-
+gree is the largest, plays a dominant role in reducing the
+diameter of the system. Diameters of many complex net-
+works in real world are small, allowing objects transmit-
+ted through the network such as neural spikes on neural
+network, or data packets on Internet, to travel from one
+vertex to another quickly along the shortest path. The
+shortest paths are indeed of relevance to network trans-
+port properties. When a data packet is sent from one
+vertex to another through SF networks such as Internet,
+it is eﬃcient to take a road along the shortest paths be-
+tween the two. Then vertices with higher degrees should
+be heavily loaded and jammed by lots of data packets
+passing along the shortest paths. To prevent such Inter-
+net traﬃc congestions, and allow data packets to travel
+in a free-ﬂow state, one has to enhance the capacity, the
+rate of data transmission, of each vertex to the extent
+that the capacity of each vertex is large enough to han-
+dle appropriately deﬁned “load”.
+In this Letter, we deﬁne and study such a quantity,
+which we simply call load, to characterize the transport
+dynamics in SF networks. In fact, this quantity turns
+out to be equivalent to “betweenness centrality” which
+was introduced in a social network to quantify how much
+power is centralized to people in social networks [17,21].
+While it has been noted that the betweenness central-
+ity has a long tail [22], here we focus our attention on
+its probability distribution for various SF networks with
+diﬀerent degree exponents. Thus knowing the distribu-
+
+tion of such quantity enables us to not only estimate
+the capacity of each vertex needed for a free-free state,
+but also understand the power distribution in social net-
+works, which is another purpose of this Letter.
+To be speciﬁc, we suppose that a data packet is sent
+from a vertex i to j, for every ordered pair of vertices
+(i, j). For a given pair (i, j), it is transmitted along the
+shortest path between them. If there exist more than one
+shortest paths, the data packet would encounter one or
+more branching points. In this case, we assume that the
+data packet is divided evenly by the number of branches
+at each branching point as it travels. Then we deﬁne the
+load ℓk at a vertex k as the total amount of data packets
+passing through that vertex k when all pairs of vertices
+send and receive one unit of data packet between them.
+Here, we do not take into account the time delay of data
+transfer at each vertex or edge, so that all data are de-
+livered in a unit time, regardless of the distance between
+any two vertices.
+We ﬁnd numerically that the load distribution PL(ℓ)
+follows a power-law PL(ℓ) ∼ℓ−δ. Moreover, the expo-
+nent δ ≈2.2 we obtained is insensitive to the detail of
+the SF network structure as long as the degree exponent
+is in the range, 2 < γ ≤3. The SF networks we used
+do not permit rewiring process, and the number of ver-
+tices are linearly proportional to that of edges. When
+γ > 3, δ increases as γ increases, however. The univer-
+sal behavior is valid for directed networks as well, when
+2 < {γin, γout} ≤3. Since the degree exponents in most
+of real-world SF networks satisfy 2 < γ ≤3, the universal
+behavior is interesting.
+We construct a couple of classes of undirected SF net-
+works both in the static and evolving ways. Each class
+of networks include a control parameter, according to
+which the degree exponent is determined. First, we deal
+with the static case. There are N vertices in the system
+from the beginning, which are indexed by an integer i
+(i = 1, . . . , N). We assign the weight pi = i−α to each
+vertex, where α is a control parameter in [0, 1). Next, we
+select two diﬀerent vertices (i, j) with probabilities equal
+to the normalized weights, pi/ P
+k pk and pj/ P
+k pk, re-
+spectively, and add an edge between them unless one
+exists already. This process is repeated until mN edges
+are made in the system. Then the mean degree is 2m.
+Since edges are connected to a vertex with frequency pro-
+portional to the weight of that vertex, the degree at that
+vertex is given as
+ki
+P
+j kj
+≈(1 −α)
+N 1−αiα ,
+(1)
+where P
+j kj = 2mN. Then it follows that the degree
+distribution follows the power-law, PD(k) ∼k−γ, where
+γ is given by
+γ = (1 + α)/α.
+(2)
+Thus, adjusting the parameter α in [0,1), we can obtain
+various values of the exponent γ in the range, 2 < γ < ∞.
+Once a SF network is constructed, we select an or-
+dered pair of vertices (i, j) on the network, and identify
+the shortest path(s) between them and measure the load
+on each vertex along the shortest path using the modiﬁed
+version of the breath-ﬁrst search algorithm introduced by
+Newman [17]. It is found numerically that the load ℓi at
+vertex i follows the formula,
+ℓi
+P
+j ℓj
+∼
+1
+N 1−βiβ ,
+(3)
+with β = 0.80(5). This value of β is insensitive to dif-
+ferent values of the exponent γ in the range, 2 < γ ≤3
+as shown in the inset of Fig. 1. The total load, P
+j ℓj
+scales as ∼N 2 log N. This is because there are N 2 pairs
+of vertices in the system and the sum of the load con-
+tributed by each pair of vertices is equal to the distance
+between the two vertices, which is proportional to log N.
+Therefore, the load ℓi at a vertex i is given as
+ℓi ∼(N log N)(N/i)β.
+(4)
+From Eq.(4), it follows that the load distribution scales
+as PL(ℓ) ∼ℓ−δ, with δ = 1 + 1/β ≈2.2(1), independent
+of γ in the range, 2 < γ ≤3. Direct measure of PL(ℓ)
+also gives δ ≈2.2(1) as shown in Fig. 1. We also check
+δ for diﬀerent mean degrees m = 2, 4 and 6, but obtain
+the same value, δ ≈2.2(1). Thus, we conclude that the
+exponent δ is a generic quantity for this network. Note
+that Eqs.(1) and (4) combined gives a scaling relation
+between the load and the degree for this network as
+ℓ∼k(γ−1)/(δ−1).
+(5)
+Thus, when and only when γ = δ, the load at each vertex
+is directly proportional to its degree. Otherwise, it scales
+nonlinearly. On the other hand, for γ > 3, the exponent
+δ depends on the exponent γ in a way that it increases
+as γ increases. Eventually, the load distribution decays
+exponentially for γ = ∞as shown in Fig. 1. Thus, the
+transport properties of the SF networks with γ > 3 are
+fundamentally diﬀerent from those with 2 < γ ≤3. This
+is probably due to the fact that for γ > 3, the second
+moment of PD(ℓ) exists, while for γ ≤3, it does not.
+We examine the system-size dependent behavior of the
+load at the hub, ℓh for the static model.
+According
+to Eq.(4), ℓh behaves as ℓh ∼N 1.8 log N in the range,
+2 < γ ≤3, while for γ > 3, ℓh increases with N but at
+a much slower rate than that for 2 < γ ≤3 as shown
+in Fig. 2. That implies that the shortest pathways be-
+tween two vertices become diversiﬁed, and they do not
+necessarily pass through the hub for γ > 3. That may
+be related to the result that epidemic threshold is null in
+the range 2 < γ ≤3, while it is ﬁnite for γ > 3 in SF
+networks, because there exist many other shortest paths
+not passing through the hub for γ > 3, so that the infec-
+tion of the hub does not always lead to the infection of
+2
+
+the entire system. Thus, epidemic threshold is ﬁnite for
+γ > 3 [24].
+Next, we generate other SF networks in an evolving
+way, using the methods proposed by Kumar et al. [23],
+and by Dorogovtsev et al. [7]. In these cases, we also ﬁnd
+the same results as in the case of static models.
+We also consider the case of directed SF network. The
+directed SF networks are generated following the static
+rule.
+In this case, we assign two weights pi = i−αout
+and qi = i−αin (i = 1, . . . , N) to each vertex for outgo-
+ing and incoming edges, respectively. Both control pa-
+rameters αout and αin are in the interval [0, 1).
+Then
+two diﬀerent vertices (i, j) are selected with probabili-
+ties, pi/ P
+k pk and qj/ P
+k qk, respectively, and an edge
+from the vertex i to j is created with an arrow, i →j.
+The SF networks generated in this way show the power-
+law in both outgoing and incoming degree distributions
+with the exponents γout and γin, respectively. They are
+given as γout = (1 + αout)/αout and γin = (1 + αin)/αin.
+Thus, choosing various values of αout and αin, we can de-
+termine diﬀerent exponents γout and γin. Following the
+same steps as for the undirected case, we obtain the load
+distribution on the directed SF networks. The load expo-
+nent δ obtained is ≈2.3(1) as shown in Fig. 3, consistent
+with the one for the undirected case, also being indepen-
+dent of γout and γin in 2 < {γout, γin} ≤3. Therefore, we
+conjecture that the load exponent is a universal value for
+both the undirected and directed cases.
+To see if such universal value of δ appears in real world
+network, we analyzed the co-authorship network, where
+nodes represent scientists and they are connected if they
+wrote a paper together. The data are collected in the
+ﬁeld of the neuro-science, published in the period 1991-
+1998 [18]. This network is appropriate to test the load,
+i.e., the betweenness centrality distribution, because it
+does not include rewiring process as it evolves, and its
+degree exponent γ ≈2.2 lies in the range 2 < γ ≤3. As
+shown in Fig. 4, the load distribution follows a power-law
+with the exponent δ ≈2.2, in good agreement with the
+value obtained in the previous models.
+We also check the load distribution for the case when
+data travel with constant speed, so that the time delay
+of data transfer is proportional to the distance between
+two vertices. We ﬁnd that the time delay eﬀect does not
+change the load distribution and the conclusion of this
+work. The reason of this result is that when the time de-
+lay is accounted, load at each vertex is reduced roughly
+by a factor log N, proportional to the diameter, which is
+negligible compared with the load without the time de-
+lay estimated to be ∼N 1.8 log N in Eq.(4). Due to this
+small-world property, the universal behavior remains un-
+changed under the time delay of data transmission.
+Finally, we mention the load distribution of the small-
+world network of WS which is not scale-free. It is found
+that its load distribution does not obey a power-law, but
+shows a combined behavior of two Poisson-type decays
+resulting from short-ranged and long-ranged connections,
+respectively, as shown in Fig. 5. We also ﬁnd the average
+load, ¯ℓ(pWS) ≡(1/N) P
+i ℓi(pWS), as a function of the
+rewiring probability pWS decays rapidly with increasing
+pWS, behaving similar to the diameter in the WS model,
+as shown in the inset of Fig. 5.
+In conclusion, we have considered a problem of data
+packet transport on scale-free networks generated accord-
+ing to preferential attachment rules and introduced a
+physical quantity, load {ℓi} at each vertex. We found
+that the load distribution follows a power-law, PL(ℓ) ∼
+ℓ−δ, with the exponent δ ≈2.2(1), which turns out to
+be insensitive to the degree exponent in the range (2, 3]
+when rewiring process is not included and the networks
+are of unaccerelated growth. Moreover, it is also the same
+for both directed and undirected cases within our numer-
+ical uncertainties. Therefore, we conjecture that the load
+exponent is a generic quantity to characterize scale-free
+networks.
+The universal behavior we found may have
+interesting implications to the interplay of SF network
+structure and dynamics. For γ > 3, however, the load
+exponent δ increases as the degree exponent γ increases,
+and eventually the load distribution decays exponentially
+as γ →∞. It would be interesting to examine the ro-
+bustness of the universal behavior of the load distribution
+under some modiﬁcations of generating rules for SF net-
+works such as rewiring process and acceleration growth,
+which, however, is beyond the scope of the current study.
+We would like to thank M.E.J. Newman for introduc-
+ing Refs. [17,21,22], and H. Jeong for providing the data
+for the co-authorship network. This work is supported
+by grants No.2000-2-11200-002-3 from the BRP program
+of the KOSEF.
+[1] S.H. Strogatz, Nature 410, 268 (2001).
+[2] N. Goldenfeld and L.P. Kadanoﬀ, Science 284, 87 (1999).
+[3] P. Erd¨os and A. R´enyi, Publ. Math. Inst. Hung. Acad.
+Sci. Ser. A 5, 17 (1960).
+[4] D.J. Watts and S.H. Strogatz, Nature 393,440 (1998).
+[5] A.-L. Barab´asi and R. Albert, Science 286, 509 (1999).
+[6] P.L. Krapivsky, S. Redner, and F. Leyvraz, Phys. Rev.
+Lett. 85, 4629 (2000); P.L. Krapivsky and S. Redner,
+Phys. Rev. E 63, 066123 (2001).
+[7] S.N. Dorogovtsev, J.F.F. Mendes, A.N. Samukhin, Phys.
+Rev. Lett. 85, 4633 (2000).
+[8] A.-L. Barab´asi, R. Albert, and H. Jeong, Physica A 272,
+173 (1999).
+[9] R. Albert, H. Jeong, and A.-L. Barab´asi, Nature 401,
+130 (1999).
+[10] D. Butler, Nature 405, 112 (2000).
+[11] A. Broder, et al., Computer Networks 33, 309 (2000).
+[12] E.W. Zegura, K.L. Calvert, and M.J. Donahoo, IEEE/
+ACM Trans. Network 5, 770 (1997).
+[13] M. Faloutsos, P. Faloutsos, and C. Faloutsos, Comp.
+Comm. Rev. 29, 251 (1999).
+3
+
+[14] R. Pastor-Satorras, A. V´azquez, and A. Vespignani,
+(cond-mat/0105161).
+[15] S. Redner, Eur. Phys. J. B 4, 131 (1998).
+[16] M.E.J. Newman, Proc. Natl Acad. Sci. USA 98, 404
+(2001).
+[17] M.E.J. Newman, Phys. Rev. E 64, 016131 (2001); ibid,
+64, 016132 (2001).
+[18] A.-L. Barab´asi, H. Jeong, Z. Neda, E. Ravasz, A. Schu-
+bert, and T. Vicsek, (cond-mat/0104162).
+[19] H. Jeong, B. Tombor, R. Albert, Z.N. Oltvani, and A.-L.
+Barab´asi, Nature 407, 651 (2000).
+[20] L. A. Amaral, A. Scala, M. Barth´el´emy, and H.E. Stan-
+ley, Proc. Natl Acad. Sci. USA 97, 11149 (2000).
+[21] L.C. Freeman, Sociometry 40, 35 (1977).
+[22] M.E.J. Newman (private communication).
+[23] R. Kumar et al., in Proceedings of the 41th IEEE Symp.
+on Foundations of Computer Science (2000).
+[24] R. Pastor-Satorras and A. Vespignani, Phys. Rev. E, 63,
+066117 (2001).
+10
+ 6
+10
+ 4
+10
+ 2
+10
+0
+10
+0
+10
+1
+10
+2
+10
+3
+10
+4
+P
+L
+(`)
+`
+3
+3
+3
+3
+3
+3
+3
+3
+3
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+
+
+
+
+
+
+4
+4
+4
+4
+4
+10
+ 5
+10
+ 3
+10
+ 1
+10
+0
+10
+1
+10
+2
+10
+3
+10
+4
+`
+i
+=
+P
+k
+`
+k
+i
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+e
+FIG. 1. Plot of the load distribution PL(ℓ) versus ℓfor var-
+ious γ = 2.2 (◦), 2.5 (✷), 3.0 (⋄), 4.0 (×), and ∞(△) in
+double logarithmic scales.
+The linear ﬁt (solid line) has a
+slope −2.2. Data for γ > 3.0 are shifted vertically for clear-
+ance.
+Dotted lines are guides to the eye.
+Simulations are
+performed for N = 10, 000 and m = 2 and all data points are
+log-binned, averaged over 10 conﬁgurations.
+Inset: Plot of
+the normalized load ℓi/ P
+k ℓk versus vertex index i in double
+logarithmic scales for various γ = 2.2 (◦), 2.5 (✷), and 3.0
+(⋄).
+10
+4
+10
+6
+10
+8
+10
+2
+10
+3
+10
+4
+`
+h
+N
+e
+e
+e
+e
+e
+e
+e
+e
+2
+2
+2
+2
+2
+2
+2
+2
+3
+3
+3
+3
+3
+3
+3
+3
+
+
+
+
+
+
+
+
+4
+4
+4
+4
+4
+4
+4
+4
+FIG. 2. Plot of the system-size dependence of the load at
+the hub versus system size N for various γ = 2.2 (◦), 2.5 (✷),
+3.0 (✸), 4.0 (×), and ∞(△). Solid line is N 1.8 log N and
+dotted lines have slopes 1.70 and 1.25, respectively, from top
+to bottom. Simulations are performed for m = 2 and all data
+points are averaged over 10 conﬁgurations.
+10
+ 7
+10
+ 5
+10
+ 3
+10
+ 1
+10
+0
+10
+1
+10
+2
+10
+3
+P
+L
+(`)
+`
+3
+3
+3
+3
+3
+3
+3
+3
++
++
++
++
++
++
++
++
+2
+2
+2
+2
+2
+2
+2
+2
+
+
+
+
+
+
+
+
+FIG. 3. Plot of the load distribution PL(ℓ) versus ℓfor the
+directed case. The data are obtained for (γin, γout) = (2.1,
+2.3) (⋄), (2.1, 2.7) (+), (2.5, 2.7) (✷) and (2.5, 2.2) (×). The
+ﬁtted line has a slope −2.3. All data points are log-binned.
+10
+ 6
+10
+ 4
+10
+ 2
+10
+0
+10
+0
+10
+1
+10
+2
+10
+3
+k
+,
+`=
+N
+P
+D
+(k
+)
+3
+3
+3
+3
+3
+3
+3
+3
+P
+L
+(`)
+e
+e
+e
+e
+e
+e
+e
+e
+FIG. 4. Plot of the degree distribution PD(k) (✸) and
+the load distribution PL(ℓ) (◦) for a real-world network, the
+co-authorship network. The number of vertices (diﬀerent au-
+thors) are 205,202. Least square ﬁt (solid line) has a slope
+−2.2. All data points are log-binned.
+4
+
+10
+ 5
+10
+ 3
+10
+ 1
+10
+0
+10
+1
+10
+2
+P
+L
+(`)
+`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+0.0
+0.5
+1.0
+10
+ 4
+10
+ 2
+10
+0
+p
+W
+S
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
+3
++
++
++
++
++
++
++
++
++
++
++
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+FIG. 5. Plot of the load distribution PL(ℓ) versus load ℓ
+for the small-world network. Simulations are performed for
+system size N = 1, 000, and average degree ⟨k⟩= 10, and the
+rewiring probability pWS = 0.01, averaged over 500 conﬁgu-
+rations. Inset: Plot of the average load (⋄), diameter (+),
+clustering coeﬃcient (✷) versus the rewiring probability pWS.
+All the data are normalized by the corresponding values at
+pWS = 0. Dotted lines are guides to the eye.
+5

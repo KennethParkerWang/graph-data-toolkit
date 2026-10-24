@@ -1,0 +1,22 @@
+[
+  {
+    "metric_id": "deletion_impact",
+    "name": "Single-object marginal metric impact",
+    "category": "importance",
+    "metric_version": "1.0.0",
+    "definition": "Baseline scalar static metric minus its value after individually deleting each node or edge; optional baseline-relative difference.",
+    "formula": "delta_i=f(G)-f(G\\i); relative delta_i=[f(G)-f(G\\i)]/f(G)",
+    "sources": ["https://journals.aps.org/pre/abstract/10.1103/PhysRevE.71.015103", "https://arxiv.org/abs/cond-mat/0407491"],
+    "source_version": "Latora & Marchiori PRE 71,015103 (2005), arXiv 0407491 (2004), vulnerability idea; explicit generalized definition here v1.0.0, not a claim all base metrics share their interpretation.",
+    "license": "Original formula implementation; no third-party source copied.",
+    "graph_types": ["undirected", "directed"],
+    "scope": "node",
+    "complexity": "O(K*(N+M+C_base)); K=N for nodes or M for edges",
+    "method": "exact",
+    "parameter_defaults": {"target": "node", "relative": false, "max_objects": 200},
+    "required_parameters": ["base_metric"],
+    "implementation_status": "implemented",
+    "validation_status": "Analytic node/edge count impact and zero-baseline masks validated in test_io; see validation/validation_report.json for current integration result.",
+    "conditions": "Explicit scalar static base metric; no recursive impact. Actual scope follows target. Zero baseline invalidates relative differences; invalid residual metric invalidates only that object. Each deletion starts from the same original graph."
+  }
+]

@@ -1,0 +1,30 @@
+{
+  "schema_version": 2,
+  "dataset_id": "smoke",
+  "output_dir": "../../../datasets/validation_samples/all_models",
+  "base_seed": 20260927,
+  "samples_per_combination": 2,
+  "resume": true,
+  "on_error": "continue",
+  "max_graphs": 100,
+  "jobs": [
+    {
+      "model": "er_gnm",
+      "direction": "undirected",
+      "parameters": {"M": 100},
+      "grid": {"N": [50, 100]}
+    },
+    {
+      "model": "ws",
+      "direction": "undirected",
+      "parameters": {"N": 50, "K": 3},
+      "grid": {"beta": {"start": 0, "stop": 0.2, "step": 0.1}}
+    },
+    {
+      "model": "sbm",
+      "direction": "directed",
+      "parameters": {"sizes": [25, 25], "P": [[0.1, 0.04], [0.01, 0.1]]},
+      "samples": 2
+    }
+  ]
+}

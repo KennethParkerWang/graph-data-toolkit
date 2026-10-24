@@ -1,0 +1,25 @@
+{
+  "checked_on": "2026-09-28",
+  "cpython": {
+    "version": "3.13.7",
+    "url": "https://api.github.com/repos/python/cpython/contents/Objects/setobject.c?ref=v3.13.7",
+    "license_file": "CPYTHON_LICENSE.txt",
+    "sha256": "4edbb0c0da67ec653874c5fe2a138180b9029c3a7169ba56e8f86a5c12b11e88"
+  },
+  "papers": [
+    {
+      "id": "goh_kahng_kim_2001",
+      "url": "https://arxiv.org/pdf/cond-mat/0106565",
+      "file": "static_sf.pdf",
+      "sha256": "1b0950e4d4c1a31ba78adb5d8622c7ec2c49601ac3ec9d9a5bf79d5d06c9cbb9",
+      "license": "Paper used for algorithm specification; no code license inferred."
+    },
+    {
+      "id": "lou_wang_chen_2018",
+      "url": "https://arxiv.org/pdf/1801.06082",
+      "file": "snapback.pdf",
+      "sha256": "289e0f39ff384c4a0fe9c9a899fb9ece322cc5e4c66198fff1f3bab9e618af11",
+      "license": "Paper used for algorithm specification; no code license inferred."
+    }
+  ]
+}

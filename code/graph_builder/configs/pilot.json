@@ -1,0 +1,237 @@
+{
+  "schema_version": 2,
+  "dataset_id": "pilot",
+  "output_dir": "../../../datasets/validation_samples/pilot_dataset",
+  "base_seed": 2.0260927E+7,
+  "samples_per_combination": 5,
+  "resume": true,
+  "on_error": "continue",
+  "max_graphs": 10000,
+  "jobs": [
+    {
+      "model": "er_gnm",
+      "direction": "undirected",
+      "parameters": {
+        "N": 100,
+        "M": 200
+      }
+    },
+    {
+      "model": "ba",
+      "direction": "undirected",
+      "parameters": {
+        "N": 100,
+        "m": 2
+      }
+    },
+    {
+      "model": "ws",
+      "direction": "undirected",
+      "parameters": {
+        "N": 100,
+        "K": 2,
+        "beta": 0.1
+      }
+    },
+    {
+      "model": "er_gnm",
+      "direction": "undirected",
+      "parameters": {
+        "N": 100,
+        "M": 400
+      }
+    },
+    {
+      "model": "ba",
+      "direction": "undirected",
+      "parameters": {
+        "N": 100,
+        "m": 4
+      }
+    },
+    {
+      "model": "ws",
+      "direction": "undirected",
+      "parameters": {
+        "N": 100,
+        "K": 4,
+        "beta": 0.1
+      }
+    },
+    {
+      "model": "er_gnm",
+      "direction": "undirected",
+      "parameters": {
+        "N": 100,
+        "M": 600
+      }
+    },
+    {
+      "model": "ba",
+      "direction": "undirected",
+      "parameters": {
+        "N": 100,
+        "m": 6
+      }
+    },
+    {
+      "model": "ws",
+      "direction": "undirected",
+      "parameters": {
+        "N": 100,
+        "K": 6,
+        "beta": 0.1
+      }
+    },
+    {
+      "model": "er_gnm",
+      "direction": "undirected",
+      "parameters": {
+        "N": 300,
+        "M": 600
+      }
+    },
+    {
+      "model": "ba",
+      "direction": "undirected",
+      "parameters": {
+        "N": 300,
+        "m": 2
+      }
+    },
+    {
+      "model": "ws",
+      "direction": "undirected",
+      "parameters": {
+        "N": 300,
+        "K": 2,
+        "beta": 0.1
+      }
+    },
+    {
+      "model": "er_gnm",
+      "direction": "undirected",
+      "parameters": {
+        "N": 300,
+        "M": 1200
+      }
+    },
+    {
+      "model": "ba",
+      "direction": "undirected",
+      "parameters": {
+        "N": 300,
+        "m": 4
+      }
+    },
+    {
+      "model": "ws",
+      "direction": "undirected",
+      "parameters": {
+        "N": 300,
+        "K": 4,
+        "beta": 0.1
+      }
+    },
+    {
+      "model": "er_gnm",
+      "direction": "undirected",
+      "parameters": {
+        "N": 300,
+        "M": 1800
+      }
+    },
+    {
+      "model": "ba",
+      "direction": "undirected",
+      "parameters": {
+        "N": 300,
+        "m": 6
+      }
+    },
+    {
+      "model": "ws",
+      "direction": "undirected",
+      "parameters": {
+        "N": 300,
+        "K": 6,
+        "beta": 0.1
+      }
+    },
+    {
+      "model": "er_gnm",
+      "direction": "undirected",
+      "parameters": {
+        "N": 500,
+        "M": 1000
+      }
+    },
+    {
+      "model": "ba",
+      "direction": "undirected",
+      "parameters": {
+        "N": 500,
+        "m": 2
+      }
+    },
+    {
+      "model": "ws",
+      "direction": "undirected",
+      "parameters": {
+        "N": 500,
+        "K": 2,
+        "beta": 0.1
+      }
+    },
+    {
+      "model": "er_gnm",
+      "direction": "undirected",
+      "parameters": {
+        "N": 500,
+        "M": 2000
+      }
+    },
+    {
+      "model": "ba",
+      "direction": "undirected",
+      "parameters": {
+        "N": 500,
+        "m": 4
+      }
+    },
+    {
+      "model": "ws",
+      "direction": "undirected",
+      "parameters": {
+        "N": 500,
+        "K": 4,
+        "beta": 0.1
+      }
+    },
+    {
+      "model": "er_gnm",
+      "direction": "undirected",
+      "parameters": {
+        "N": 500,
+        "M": 3000
+      }
+    },
+    {
+      "model": "ba",
+      "direction": "undirected",
+      "parameters": {
+        "N": 500,
+        "m": 6
+      }
+    },
+    {
+      "model": "ws",
+      "direction": "undirected",
+      "parameters": {
+        "N": 500,
+        "K": 6,
+        "beta": 0.1
+      }
+    }
+  ]
+}

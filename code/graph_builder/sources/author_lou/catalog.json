@@ -1,0 +1,168 @@
+{
+  "retrieved_date": "2026-09-27",
+  "archives": {
+    "hg.zip": "58fc0da61aaae17220e0a227b9705fc86790bbc49fa59a3f4d7160d740d2b3bf",
+    "enc_ver1.zip": "fde37b48ff698668377adb7b431b0363d658cad7a57bb79556dbada4c896f16f",
+    "gin-mas.zip": "53ea6835c346f8e4ed2ac80fac50f04e561de71836550cc0f215314beef48d26"
+  },
+  "generators": [
+    {
+      "generator_id": "gen_eh_directed",
+      "direction": "directed",
+      "available": true,
+      "source_id": "lou_enc_20200429",
+      "path": "directed/gen_eh_directed.m",
+      "archive": "sources/author_lou/enc_ver1.zip",
+      "reference_files": [
+        "enc_ver1/net/ern.m",
+        "enc_ver1/net/rectify.m"
+      ],
+      "citation": "10.1109/TCSI.2020.2986215",
+      "url": "https://fylou.github.io/mat/enc_ver1.zip",
+      "source_sha256": "fde37b48ff698668377adb7b431b0363d658cad7a57bb79556dbada4c896f16f",
+      "license": "No general open-source license found; author copyright notices retained.",
+      "algorithm_changes": [
+        "sparse storage",
+        "shared deterministic helpers",
+        "explicit errors for invalid source paths",
+        "finite deterministic work budget"
+      ],
+      "minimum_N": 1,
+      "maximum_M": "N*(N-1)",
+      "minimum_M": 0,
+      "node_congruence_required": false,
+      "runtime_guard_failures": [
+        "AuthorSourceSelfLoop",
+        "AuthorSourceReciprocal",
+        "AuthorSourceEmptyNeighbour",
+        "AuthorSourceWorkLimit"
+      ]
+    },
+    {
+      "generator_id": "gen_eh_undirected",
+      "direction": "undirected",
+      "available": false,
+      "path": "undirected/gen_eh_undirected.m",
+      "reason": "No verified undirected author implementation; no implicit orientation projection.",
+      "error_id": "graphgen:UnsupportedDirection"
+    },
+    {
+      "generator_id": "gen_rt_directed",
+      "direction": "directed",
+      "available": true,
+      "source_id": "lou_hg_rt_20211212",
+      "path": "directed/gen_rt_directed.m",
+      "archive": "sources/author_lou/hg.zip",
+      "reference_files": [
+        "hg/rt.m"
+      ],
+      "citation": "10.1109/ACCESS.2022.3141011",
+      "url": "https://fylou.github.io/mat/hg.zip",
+      "source_sha256": "58fc0da61aaae17220e0a227b9705fc86790bbc49fa59a3f4d7160d740d2b3bf",
+      "license": "No general open-source license found; author copyright notices retained.",
+      "algorithm_changes": [
+        "sparse storage",
+        "shared deterministic helpers",
+        "explicit errors for invalid source paths",
+        "finite deterministic work budget"
+      ],
+      "minimum_N": 3,
+      "maximum_M": "N*(N-1)/2",
+      "minimum_M": 0,
+      "node_congruence_required": false,
+      "runtime_guard_failures": [
+        "AuthorSourceSelfLoop",
+        "AuthorSourceReciprocal",
+        "AuthorSourceEmptyNeighbour",
+        "AuthorSourceWorkLimit"
+      ]
+    },
+    {
+      "generator_id": "gen_rt_undirected",
+      "direction": "undirected",
+      "available": false,
+      "path": "undirected/gen_rt_undirected.m",
+      "reason": "No verified undirected author implementation; no implicit orientation projection.",
+      "error_id": "graphgen:UnsupportedDirection"
+    },
+    {
+      "generator_id": "gen_rr_directed",
+      "direction": "directed",
+      "available": true,
+      "source_id": "lou_hg_rr_20211212",
+      "path": "directed/gen_rr_directed.m",
+      "archive": "sources/author_lou/hg.zip",
+      "reference_files": [
+        "hg/rr.m"
+      ],
+      "citation": "10.1109/ACCESS.2022.3141011",
+      "url": "https://fylou.github.io/mat/hg.zip",
+      "source_sha256": "58fc0da61aaae17220e0a227b9705fc86790bbc49fa59a3f4d7160d740d2b3bf",
+      "license": "No general open-source license found; author copyright notices retained.",
+      "algorithm_changes": [
+        "sparse storage",
+        "shared deterministic helpers",
+        "explicit errors for invalid source paths",
+        "finite deterministic work budget"
+      ],
+      "minimum_N": 5,
+      "maximum_M": "N*(N-1)/2",
+      "minimum_M": 0,
+      "node_congruence_required": false,
+      "runtime_guard_failures": [
+        "AuthorSourceSelfLoop",
+        "AuthorSourceReciprocal",
+        "AuthorSourceEmptyNeighbour",
+        "AuthorSourceWorkLimit"
+      ]
+    },
+    {
+      "generator_id": "gen_rr_undirected",
+      "direction": "undirected",
+      "available": false,
+      "path": "undirected/gen_rr_undirected.m",
+      "reason": "No verified undirected author implementation; no implicit orientation projection.",
+      "error_id": "graphgen:UnsupportedDirection"
+    },
+    {
+      "generator_id": "gen_rh_directed",
+      "direction": "directed",
+      "available": true,
+      "source_id": "lou_hg_rh_20211212",
+      "path": "directed/gen_rh_directed.m",
+      "archive": "sources/author_lou/hg.zip",
+      "reference_files": [
+        "hg/rh.m"
+      ],
+      "citation": "10.1109/ACCESS.2022.3141011",
+      "url": "https://fylou.github.io/mat/hg.zip",
+      "source_sha256": "58fc0da61aaae17220e0a227b9705fc86790bbc49fa59a3f4d7160d740d2b3bf",
+      "license": "No general open-source license found; author copyright notices retained.",
+      "algorithm_changes": [
+        "sparse storage",
+        "shared deterministic helpers",
+        "explicit errors for invalid source paths",
+        "finite deterministic work budget"
+      ],
+      "minimum_N": 7,
+      "maximum_M": "N*(N-1)/2",
+      "minimum_M": 0,
+      "node_congruence_required": false,
+      "runtime_guard_failures": [
+        "AuthorSourceSelfLoop",
+        "AuthorSourceReciprocal",
+        "AuthorSourceEmptyNeighbour",
+        "AuthorSourceWorkLimit"
+      ]
+    },
+    {
+      "generator_id": "gen_rh_undirected",
+      "direction": "undirected",
+      "available": false,
+      "path": "undirected/gen_rh_undirected.m",
+      "reason": "No verified undirected author implementation; no implicit orientation projection.",
+      "error_id": "graphgen:UnsupportedDirection"
+    }
+  ],
+  "retrieved_date_timezone": "UTC"
+}

@@ -1,0 +1,50 @@
+{
+  "date": "2026-09-28",
+  "version": "3.5",
+  "files": [
+    {
+      "url": "https://api.github.com/repos/networkx/networkx/contents/networkx/generators/random_graphs.py?ref=networkx-3.5",
+      "file": "random_graphs.py",
+      "git_blob_sha": "90ae0d973ac42550280bf74db0d2fef3117d58da",
+      "sha256": "aa2fc08d3f47c7933aba38137be0c1548b18f4bc2a3cf663b801c530869038e7"
+    },
+    {
+      "url": "https://api.github.com/repos/networkx/networkx/contents/networkx/generators/community.py?ref=networkx-3.5",
+      "file": "community.py",
+      "git_blob_sha": "a7f2294c5cf9137dc1fab2a50d7ffcd6c59b6dec",
+      "sha256": "fe9ff839f22d6e0f274b46f712fa2309767c70449d0bed068faed5e70daf7ae3"
+    },
+    {
+      "url": "https://api.github.com/repos/networkx/networkx/contents/networkx/generators/geometric.py?ref=networkx-3.5",
+      "file": "geometric.py",
+      "git_blob_sha": "fdd4f627b46a1f0fbd2f6cd1700aecb12549516a",
+      "sha256": "eac9604b4beb6b1aa5ebb00e3fd956cc1ae935bc7f381642a01c18b929104178"
+    },
+    {
+      "url": "https://api.github.com/repos/networkx/networkx/contents/networkx/generators/degree_seq.py?ref=networkx-3.5",
+      "file": "degree_seq.py",
+      "git_blob_sha": "d920f85de14772a5be594816a19626e4c05e0c1b",
+      "sha256": "bc9139304a3cf0eda9d82c633456fe5b3fdc34a541fb4a0472df3d098d5d944a"
+    },
+    {
+      "url": "https://api.github.com/repos/networkx/networkx/contents/LICENSE.txt?ref=networkx-3.5",
+      "file": "LICENSE.txt",
+      "git_blob_sha": "0bf9a8f3f4922a0b70aac95ac7aab9574975342b",
+      "sha256": "3cf7c3a179d817b23b8b8568211769fefdf93797d207d984b8b2fa24d0220b33"
+    },
+    {
+      "url": "https://api.github.com/repos/networkx/networkx/contents/networkx/generators/duplication.py?ref=networkx-3.5",
+      "file": "duplication.py",
+      "git_blob_sha": "3c3ade63f58237eeb927ff631b25f025d7d83fc1",
+      "sha256": "8666001c905ecfb5a57dd54619adbcf09154047a0851d56a1060a8740a4a3abe"
+    },
+    {
+      "url": "https://api.github.com/repos/networkx/networkx/contents/networkx/algorithms/swap.py?ref=networkx-3.5",
+      "file": "swap.py",
+      "git_blob_sha": "cb3cc1c0e75c375ae49976e21fcccf2dc6c76231",
+      "sha256": "35564c9a59e4771830c0dc39183adcf3068d11171d0aee76c9d1dc05d380fe1c"
+    }
+  ],
+  "license": "BSD-3-Clause",
+  "extension_date": "2026-10-07"
+}

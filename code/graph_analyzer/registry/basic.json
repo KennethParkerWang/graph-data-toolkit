@@ -1,0 +1,1198 @@
+[
+  {
+    "metric_id": "node_count",
+    "name": "node count",
+    "category": "state",
+    "metric_version": "1.0.0",
+    "definition": "Number of nodes including isolates",
+    "formula": "ctx.n",
+    "sources": [
+      "https://www.mathworks.com/help/matlab/graph-and-network-algorithms.html"
+    ],
+    "source_version": "MATLAB R2024b; NetworkX 3.5 definitions where cited; original formula implementation 1.0.0",
+    "license": "Original implementation; MATLAB built-ins invoked under installed MATLAB license; no third-party source copied.",
+    "graph_types": [
+      "undirected",
+      "directed"
+    ],
+    "scope": "graph",
+    "complexity": "O(n+m)",
+    "method": "exact",
+    "parameter_defaults": {},
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed MATLAB R2024b test_basic: 987 checks, 11 fixtures, 64 triads; NetworkX 3.5 references",
+    "conditions": "Simple unweighted graph; no loops. See docs/basic_metrics.md. Numerical tolerance, disconnection, current-N normalization and memory limits are explicitly documented."
+  },
+  {
+    "metric_id": "edge_count",
+    "name": "edge count",
+    "category": "state",
+    "metric_version": "1.0.0",
+    "definition": "Number of edges, undirected counted once",
+    "formula": "ctx.m",
+    "sources": [
+      "https://www.mathworks.com/help/matlab/graph-and-network-algorithms.html"
+    ],
+    "source_version": "MATLAB R2024b; NetworkX 3.5 definitions where cited; original formula implementation 1.0.0",
+    "license": "Original implementation; MATLAB built-ins invoked under installed MATLAB license; no third-party source copied.",
+    "graph_types": [
+      "undirected",
+      "directed"
+    ],
+    "scope": "graph",
+    "complexity": "O(n+m)",
+    "method": "exact",
+    "parameter_defaults": {},
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed MATLAB R2024b test_basic: 987 checks, 11 fixtures, 64 triads; NetworkX 3.5 references",
+    "conditions": "Simple unweighted graph; no loops. See docs/basic_metrics.md. Numerical tolerance, disconnection, current-N normalization and memory limits are explicitly documented."
+  },
+  {
+    "metric_id": "density",
+    "name": "density",
+    "category": "state",
+    "metric_version": "1.0.0",
+    "definition": "Fraction of possible simple edges",
+    "formula": "m/[n(n-1)] directed, 2m/[n(n-1)] undirected",
+    "sources": [
+      "https://www.mathworks.com/help/matlab/graph-and-network-algorithms.html"
+    ],
+    "source_version": "MATLAB R2024b; NetworkX 3.5 definitions where cited; original formula implementation 1.0.0",
+    "license": "Original implementation; MATLAB built-ins invoked under installed MATLAB license; no third-party source copied.",
+    "graph_types": [
+      "undirected",
+      "directed"
+    ],
+    "scope": "graph",
+    "complexity": "O(n+m)",
+    "method": "exact",
+    "parameter_defaults": {},
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed MATLAB R2024b test_basic: 987 checks, 11 fixtures, 64 triads; NetworkX 3.5 references",
+    "conditions": "Simple unweighted graph; no loops. See docs/basic_metrics.md. Numerical tolerance, disconnection, current-N normalization and memory limits are explicitly documented."
+  },
+  {
+    "metric_id": "isolate_count",
+    "name": "isolate count",
+    "category": "state",
+    "metric_version": "1.0.0",
+    "definition": "Number of nodes with no incident edges",
+    "formula": "#{i:k_total(i)=0}",
+    "sources": [
+      "https://www.mathworks.com/help/matlab/graph-and-network-algorithms.html"
+    ],
+    "source_version": "MATLAB R2024b; NetworkX 3.5 definitions where cited; original formula implementation 1.0.0",
+    "license": "Original implementation; MATLAB built-ins invoked under installed MATLAB license; no third-party source copied.",
+    "graph_types": [
+      "undirected",
+      "directed"
+    ],
+    "scope": "graph",
+    "complexity": "O(n+m)",
+    "method": "exact",
+    "parameter_defaults": {},
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed MATLAB R2024b test_basic: 987 checks, 11 fixtures, 64 triads; NetworkX 3.5 references",
+    "conditions": "Simple unweighted graph; no loops. See docs/basic_metrics.md. Numerical tolerance, disconnection, current-N normalization and memory limits are explicitly documented."
+  },
+  {
+    "metric_id": "degree",
+    "name": "degree",
+    "category": "state",
+    "metric_version": "1.0.0",
+    "definition": "Degree; directed total degree is in plus out",
+    "formula": "k_total=k_in+k_out (directed); k=sum_j A_ij (undirected)",
+    "sources": [
+      "https://www.mathworks.com/help/matlab/graph-and-network-algorithms.html"
+    ],
+    "source_version": "MATLAB R2024b; NetworkX 3.5 definitions where cited; original formula implementation 1.0.0",
+    "license": "Original implementation; MATLAB built-ins invoked under installed MATLAB license; no third-party source copied.",
+    "graph_types": [
+      "undirected",
+      "directed"
+    ],
+    "scope": "node",
+    "complexity": "O(n+m)",
+    "method": "exact",
+    "parameter_defaults": {},
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed MATLAB R2024b test_basic: 987 checks, 11 fixtures, 64 triads; NetworkX 3.5 references",
+    "conditions": "Simple unweighted graph; no loops. See docs/basic_metrics.md. Numerical tolerance, disconnection, current-N normalization and memory limits are explicitly documented."
+  },
+  {
+    "metric_id": "indegree",
+    "name": "indegree",
+    "category": "state",
+    "metric_version": "1.0.0",
+    "definition": "Incoming degree",
+    "formula": "k_in(i)=sum_j A_ji",
+    "sources": [
+      "https://www.mathworks.com/help/matlab/graph-and-network-algorithms.html"
+    ],
+    "source_version": "MATLAB R2024b; NetworkX 3.5 definitions where cited; original formula implementation 1.0.0",
+    "license": "Original implementation; MATLAB built-ins invoked under installed MATLAB license; no third-party source copied.",
+    "graph_types": [
+      "directed"
+    ],
+    "scope": "node",
+    "complexity": "O(n+m)",
+    "method": "exact",
+    "parameter_defaults": {},
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed MATLAB R2024b test_basic: 987 checks, 11 fixtures, 64 triads; NetworkX 3.5 references",
+    "conditions": "Simple unweighted graph; no loops. See docs/basic_metrics.md. Numerical tolerance, disconnection, current-N normalization and memory limits are explicitly documented."
+  },
+  {
+    "metric_id": "outdegree",
+    "name": "outdegree",
+    "category": "state",
+    "metric_version": "1.0.0",
+    "definition": "Outgoing degree",
+    "formula": "k_out(i)=sum_j A_ij",
+    "sources": [
+      "https://www.mathworks.com/help/matlab/graph-and-network-algorithms.html"
+    ],
+    "source_version": "MATLAB R2024b; NetworkX 3.5 definitions where cited; original formula implementation 1.0.0",
+    "license": "Original implementation; MATLAB built-ins invoked under installed MATLAB license; no third-party source copied.",
+    "graph_types": [
+      "directed"
+    ],
+    "scope": "node",
+    "complexity": "O(n+m)",
+    "method": "exact",
+    "parameter_defaults": {},
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed MATLAB R2024b test_basic: 987 checks, 11 fixtures, 64 triads; NetworkX 3.5 references",
+    "conditions": "Simple unweighted graph; no loops. See docs/basic_metrics.md. Numerical tolerance, disconnection, current-N normalization and memory limits are explicitly documented."
+  },
+  {
+    "metric_id": "degree_mean",
+    "name": "degree mean",
+    "category": "state",
+    "metric_version": "1.0.0",
+    "definition": "degree mean",
+    "formula": "mean(k)",
+    "sources": [
+      "https://www.mathworks.com/help/matlab/graph-and-network-algorithms.html"
+    ],
+    "source_version": "MATLAB R2024b; NetworkX 3.5 definitions where cited; original formula implementation 1.0.0",
+    "license": "Original implementation; MATLAB built-ins invoked under installed MATLAB license; no third-party source copied.",
+    "graph_types": [
+      "undirected",
+      "directed"
+    ],
+    "scope": "graph",
+    "complexity": "O(n+m)",
+    "method": "exact",
+    "parameter_defaults": {
+      "degree_mode": "total"
+    },
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed MATLAB R2024b test_basic: 987 checks, 11 fixtures, 64 triads; NetworkX 3.5 references",
+    "conditions": "Simple unweighted graph; no loops. See docs/basic_metrics.md. Numerical tolerance, disconnection, current-N normalization and memory limits are explicitly documented."
+  },
+  {
+    "metric_id": "degree_variance",
+    "name": "degree variance",
+    "category": "state",
+    "metric_version": "1.0.0",
+    "definition": "degree variance",
+    "formula": "population variance n^-1 sum_i(k_i-mean(k))^2",
+    "sources": [
+      "https://www.mathworks.com/help/matlab/graph-and-network-algorithms.html"
+    ],
+    "source_version": "MATLAB R2024b; NetworkX 3.5 definitions where cited; original formula implementation 1.0.0",
+    "license": "Original implementation; MATLAB built-ins invoked under installed MATLAB license; no third-party source copied.",
+    "graph_types": [
+      "undirected",
+      "directed"
+    ],
+    "scope": "graph",
+    "complexity": "O(n+m)",
+    "method": "exact",
+    "parameter_defaults": {
+      "degree_mode": "total"
+    },
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed MATLAB R2024b test_basic: 987 checks, 11 fixtures, 64 triads; NetworkX 3.5 references",
+    "conditions": "Simple unweighted graph; no loops. See docs/basic_metrics.md. Numerical tolerance, disconnection, current-N normalization and memory limits are explicitly documented."
+  },
+  {
+    "metric_id": "degree_heterogeneity",
+    "name": "degree heterogeneity",
+    "category": "state",
+    "metric_version": "1.0.0",
+    "definition": "degree heterogeneity",
+    "formula": "mean(k^2)/mean(k)^2",
+    "sources": [
+      "https://www.mathworks.com/help/matlab/graph-and-network-algorithms.html"
+    ],
+    "source_version": "MATLAB R2024b; NetworkX 3.5 definitions where cited; original formula implementation 1.0.0",
+    "license": "Original implementation; MATLAB built-ins invoked under installed MATLAB license; no third-party source copied.",
+    "graph_types": [
+      "undirected",
+      "directed"
+    ],
+    "scope": "graph",
+    "complexity": "O(n+m)",
+    "method": "exact",
+    "parameter_defaults": {
+      "degree_mode": "total"
+    },
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed MATLAB R2024b test_basic: 987 checks, 11 fixtures, 64 triads; NetworkX 3.5 references",
+    "conditions": "Simple unweighted graph; no loops. See docs/basic_metrics.md. Numerical tolerance, disconnection, current-N normalization and memory limits are explicitly documented."
+  },
+  {
+    "metric_id": "degree_distribution",
+    "name": "degree distribution",
+    "category": "state",
+    "metric_version": "1.0.0",
+    "definition": "Empirical degree probability mass, including zero-degree bin",
+    "formula": "P(k)=#{i:degree_i=k}/n",
+    "sources": [
+      "https://www.mathworks.com/help/matlab/graph-and-network-algorithms.html"
+    ],
+    "source_version": "MATLAB R2024b; NetworkX 3.5 definitions where cited; original formula implementation 1.0.0",
+    "license": "Original implementation; MATLAB built-ins invoked under installed MATLAB license; no third-party source copied.",
+    "graph_types": [
+      "undirected",
+      "directed"
+    ],
+    "scope": "distribution",
+    "complexity": "O(n+m)",
+    "method": "exact",
+    "parameter_defaults": {
+      "degree_mode": "total"
+    },
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed MATLAB R2024b test_basic: 987 checks, 11 fixtures, 64 triads; NetworkX 3.5 references",
+    "conditions": "Simple unweighted graph; no loops. See docs/basic_metrics.md. Numerical tolerance, disconnection, current-N normalization and memory limits are explicitly documented."
+  },
+  {
+    "metric_id": "component_labels",
+    "name": "component labels",
+    "category": "connectivity",
+    "metric_version": "1.0.0",
+    "definition": "component labels",
+    "formula": "component index of each node",
+    "sources": [
+      "https://www.mathworks.com/help/matlab/ref/graph.conncomp.html"
+    ],
+    "source_version": "MATLAB R2024b; NetworkX 3.5 definitions where cited; original formula implementation 1.0.0",
+    "license": "Original implementation; MATLAB built-ins invoked under installed MATLAB license; no third-party source copied.",
+    "graph_types": [
+      "undirected",
+      "directed"
+    ],
+    "scope": "node",
+    "complexity": "O(n+m)",
+    "method": "exact",
+    "parameter_defaults": {
+      "component_mode": "weak"
+    },
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed MATLAB R2024b test_basic: 987 checks, 11 fixtures, 64 triads; NetworkX 3.5 references",
+    "conditions": "Simple unweighted graph; no loops. See docs/basic_metrics.md. Numerical tolerance, disconnection, current-N normalization and memory limits are explicitly documented."
+  },
+  {
+    "metric_id": "component_sizes",
+    "name": "component sizes",
+    "category": "connectivity",
+    "metric_version": "1.0.0",
+    "definition": "component sizes",
+    "formula": "number of nodes in each labeled component",
+    "sources": [
+      "https://www.mathworks.com/help/matlab/ref/graph.conncomp.html"
+    ],
+    "source_version": "MATLAB R2024b; NetworkX 3.5 definitions where cited; original formula implementation 1.0.0",
+    "license": "Original implementation; MATLAB built-ins invoked under installed MATLAB license; no third-party source copied.",
+    "graph_types": [
+      "undirected",
+      "directed"
+    ],
+    "scope": "distribution",
+    "complexity": "O(n+m)",
+    "method": "exact",
+    "parameter_defaults": {
+      "component_mode": "weak"
+    },
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed MATLAB R2024b test_basic: 987 checks, 11 fixtures, 64 triads; NetworkX 3.5 references",
+    "conditions": "Simple unweighted graph; no loops. See docs/basic_metrics.md. Numerical tolerance, disconnection, current-N normalization and memory limits are explicitly documented."
+  },
+  {
+    "metric_id": "component_count",
+    "name": "component count",
+    "category": "connectivity",
+    "metric_version": "1.0.0",
+    "definition": "component count",
+    "formula": "number of components",
+    "sources": [
+      "https://www.mathworks.com/help/matlab/ref/graph.conncomp.html"
+    ],
+    "source_version": "MATLAB R2024b; NetworkX 3.5 definitions where cited; original formula implementation 1.0.0",
+    "license": "Original implementation; MATLAB built-ins invoked under installed MATLAB license; no third-party source copied.",
+    "graph_types": [
+      "undirected",
+      "directed"
+    ],
+    "scope": "graph",
+    "complexity": "O(n+m)",
+    "method": "exact",
+    "parameter_defaults": {
+      "component_mode": "weak"
+    },
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed MATLAB R2024b test_basic: 987 checks, 11 fixtures, 64 triads; NetworkX 3.5 references",
+    "conditions": "Simple unweighted graph; no loops. See docs/basic_metrics.md. Numerical tolerance, disconnection, current-N normalization and memory limits are explicitly documented."
+  },
+  {
+    "metric_id": "largest_component_size",
+    "name": "largest component size",
+    "category": "connectivity",
+    "metric_version": "1.0.0",
+    "definition": "largest component size",
+    "formula": "max component size, zero for n=0",
+    "sources": [
+      "https://www.mathworks.com/help/matlab/ref/graph.conncomp.html"
+    ],
+    "source_version": "MATLAB R2024b; NetworkX 3.5 definitions where cited; original formula implementation 1.0.0",
+    "license": "Original implementation; MATLAB built-ins invoked under installed MATLAB license; no third-party source copied.",
+    "graph_types": [
+      "undirected",
+      "directed"
+    ],
+    "scope": "graph",
+    "complexity": "O(n+m)",
+    "method": "exact",
+    "parameter_defaults": {
+      "component_mode": "weak"
+    },
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed MATLAB R2024b test_basic: 987 checks, 11 fixtures, 64 triads; NetworkX 3.5 references",
+    "conditions": "Simple unweighted graph; no loops. See docs/basic_metrics.md. Numerical tolerance, disconnection, current-N normalization and memory limits are explicitly documented."
+  },
+  {
+    "metric_id": "second_largest_component_size",
+    "name": "second largest component size",
+    "category": "connectivity",
+    "metric_version": "1.0.0",
+    "definition": "second largest component size",
+    "formula": "second component size with missing sizes defined as zero",
+    "sources": [
+      "https://www.mathworks.com/help/matlab/ref/graph.conncomp.html"
+    ],
+    "source_version": "MATLAB R2024b; NetworkX 3.5 definitions where cited; original formula implementation 1.0.0",
+    "license": "Original implementation; MATLAB built-ins invoked under installed MATLAB license; no third-party source copied.",
+    "graph_types": [
+      "undirected",
+      "directed"
+    ],
+    "scope": "graph",
+    "complexity": "O(n+m)",
+    "method": "exact",
+    "parameter_defaults": {
+      "component_mode": "weak"
+    },
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed MATLAB R2024b test_basic: 987 checks, 11 fixtures, 64 triads; NetworkX 3.5 references",
+    "conditions": "Simple unweighted graph; no loops. See docs/basic_metrics.md. Numerical tolerance, disconnection, current-N normalization and memory limits are explicitly documented."
+  },
+  {
+    "metric_id": "largest_component_fraction",
+    "name": "largest component fraction",
+    "category": "connectivity",
+    "metric_version": "1.0.0",
+    "definition": "largest component fraction",
+    "formula": "largest component size/current n",
+    "sources": [
+      "https://www.mathworks.com/help/matlab/ref/graph.conncomp.html"
+    ],
+    "source_version": "MATLAB R2024b; NetworkX 3.5 definitions where cited; original formula implementation 1.0.0",
+    "license": "Original implementation; MATLAB built-ins invoked under installed MATLAB license; no third-party source copied.",
+    "graph_types": [
+      "undirected",
+      "directed"
+    ],
+    "scope": "graph",
+    "complexity": "O(n+m)",
+    "method": "exact",
+    "parameter_defaults": {
+      "component_mode": "weak"
+    },
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed MATLAB R2024b test_basic: 987 checks, 11 fixtures, 64 triads; NetworkX 3.5 references",
+    "conditions": "Simple unweighted graph; no loops. See docs/basic_metrics.md. Numerical tolerance, disconnection, current-N normalization and memory limits are explicitly documented."
+  },
+  {
+    "metric_id": "bridge_mask",
+    "name": "bridge mask",
+    "category": "connectivity",
+    "metric_version": "1.0.0",
+    "definition": "bridge mask",
+    "formula": "Removal increases the undirected component count",
+    "sources": [
+      "https://doi.org/10.1137/0201010",
+      "https://networkx.org/documentation/networkx-3.5/reference/algorithms/component.html"
+    ],
+    "source_version": "MATLAB R2024b; NetworkX 3.5 definitions where cited; original formula implementation 1.0.0",
+    "license": "Original implementation; MATLAB built-ins invoked under installed MATLAB license; no third-party source copied.",
+    "graph_types": [
+      "undirected"
+    ],
+    "scope": "edge",
+    "complexity": "O(n+m)",
+    "method": "exact",
+    "parameter_defaults": {},
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed MATLAB R2024b test_basic: 987 checks, 11 fixtures, 64 triads; NetworkX 3.5 references",
+    "conditions": "Simple unweighted graph; no loops. See docs/basic_metrics.md. Numerical tolerance, disconnection, current-N normalization and memory limits are explicitly documented."
+  },
+  {
+    "metric_id": "articulation_mask",
+    "name": "articulation mask",
+    "category": "connectivity",
+    "metric_version": "1.0.0",
+    "definition": "articulation mask",
+    "formula": "Removal increases the undirected component count",
+    "sources": [
+      "https://doi.org/10.1137/0201010",
+      "https://networkx.org/documentation/networkx-3.5/reference/algorithms/component.html"
+    ],
+    "source_version": "MATLAB R2024b; NetworkX 3.5 definitions where cited; original formula implementation 1.0.0",
+    "license": "Original implementation; MATLAB built-ins invoked under installed MATLAB license; no third-party source copied.",
+    "graph_types": [
+      "undirected"
+    ],
+    "scope": "node",
+    "complexity": "O(n+m)",
+    "method": "exact",
+    "parameter_defaults": {},
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed MATLAB R2024b test_basic: 987 checks, 11 fixtures, 64 triads; NetworkX 3.5 references",
+    "conditions": "Simple unweighted graph; no loops. See docs/basic_metrics.md. Numerical tolerance, disconnection, current-N normalization and memory limits are explicitly documented."
+  },
+  {
+    "metric_id": "core_number",
+    "name": "core number",
+    "category": "connectivity",
+    "metric_version": "1.0.0",
+    "definition": "Largest k-core containing each node; directed uses total degree",
+    "formula": "core_i=max{k:i in recursively degree-at-least-k induced subgraph}",
+    "sources": [
+      "https://arxiv.org/abs/cs/0310049",
+      "https://networkx.org/documentation/networkx-3.5/reference/algorithms/generated/networkx.algorithms.core.core_number.html"
+    ],
+    "source_version": "Core definition and minimum-degree peeling; original O(n^2+m) implementation 1.0.0 (not a claim to the cited linear-time bin implementation)",
+    "license": "Original implementation; MATLAB built-ins invoked under installed MATLAB license; no third-party source copied.",
+    "graph_types": [
+      "undirected",
+      "directed"
+    ],
+    "scope": "node",
+    "complexity": "O(n^2+m)",
+    "method": "exact",
+    "parameter_defaults": {},
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed MATLAB R2024b test_basic: 987 checks, 11 fixtures, 64 triads; NetworkX 3.5 references",
+    "conditions": "Simple unweighted graph; no loops. See docs/basic_metrics.md. Numerical tolerance, disconnection, current-N normalization and memory limits are explicitly documented."
+  },
+  {
+    "metric_id": "edge_connectivity",
+    "name": "edge connectivity",
+    "category": "connectivity",
+    "metric_version": "1.0.0",
+    "definition": "Global edge connectivity via pairwise max-flow",
+    "formula": "min over s!=t of maximum edge-disjoint s-t paths; complete graph n-1",
+    "sources": [
+      "https://www.mathworks.com/help/matlab/ref/graph.maxflow.html"
+    ],
+    "source_version": "MATLAB R2024b; NetworkX 3.5 definitions where cited; original formula implementation 1.0.0",
+    "license": "Original implementation; MATLAB built-ins invoked under installed MATLAB license; no third-party source copied.",
+    "graph_types": [
+      "undirected",
+      "directed"
+    ],
+    "scope": "graph",
+    "complexity": "O(n^2 * maxflow(2n,m+n))",
+    "method": "exact",
+    "parameter_defaults": {
+      "max_nodes": 200
+    },
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed MATLAB R2024b test_basic: 987 checks, 11 fixtures, 64 triads; NetworkX 3.5 references",
+    "conditions": "Simple unweighted graph; no loops. See docs/basic_metrics.md. Numerical tolerance, disconnection, current-N normalization and memory limits are explicitly documented."
+  },
+  {
+    "metric_id": "node_connectivity",
+    "name": "node connectivity",
+    "category": "connectivity",
+    "metric_version": "1.0.0",
+    "definition": "Global vertex connectivity via pairwise max-flow",
+    "formula": "min over s!=t of maximum internally vertex-disjoint s-t paths; complete graph n-1",
+    "sources": [
+      "https://www.mathworks.com/help/matlab/ref/graph.maxflow.html"
+    ],
+    "source_version": "MATLAB R2024b; NetworkX 3.5 definitions where cited; original formula implementation 1.0.0",
+    "license": "Original implementation; MATLAB built-ins invoked under installed MATLAB license; no third-party source copied.",
+    "graph_types": [
+      "undirected",
+      "directed"
+    ],
+    "scope": "graph",
+    "complexity": "O(n^2 * maxflow(2n,m+n))",
+    "method": "exact",
+    "parameter_defaults": {
+      "max_nodes": 200
+    },
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed MATLAB R2024b test_basic: 987 checks, 11 fixtures, 64 triads; NetworkX 3.5 references",
+    "conditions": "Simple unweighted graph; no loops. See docs/basic_metrics.md. Numerical tolerance, disconnection, current-N normalization and memory limits are explicitly documented."
+  },
+  {
+    "metric_id": "distance_matrix",
+    "name": "distance matrix",
+    "category": "distance",
+    "metric_version": "1.0.0",
+    "definition": "All-pairs shortest directed or undirected distance",
+    "formula": "D_ij=min number of arcs from i to j; D_ii=0, unreachable Inf",
+    "sources": [
+      "https://www.mathworks.com/help/matlab/ref/graph.distances.html"
+    ],
+    "source_version": "MATLAB R2024b; NetworkX 3.5 definitions where cited; original formula implementation 1.0.0",
+    "license": "Original implementation; MATLAB built-ins invoked under installed MATLAB license; no third-party source copied.",
+    "graph_types": [
+      "undirected",
+      "directed"
+    ],
+    "scope": "matrix",
+    "complexity": "O(n(n+m)) time, O(n^2) memory",
+    "method": "exact",
+    "parameter_defaults": {
+      "max_nodes": 5000
+    },
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed MATLAB R2024b test_basic: 987 checks, 11 fixtures, 64 triads; NetworkX 3.5 references",
+    "conditions": "Simple unweighted graph; no loops. See docs/basic_metrics.md. Numerical tolerance, disconnection, current-N normalization and memory limits are explicitly documented."
+  },
+  {
+    "metric_id": "reachable_pair_fraction",
+    "name": "reachable pair fraction",
+    "category": "distance",
+    "metric_version": "1.0.0",
+    "definition": "Proportion of distinct ordered pairs with a finite path",
+    "formula": "#{(i,j):i!=j,D_ij<Inf}/[n(n-1)]",
+    "sources": [
+      "https://www.mathworks.com/help/matlab/ref/graph.distances.html"
+    ],
+    "source_version": "MATLAB R2024b; NetworkX 3.5 definitions where cited; original formula implementation 1.0.0",
+    "license": "Original implementation; MATLAB built-ins invoked under installed MATLAB license; no third-party source copied.",
+    "graph_types": [
+      "undirected",
+      "directed"
+    ],
+    "scope": "graph",
+    "complexity": "O(n(n+m))",
+    "method": "exact",
+    "parameter_defaults": {
+      "max_nodes": 5000
+    },
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed MATLAB R2024b test_basic: 987 checks, 11 fixtures, 64 triads; NetworkX 3.5 references",
+    "conditions": "Simple unweighted graph; no loops. See docs/basic_metrics.md. Numerical tolerance, disconnection, current-N normalization and memory limits are explicitly documented."
+  },
+  {
+    "metric_id": "average_path_length",
+    "name": "average path length",
+    "category": "distance",
+    "metric_version": "1.0.0",
+    "definition": "Mean distance under explicit all/reachable pair policy",
+    "formula": "mean D_ij, i!=j; all requires every pair reachable",
+    "sources": [
+      "https://www.mathworks.com/help/matlab/ref/graph.distances.html"
+    ],
+    "source_version": "MATLAB R2024b; NetworkX 3.5 definitions where cited; original formula implementation 1.0.0",
+    "license": "Original implementation; MATLAB built-ins invoked under installed MATLAB license; no third-party source copied.",
+    "graph_types": [
+      "undirected",
+      "directed"
+    ],
+    "scope": "graph",
+    "complexity": "O(n(n+m))",
+    "method": "exact",
+    "parameter_defaults": {
+      "max_nodes": 5000,
+      "pair_policy": "all"
+    },
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed MATLAB R2024b test_basic: 987 checks, 11 fixtures, 64 triads; NetworkX 3.5 references",
+    "conditions": "Simple unweighted graph; no loops. See docs/basic_metrics.md. Numerical tolerance, disconnection, current-N normalization and memory limits are explicitly documented."
+  },
+  {
+    "metric_id": "eccentricity",
+    "name": "eccentricity",
+    "category": "distance",
+    "metric_version": "1.0.0",
+    "definition": "eccentricity with unreachable distances equal to Inf",
+    "formula": "e_i=max_j D_ij (out), or max_j D_ji (in)",
+    "sources": [
+      "https://www.mathworks.com/help/matlab/ref/graph.distances.html"
+    ],
+    "source_version": "MATLAB R2024b; NetworkX 3.5 definitions where cited; original formula implementation 1.0.0",
+    "license": "Original implementation; MATLAB built-ins invoked under installed MATLAB license; no third-party source copied.",
+    "graph_types": [
+      "undirected",
+      "directed"
+    ],
+    "scope": "node",
+    "complexity": "O(n(n+m))",
+    "method": "exact",
+    "parameter_defaults": {
+      "max_nodes": 5000,
+      "direction": "out"
+    },
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed MATLAB R2024b test_basic: 987 checks, 11 fixtures, 64 triads; NetworkX 3.5 references",
+    "conditions": "Simple unweighted graph; no loops. See docs/basic_metrics.md. Numerical tolerance, disconnection, current-N normalization and memory limits are explicitly documented."
+  },
+  {
+    "metric_id": "diameter",
+    "name": "diameter",
+    "category": "distance",
+    "metric_version": "1.0.0",
+    "definition": "diameter with unreachable distances equal to Inf",
+    "formula": "max node eccentricity, Inf allowed",
+    "sources": [
+      "https://www.mathworks.com/help/matlab/ref/graph.distances.html"
+    ],
+    "source_version": "MATLAB R2024b; NetworkX 3.5 definitions where cited; original formula implementation 1.0.0",
+    "license": "Original implementation; MATLAB built-ins invoked under installed MATLAB license; no third-party source copied.",
+    "graph_types": [
+      "undirected",
+      "directed"
+    ],
+    "scope": "graph",
+    "complexity": "O(n(n+m))",
+    "method": "exact",
+    "parameter_defaults": {
+      "max_nodes": 5000,
+      "direction": "out"
+    },
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed MATLAB R2024b test_basic: 987 checks, 11 fixtures, 64 triads; NetworkX 3.5 references",
+    "conditions": "Simple unweighted graph; no loops. See docs/basic_metrics.md. Numerical tolerance, disconnection, current-N normalization and memory limits are explicitly documented."
+  },
+  {
+    "metric_id": "radius",
+    "name": "radius",
+    "category": "distance",
+    "metric_version": "1.0.0",
+    "definition": "radius with unreachable distances equal to Inf",
+    "formula": "min node eccentricity, Inf allowed",
+    "sources": [
+      "https://www.mathworks.com/help/matlab/ref/graph.distances.html"
+    ],
+    "source_version": "MATLAB R2024b; NetworkX 3.5 definitions where cited; original formula implementation 1.0.0",
+    "license": "Original implementation; MATLAB built-ins invoked under installed MATLAB license; no third-party source copied.",
+    "graph_types": [
+      "undirected",
+      "directed"
+    ],
+    "scope": "graph",
+    "complexity": "O(n(n+m))",
+    "method": "exact",
+    "parameter_defaults": {
+      "max_nodes": 5000,
+      "direction": "out"
+    },
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed MATLAB R2024b test_basic: 987 checks, 11 fixtures, 64 triads; NetworkX 3.5 references",
+    "conditions": "Simple unweighted graph; no loops. See docs/basic_metrics.md. Numerical tolerance, disconnection, current-N normalization and memory limits are explicitly documented."
+  },
+  {
+    "metric_id": "global_efficiency",
+    "name": "global efficiency",
+    "category": "distance",
+    "metric_version": "1.0.0",
+    "definition": "Mean reciprocal shortest path length over distinct ordered pairs",
+    "formula": "sum_{i!=j} 1/D_ij / [n(n-1)], 1/Inf=0",
+    "sources": [
+      "https://doi.org/10.1103/PhysRevLett.87.198701"
+    ],
+    "source_version": "MATLAB R2024b; NetworkX 3.5 definitions where cited; original formula implementation 1.0.0",
+    "license": "Original implementation; MATLAB built-ins invoked under installed MATLAB license; no third-party source copied.",
+    "graph_types": [
+      "undirected",
+      "directed"
+    ],
+    "scope": "graph",
+    "complexity": "O(n(n+m))",
+    "method": "exact",
+    "parameter_defaults": {
+      "max_nodes": 5000
+    },
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed MATLAB R2024b test_basic: 987 checks, 11 fixtures, 64 triads; NetworkX 3.5 references",
+    "conditions": "Simple unweighted graph; no loops. See docs/basic_metrics.md. Numerical tolerance, disconnection, current-N normalization and memory limits are explicitly documented."
+  },
+  {
+    "metric_id": "local_efficiency",
+    "name": "local efficiency",
+    "category": "distance",
+    "metric_version": "1.0.0",
+    "definition": "Global efficiency of each induced open-neighborhood subgraph",
+    "formula": "E_loc(i)=E_global(G[N(i)]); zero for degree below two",
+    "sources": [
+      "https://doi.org/10.1103/PhysRevLett.87.198701"
+    ],
+    "source_version": "MATLAB R2024b; NetworkX 3.5 definitions where cited; original formula implementation 1.0.0",
+    "license": "Original implementation; MATLAB built-ins invoked under installed MATLAB license; no third-party source copied.",
+    "graph_types": [
+      "undirected"
+    ],
+    "scope": "node",
+    "complexity": "O(sum_i k_i(k_i+m_i))",
+    "method": "exact",
+    "parameter_defaults": {
+      "max_nodes": 5000
+    },
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed MATLAB R2024b test_basic: 987 checks, 11 fixtures, 64 triads; NetworkX 3.5 references",
+    "conditions": "Simple unweighted graph; no loops. See docs/basic_metrics.md. Numerical tolerance, disconnection, current-N normalization and memory limits are explicitly documented."
+  },
+  {
+    "metric_id": "node_triangle_count",
+    "name": "node triangle count",
+    "category": "clustering",
+    "metric_version": "1.0.0",
+    "definition": "Number of undirected triangles incident to each node",
+    "formula": "t_i=(A^3)_ii/2",
+    "sources": [
+      "https://www.mathworks.com/help/matlab/graph-and-network-algorithms.html"
+    ],
+    "source_version": "MATLAB R2024b; NetworkX 3.5 definitions where cited; original formula implementation 1.0.0",
+    "license": "Original implementation; MATLAB built-ins invoked under installed MATLAB license; no third-party source copied.",
+    "graph_types": [
+      "undirected"
+    ],
+    "scope": "node",
+    "complexity": "O(sum_i k_i^2)",
+    "method": "exact",
+    "parameter_defaults": {},
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed MATLAB R2024b test_basic: 987 checks, 11 fixtures, 64 triads; NetworkX 3.5 references",
+    "conditions": "Simple unweighted graph; no loops. See docs/basic_metrics.md. Numerical tolerance, disconnection, current-N normalization and memory limits are explicitly documented."
+  },
+  {
+    "metric_id": "triangle_count",
+    "name": "triangle count",
+    "category": "clustering",
+    "metric_version": "1.0.0",
+    "definition": "Number of undirected triangles counted once",
+    "formula": "trace(A^3)/6",
+    "sources": [
+      "https://www.mathworks.com/help/matlab/graph-and-network-algorithms.html"
+    ],
+    "source_version": "MATLAB R2024b; NetworkX 3.5 definitions where cited; original formula implementation 1.0.0",
+    "license": "Original implementation; MATLAB built-ins invoked under installed MATLAB license; no third-party source copied.",
+    "graph_types": [
+      "undirected"
+    ],
+    "scope": "graph",
+    "complexity": "O(sum_i k_i^2)",
+    "method": "exact",
+    "parameter_defaults": {},
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed MATLAB R2024b test_basic: 987 checks, 11 fixtures, 64 triads; NetworkX 3.5 references",
+    "conditions": "Simple unweighted graph; no loops. See docs/basic_metrics.md. Numerical tolerance, disconnection, current-N normalization and memory limits are explicitly documented."
+  },
+  {
+    "metric_id": "clustering",
+    "name": "clustering",
+    "category": "clustering",
+    "metric_version": "1.0.0",
+    "definition": "Local clustering; directed uses Fagiolo all-triangle definition",
+    "formula": "undirected 2t_i/[k_i(k_i-1)]; directed ((A+A^T)^3)_ii/[2(k_tot(k_tot-1)-2k_recip)]",
+    "sources": [
+      "https://doi.org/10.1103/PhysRevE.76.026107"
+    ],
+    "source_version": "MATLAB R2024b; NetworkX 3.5 definitions where cited; original formula implementation 1.0.0",
+    "license": "Original implementation; MATLAB built-ins invoked under installed MATLAB license; no third-party source copied.",
+    "graph_types": [
+      "undirected",
+      "directed"
+    ],
+    "scope": "node",
+    "complexity": "O(sum_i k_i^2)",
+    "method": "exact",
+    "parameter_defaults": {},
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed MATLAB R2024b test_basic: 987 checks, 11 fixtures, 64 triads; NetworkX 3.5 references",
+    "conditions": "Simple unweighted graph; no loops. See docs/basic_metrics.md. Numerical tolerance, disconnection, current-N normalization and memory limits are explicitly documented."
+  },
+  {
+    "metric_id": "average_clustering",
+    "name": "average clustering",
+    "category": "clustering",
+    "metric_version": "1.0.0",
+    "definition": "Arithmetic mean of all local clustering values, including degree <2 zeros",
+    "formula": "n^-1 sum_i C_i",
+    "sources": [
+      "https://doi.org/10.1103/PhysRevE.76.026107"
+    ],
+    "source_version": "MATLAB R2024b; NetworkX 3.5 definitions where cited; original formula implementation 1.0.0",
+    "license": "Original implementation; MATLAB built-ins invoked under installed MATLAB license; no third-party source copied.",
+    "graph_types": [
+      "undirected",
+      "directed"
+    ],
+    "scope": "graph",
+    "complexity": "O(sum_i k_i^2)",
+    "method": "exact",
+    "parameter_defaults": {},
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed MATLAB R2024b test_basic: 987 checks, 11 fixtures, 64 triads; NetworkX 3.5 references",
+    "conditions": "Simple unweighted graph; no loops. See docs/basic_metrics.md. Numerical tolerance, disconnection, current-N normalization and memory limits are explicitly documented."
+  },
+  {
+    "metric_id": "transitivity",
+    "name": "transitivity",
+    "category": "clustering",
+    "metric_version": "1.0.0",
+    "definition": "Fraction of connected triples closed into undirected triangles",
+    "formula": "3T / sum_i choose(k_i,2)",
+    "sources": [
+      "https://www.mathworks.com/help/matlab/graph-and-network-algorithms.html"
+    ],
+    "source_version": "MATLAB R2024b; NetworkX 3.5 definitions where cited; original formula implementation 1.0.0",
+    "license": "Original implementation; MATLAB built-ins invoked under installed MATLAB license; no third-party source copied.",
+    "graph_types": [
+      "undirected"
+    ],
+    "scope": "graph",
+    "complexity": "O(sum_i k_i^2)",
+    "method": "exact",
+    "parameter_defaults": {},
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed MATLAB R2024b test_basic: 987 checks, 11 fixtures, 64 triads; NetworkX 3.5 references",
+    "conditions": "Simple unweighted graph; no loops. See docs/basic_metrics.md. Numerical tolerance, disconnection, current-N normalization and memory limits are explicitly documented."
+  },
+  {
+    "metric_id": "square_clustering",
+    "name": "square clustering",
+    "category": "clustering",
+    "metric_version": "1.0.0",
+    "definition": "Square clustering using the Zhang union-neighborhood denominator",
+    "formula": "sum_{u<w in N(i)} q_i(u,w) / sum[k_u+k_w-2-2A_uw-q_i(u,w)]",
+    "sources": [
+      "https://arxiv.org/abs/0710.0117v1",
+      "https://raw.githubusercontent.com/networkx/networkx/networkx-3.5/networkx/algorithms/cluster.py"
+    ],
+    "source_version": "MATLAB R2024b; NetworkX 3.5 definitions where cited; original formula implementation 1.0.0",
+    "license": "Original implementation; MATLAB built-ins invoked under installed MATLAB license; no third-party source copied.",
+    "graph_types": [
+      "undirected"
+    ],
+    "scope": "node",
+    "complexity": "O(sum_i k_i^2 * n) worst case",
+    "method": "exact",
+    "parameter_defaults": {},
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed MATLAB R2024b test_basic: 987 checks, 11 fixtures, 64 triads; NetworkX 3.5 references",
+    "conditions": "Simple unweighted graph; no loops. See docs/basic_metrics.md. Numerical tolerance, disconnection, current-N normalization and memory limits are explicitly documented."
+  },
+  {
+    "metric_id": "triad_census",
+    "name": "triad census",
+    "category": "clustering",
+    "metric_version": "1.0.0",
+    "definition": "Induced directed three-node subgraph counts over all 16 isomorphism classes",
+    "formula": "sum over all unordered node triples of one induced triad type",
+    "sources": [
+      "https://networkx.org/documentation/networkx-3.5/reference/algorithms/generated/networkx.algorithms.triads.triadic_census.html"
+    ],
+    "source_version": "MATLAB R2024b; NetworkX 3.5 definitions where cited; original formula implementation 1.0.0",
+    "license": "Original implementation; MATLAB built-ins invoked under installed MATLAB license; no third-party source copied.",
+    "graph_types": [
+      "directed"
+    ],
+    "scope": "distribution",
+    "complexity": "O(n^3)",
+    "method": "exact",
+    "parameter_defaults": {
+      "max_nodes": 200
+    },
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed MATLAB R2024b test_basic: 987 checks, 11 fixtures, 64 triads; NetworkX 3.5 references",
+    "conditions": "Simple unweighted graph; no loops. See docs/basic_metrics.md. Numerical tolerance, disconnection, current-N normalization and memory limits are explicitly documented."
+  },
+  {
+    "metric_id": "closeness",
+    "name": "closeness",
+    "category": "centrality",
+    "metric_version": "1.0.0",
+    "definition": "Reachability-corrected closeness, with explicit incoming/outgoing direction",
+    "formula": "k_i/sum reachable distances, multiplied by k_i/(n-1) if wf_improved",
+    "sources": [
+      "https://networkx.org/documentation/networkx-3.5/reference/algorithms/generated/networkx.algorithms.centrality.closeness_centrality.html"
+    ],
+    "source_version": "MATLAB R2024b; NetworkX 3.5 definitions where cited; original formula implementation 1.0.0",
+    "license": "Original implementation; MATLAB built-ins invoked under installed MATLAB license; no third-party source copied.",
+    "graph_types": [
+      "undirected",
+      "directed"
+    ],
+    "scope": "node",
+    "complexity": "O(n(n+m))",
+    "method": "exact",
+    "parameter_defaults": {
+      "max_nodes": 5000,
+      "direction": "out",
+      "wf_improved": true
+    },
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed MATLAB R2024b test_basic: 987 checks, 11 fixtures, 64 triads; NetworkX 3.5 references",
+    "conditions": "Simple unweighted graph; no loops. See docs/basic_metrics.md. Numerical tolerance, disconnection, current-N normalization and memory limits are explicitly documented."
+  },
+  {
+    "metric_id": "harmonic",
+    "name": "harmonic",
+    "category": "centrality",
+    "metric_version": "1.0.0",
+    "definition": "Sum of reciprocal distances, unreachable contributes zero",
+    "formula": "sum_{j!=i} 1/D_ij; optional division by n-1",
+    "sources": [
+      "https://networkx.org/documentation/networkx-3.5/reference/algorithms/generated/networkx.algorithms.centrality.harmonic_centrality.html"
+    ],
+    "source_version": "MATLAB R2024b; NetworkX 3.5 definitions where cited; original formula implementation 1.0.0",
+    "license": "Original implementation; MATLAB built-ins invoked under installed MATLAB license; no third-party source copied.",
+    "graph_types": [
+      "undirected",
+      "directed"
+    ],
+    "scope": "node",
+    "complexity": "O(n(n+m))",
+    "method": "exact",
+    "parameter_defaults": {
+      "max_nodes": 5000,
+      "direction": "out",
+      "normalized": false
+    },
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed MATLAB R2024b test_basic: 987 checks, 11 fixtures, 64 triads; NetworkX 3.5 references",
+    "conditions": "Simple unweighted graph; no loops. See docs/basic_metrics.md. Numerical tolerance, disconnection, current-N normalization and memory limits are explicitly documented."
+  },
+  {
+    "metric_id": "betweenness",
+    "name": "betweenness",
+    "category": "centrality",
+    "metric_version": "1.0.0",
+    "definition": "Shortest-path node betweenness with endpoints excluded",
+    "formula": "sum_{s,t} sigma_st(object)/sigma_st; unordered pairs for undirected",
+    "sources": [
+      "https://doi.org/10.1080/0022250X.2001.9990249",
+      "https://networkx.org/documentation/networkx-3.5/reference/algorithms/generated/networkx.algorithms.centrality.betweenness_centrality.html"
+    ],
+    "source_version": "MATLAB R2024b; NetworkX 3.5 definitions where cited; original formula implementation 1.0.0",
+    "license": "Original implementation; MATLAB built-ins invoked under installed MATLAB license; no third-party source copied.",
+    "graph_types": [
+      "undirected",
+      "directed"
+    ],
+    "scope": "node",
+    "complexity": "O(n(n+m))",
+    "method": "exact",
+    "parameter_defaults": {
+      "normalized": false
+    },
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed MATLAB R2024b test_basic: 987 checks, 11 fixtures, 64 triads; NetworkX 3.5 references",
+    "conditions": "Simple unweighted graph; no loops. See docs/basic_metrics.md. Numerical tolerance, disconnection, current-N normalization and memory limits are explicitly documented."
+  },
+  {
+    "metric_id": "edge_betweenness",
+    "name": "edge betweenness",
+    "category": "centrality",
+    "metric_version": "1.0.0",
+    "definition": "Shortest-path edge betweenness with endpoints excluded",
+    "formula": "sum_{s,t} sigma_st(object)/sigma_st; unordered pairs for undirected",
+    "sources": [
+      "https://doi.org/10.1080/0022250X.2001.9990249",
+      "https://networkx.org/documentation/networkx-3.5/reference/algorithms/generated/networkx.algorithms.centrality.betweenness_centrality.html"
+    ],
+    "source_version": "MATLAB R2024b; NetworkX 3.5 definitions where cited; original formula implementation 1.0.0",
+    "license": "Original implementation; MATLAB built-ins invoked under installed MATLAB license; no third-party source copied.",
+    "graph_types": [
+      "undirected",
+      "directed"
+    ],
+    "scope": "edge",
+    "complexity": "O(n(n+m))",
+    "method": "exact",
+    "parameter_defaults": {
+      "normalized": false
+    },
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed MATLAB R2024b test_basic: 987 checks, 11 fixtures, 64 triads; NetworkX 3.5 references",
+    "conditions": "Simple unweighted graph; no loops. See docs/basic_metrics.md. Numerical tolerance, disconnection, current-N normalization and memory limits are explicitly documented."
+  },
+  {
+    "metric_id": "eigenvector",
+    "name": "eigenvector",
+    "category": "centrality",
+    "metric_version": "1.0.0",
+    "definition": "Incoming Perron eigenvector with L2 norm one; unique irreducible case",
+    "formula": "A^T x=rho(A)x; x>=0, ||x||_2=1",
+    "sources": [
+      "https://networkx.org/documentation/networkx-3.5/reference/algorithms/generated/networkx.algorithms.centrality.eigenvector_centrality.html"
+    ],
+    "source_version": "MATLAB R2024b; NetworkX 3.5 definitions where cited; original formula implementation 1.0.0",
+    "license": "Original implementation; MATLAB built-ins invoked under installed MATLAB license; no third-party source copied.",
+    "graph_types": [
+      "undirected",
+      "directed"
+    ],
+    "scope": "node",
+    "complexity": "O(n^3) time, O(n^2) memory",
+    "method": "numerical",
+    "parameter_defaults": {
+      "max_nodes": 2000,
+      "tolerance": 1e-10
+    },
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed MATLAB R2024b test_basic: 987 checks, 11 fixtures, 64 triads; NetworkX 3.5 references",
+    "conditions": "Simple unweighted graph; no loops. See docs/basic_metrics.md. Numerical tolerance, disconnection, current-N normalization and memory limits are explicitly documented."
+  },
+  {
+    "metric_id": "katz",
+    "name": "katz",
+    "category": "centrality",
+    "metric_version": "1.0.0",
+    "definition": "Incoming Katz centrality with explicitly supplied attenuation",
+    "formula": "x=(I-alpha A^T)^-1 beta*1, alpha*rho(A)<1; optional L2 normalization",
+    "sources": [
+      "https://networkx.org/documentation/networkx-3.5/reference/algorithms/generated/networkx.algorithms.centrality.katz_centrality.html"
+    ],
+    "source_version": "MATLAB R2024b; NetworkX 3.5 definitions where cited; original formula implementation 1.0.0",
+    "license": "Original implementation; MATLAB built-ins invoked under installed MATLAB license; no third-party source copied.",
+    "graph_types": [
+      "undirected",
+      "directed"
+    ],
+    "scope": "node",
+    "complexity": "O(n^3)",
+    "method": "numerical",
+    "parameter_defaults": {
+      "beta": 1,
+      "max_nodes": 2000,
+      "tolerance": 1e-10,
+      "normalized": true
+    },
+    "required_parameters": [
+      "alpha"
+    ],
+    "implementation_status": "implemented",
+    "validation_status": "passed MATLAB R2024b test_basic: 987 checks, 11 fixtures, 64 triads; NetworkX 3.5 references",
+    "conditions": "Simple unweighted graph; no loops. See docs/basic_metrics.md. Numerical tolerance, disconnection, current-N normalization and memory limits are explicitly documented."
+  },
+  {
+    "metric_id": "pagerank",
+    "name": "pagerank",
+    "category": "centrality",
+    "metric_version": "1.0.0",
+    "definition": "Stationary PageRank with uniform teleportation and dangling redistribution",
+    "formula": "x=alpha(P^T x+sum_dangling x/n)+(1-alpha)/n",
+    "sources": [
+      "https://ilpubs.stanford.edu/422/1/1999-66.pdf"
+    ],
+    "source_version": "MATLAB R2024b; NetworkX 3.5 definitions where cited; original formula implementation 1.0.0",
+    "license": "Original implementation; MATLAB built-ins invoked under installed MATLAB license; no third-party source copied.",
+    "graph_types": [
+      "undirected",
+      "directed"
+    ],
+    "scope": "node",
+    "complexity": "O(iterations*(n+m))",
+    "method": "numerical",
+    "parameter_defaults": {
+      "alpha": 0.85,
+      "tolerance": 1e-12,
+      "max_iterations": 10000
+    },
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed MATLAB R2024b test_basic: 987 checks, 11 fixtures, 64 triads; NetworkX 3.5 references",
+    "conditions": "Simple unweighted graph; no loops. See docs/basic_metrics.md. Numerical tolerance, disconnection, current-N normalization and memory limits are explicitly documented."
+  },
+  {
+    "metric_id": "hits",
+    "name": "hits",
+    "category": "centrality",
+    "metric_version": "1.0.0",
+    "definition": "HITS hub and authority scores from uniform initialization",
+    "formula": "h proportional to A*a; a proportional to A^T*h; each column sums to one",
+    "sources": [
+      "https://www.cs.cornell.edu/home/kleinber/auth.pdf"
+    ],
+    "source_version": "MATLAB R2024b; NetworkX 3.5 definitions where cited; original formula implementation 1.0.0",
+    "license": "Original implementation; MATLAB built-ins invoked under installed MATLAB license; no third-party source copied.",
+    "graph_types": [
+      "undirected",
+      "directed"
+    ],
+    "scope": "matrix",
+    "complexity": "O(iterations*(n+m))",
+    "method": "numerical",
+    "parameter_defaults": {
+      "tolerance": 1e-12,
+      "max_iterations": 10000
+    },
+    "required_parameters": [],
+    "implementation_status": "implemented",
+    "validation_status": "passed MATLAB R2024b test_basic: 987 checks, 11 fixtures, 64 triads; NetworkX 3.5 references",
+    "conditions": "Simple unweighted graph; no loops. See docs/basic_metrics.md. Numerical tolerance, disconnection, current-N normalization and memory limits are explicitly documented."
+  }
+]

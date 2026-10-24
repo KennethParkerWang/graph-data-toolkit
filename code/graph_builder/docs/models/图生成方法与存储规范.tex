@@ -1,0 +1,209 @@
+\documentclass[UTF8,a4paper,11pt]{ctexart}
+\usepackage[a4paper,margin=2.35cm]{geometry}
+\usepackage{amsmath,amssymb,booktabs,longtable,array}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{listings}
+\hypersetup{colorlinks=true,linkcolor=blue!55!black,citecolor=blue!55!black,urlcolor=blue!55!black,pdftitle={Synthetic Complex Network Generation: Models, Protocols, and Storage},pdfauthor={Graph Generation Task 1}}
+\setlist{itemsep=2pt,topsep=3pt}
+\setlength{\parindent}{2em}
+\setlength{\parskip}{0.35em}
+\renewcommand{\arraystretch}{1.18}
+\newcommand{\code}[1]{\texttt{\detokenize{#1}}}
+\newcommand{\E}{\mathbb{E}}
+\lstset{language=Matlab,basicstyle=\small\ttfamily,frame=single,rulecolor=\color{black!25},columns=fullflexible,keepspaces=true,showstringspaces=false,breaklines=true}
+
+\title{合成复杂网络生成方法、实现协议与数据存储规范}
+\author{任务1：Synthetic Graph Generation}
+\date{实现版本 2.0.1\\\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+本文整理一套面向复杂网络鲁棒性实验的合成图生成方法。实现覆盖 ER-Gnp、ER-Gnm、BA、静态 SF、WS、NW、EH、QS、RT、RR、RH、SBM、RGG、随机正则、Holme--Kim 和 Chung--Lu 共 16 类模型，对应 20 个有明确来源的方向接口。文中统一给出节点和边的数学约定、参数范围、生成流程、可观测结构特征、算法边界以及 MATLAB 实现与 graph-v1 存储协议。实现不把不同方向的包装转换冒充原生模型；对作者源码中可复现的非法图和不终止分支保留显式失败状态。MATLAB R2026b 的固定样例、批量续跑、MAT v7 读回和 Python/SciPy 交叉验证均已通过。本文适合作为后续实验设计、参数选择和论文方法部分的候选素材库，而不是把所有模型的有限规模统计性质预先当作实验结论。
+\end{abstract}
+\tableofcontents
+
+\section{研究目的与实现范围}
+复杂网络鲁棒性实验通常需要在多个拓扑族、多个规模和多个平均度条件下构造可重复的原始网络。为了使后续的边删除、指标计算和机器学习数据划分具有可追溯性，本实现将\emph{网络生成}、\emph{指标计算}和\emph{训练数据导出}分开。生成器只负责产生简单图及其来源元数据，不在原始图文件中写入鲁棒性指标或攻击标签。
+
+当前实现版本为 2.0.1，采用 MATLAB R2026b 验证。支持的公共接口统一为
+\begin{equation}
+ [A,\,\mathrm{meta}]=\texttt{gen\_model\_direction}(\text{parameters},\,\text{seed}),
+\end{equation}
+其中 $A$ 是 $N\times N$ 稀疏 logical 邻接矩阵。对有向图，$A_{ij}=1$ 表示弧 $i\rightarrow j$；对无向图，$A=A^{\mathsf T}$，每条无向边在矩阵中表现为两个对称非零元。所有模型保留孤立节点，不生成自环，不把连通性作为未经声明的筛选条件。
+
+\begin{table}[htbp]
+\centering
+\caption{当前实现的模型族、方向和边数性质。}
+\label{tab:families}
+\small
+\begin{tabular}{p{3.0cm}p{2.4cm}p{2.4cm}p{6.2cm}}
+\toprule
+模型族 & 无向接口 & 有向接口 & 主要边数或结构约束 \\
+\midrule
+ER-Gnp & 支持 & 支持 & 每个合法节点对独立按概率 $p$ 取边；$M$ 为随机量。\\
+ER-Gnm & 支持 & 支持 & 从全部合法节点对中无放回抽取，$M$ 精确。\\
+BA & 支持 & -- & 星形初始图和优先连接，$M=m(N-m)$。\\
+静态 SF & 支持 & 支持 & 按秩权重抽取端点并拒绝重边；$M$ 精确。\\
+WS & 支持 & -- & 环格重连，$M=NK$。\\
+NW & 支持 & -- & 环格加捷径，$M=NK+M_{\mathrm{shortcut}}$。\\
+EH & -- & 支持 & 作者 ER 初始化和有向边整流，成功时 $M$ 精确。\\
+QS & -- & 支持 & 单 $r$ 层 q-snapback，含固定链骨架。\\
+RT/RR/RH & -- & 支持 & 作者 Henneberg 增长和尾部规则，成功时 $M$ 精确。\\
+SBM & 支持 & 支持 & 按块概率独立取边，$M$ 随机。\\
+RGG & 支持 & -- & 单位立方体中的距离阈值图，$M$ 随机。\\
+随机正则 & 支持 & -- & 每个节点度为 $d$，$M=Nd/2$。\\
+Holme--Kim & 支持 & -- & 优先连接与三角闭合，存在回退重复计数。\\
+Chung--Lu & 支持 & -- & 按期望度权重独立取边，$M$ 随机。\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+不支持的方向组合明确报错，不进行随机定向、去方向投影或其他没有独立来源的替代操作。这一限制使方向、来源和实验协议保持可解释。
+
+\section{统一数学与编程约定}
+\subsection{节点、边与度}
+节点编号为 $V=\{1,\ldots,N\}$。有向图的弧集合为 $E\subseteq V\times V$，并定义 $M=|E|=\operatorname{nnz}(A)$。无向图只在规范边表中保存 $u<v$ 的一份边，因此 $M=\operatorname{nnz}(A)/2$，平均度为 $\bar d=2M/N$。有向图的平均入度和平均出度分别为 $M/N$，总度平均值为 $2M/N$。这些统计量写入生成元数据，但后续读取以顶层 $N$、$M$、方向标志和邻接矩阵为唯一依据。
+
+\subsection{随机性与可重复性}
+每个生成器的随机种子位于参数列表末尾，默认值为 1，范围为非负整数。生成器在调用前保存 MATLAB 随机状态，在成功或异常退出时恢复调用者状态。因此固定实现版本和固定 seed 可以复现同一输出，但不同语言或不同实现版本不要求逐图相同。对于条件分布等价但随机数消费不同的优化，文档只声明分布和结构规则保持，不声明随机轨迹相同。
+
+\subsection{统一生成流程}
+标准生成器遵循以下步骤：
+\begin{enumerate}
+\item 校验规模、概率、权重、块矩阵和边数容量；
+\item 根据模型构造候选节点对、初始结构或节点坐标；
+\item 按来源规则进行独立采样、优先连接、重连、几何判定或块采样；
+\item 将候选结果写入稀疏 logical 矩阵，避免在循环中反复搬移完整稀疏矩阵；
+\item 由公共校验函数检查方阵、二值性、自环、对称性、边数和元数据；
+\item 由 I/O 层补充来源摘要、实现指纹和 graph-v1 身份。
+\end{enumerate}
+
+\section{经典随机图模型}
+\subsection{ER-Gnp：独立概率随机图}
+ER-Gnp 对每个合法节点对独立取边。无向情况下，对每个 $1\leq i<j\leq N$，$A_{ij}=A_{ji}\sim\operatorname{Bernoulli}(p)$。有向情况下，对每个 $i\neq j$ 的有序节点对独立取样，允许互惠弧。相应期望边数为 $\E[M]=p\binom{N}{2}$（无向）和 $\E[M]=pN(N-1)$（有向）。接口为 \code{gen_er_undirected(N,p,seed)} 和 \code{gen_er_directed(N,p,seed)}。该模型不筛选连通性，因此低 $p$ 或小规模下可以产生孤立节点和多个连通分量。
+
+\subsection{ER-Gnm：固定边数随机图}
+ER-Gnm 从全部合法节点对中均匀无放回抽取 $M$ 条边。无向容量为 $\binom{N}{2}$，有向容量为 $N(N-1)$。当前实现使用合法节点对的整数编号和反解，避免大规模重复拒绝抽样；在浮点三角数边界处增加区间校正，以避免编号反解得到自环或错误节点对。接口为 \code{gen_er_gnm_undirected(N,M,seed)} 和 \code{gen_er_gnm_directed(N,M,seed)}。超过 MATLAB 可精确表示的安全整数范围的请求会被拒绝。
+
+\subsection{SBM：随机块模型}
+给定 $B$ 个社区，社区规模为 $s_1,\ldots,s_B$，$N=\sum_b s_b$，以及块概率矩阵 $P\in[0,1]^{B\times B}$。节点 $i,j$ 所属社区分别为 $g_i,g_j$ 时，$A_{ij}\sim\operatorname{Bernoulli}(P_{g_i g_j})$。无向接口要求 $P=P^{\mathsf T}$，有向接口允许 $P$ 非对称。连续节点编号对应连续社区，社区标签写入 \code{meta.community}。该实现是概率型 SBM，不是度修正 SBM，也不固定块内或块间的实际边数。
+
+\section{增长与优先连接模型}
+\subsection{BA：Barabási--Albert 优先连接}
+BA 从 $m+1$ 个节点的星形图开始。每加入一个新节点，按照当前节点度构造重复节点表，并抽取 $m$ 个不同的旧节点作为连接目标。抽取完成后再更新重复节点表，因此同一轮的目标权重不因刚加入的边而改变。总边数为 $M=m(N-m)$。接口为 \code{gen_ba_undirected(N,m,seed)}，要求 $1\le m<N$。当前实现保持 NetworkX 3.5 默认的星形初始化，而不是把初始子图替换为完全图；结果连通，但有限图的度分布不应仅凭模型名称宣称为严格幂律。
+
+\subsection{静态 SF：按秩权重抽边}
+静态 SF 模型按节点秩构造权重。无向情况下，节点 $i$ 的权重为 $w_i=i^{-\sigma}$，独立抽取两个端点并拒绝自环和重复边，直到接收 $M$ 条边。有向情况下，源端和目标端分别使用 $w_i^{\mathrm{out}}=i^{-\sigma_{\mathrm{out}}}$ 与 $w_j^{\mathrm{in}}=j^{-\sigma_{\mathrm{in}}}$，并允许互惠弧。接口为 \code{gen_sf_undirected(N,M,sigma,seed)} 和 \code{gen_sf_directed(N,M,sigma_out,sigma_in,seed)}。高密度或极端权重会显著提高拒绝次数；实现不设置会改变分布含义的固定 proposal 上限，也不筛选连通图。
+
+\subsection{Holme--Kim：优先连接与三角闭合}
+Holme--Kim 从 $m$ 个孤立种子节点开始。新节点先根据重复节点表预选目标，再以概率 $p_{\triangle}$ 尝试从目标的邻居进行三角闭合；闭合失败时回退到预选目标。来源代码允许三角闭合目标仍出现在预选集合中，因此可能出现重复尝试。简单图不增加重复边，但来源内部计数仍会更新，实际边数可表示为 $M=m(N-m)-D_{\mathrm{fallback}}$。接口为 \code{gen_hk_undirected(N,m,triad_probability,seed)}，不能当作固定 $M$ 生成器。
+
+\section{小世界与几何模型}
+\subsection{WS：Watts--Strogatz 环格重连}
+WS 首先建立每个节点两侧各 $K$ 个邻居的环格。随后按偏移和源节点顺序处理原始顺时针边，以概率 $\beta$ 将目标替换为当前合法的非邻居节点。若不存在合法目标，则保留原边。当前参数 $K$ 是每侧邻居数，对应参考接口的总环格度 $k=2K$，边数恒为 $M=NK$。接口为 \code{gen_ws_undirected(N,K,beta,seed)}，要求 $1\le K<N/2$。重连后不强制连通。
+
+\subsection{NW：Newman--Watts 捷径模型}
+NW 保留全部环格边，并按照参考实现的原边枚举顺序，对每条原边进行一次概率为 $\beta$ 的捷径尝试。成功时从源节点向合法非邻居增加一条边，因此 $M=NK+M_{\mathrm{shortcut}}$。接口为 \code{gen_nw_undirected(N,K,beta,seed)}。由于环格边被保留，输出保持连通；实际捷径数量由生成记录确定。
+
+\subsection{RGG：随机几何图}
+RGG 在单位 $d$ 维立方体中独立生成节点坐标 $x_i\sim\operatorname{Uniform}([0,1]^d)$，当欧氏距离不超过半径 $r$ 时连边：$A_{ij}=\mathbf{1}\{\lVert x_i-x_j\rVert_2\le r\}$。接口为 \code{gen_rgg_undirected(N,radius,dim,seed)}。坐标保存在 \code{meta.positions} 中。该模型使用开放边界，半径不直接规定边数、平均度或连通性。
+
+\section{有向来源模型}
+\subsection{QS：单层 q-snapback}
+QS 首先建立链 $1\rightarrow2\rightarrow\cdots\rightarrow N$。对每个 $i=r+1,\ldots,N$ 和每个满足 $i-lr\ge1$ 的整数 $l$，以概率 $q$ 添加回边 $i\rightarrow i-lr$。候选总数为代码按节点范围计算的 $C_r$，期望弧数为 $N-1+qC_r$。接口为 \code{gen_qs_directed(N,r,q,seed)}。本实现只生成单个 $r$ 层，不把多层并集或无向投影写成 QS。
+
+\subsection{EH：有向随机边整流}
+EH 采用作者的两阶段流程：首先由作者 \code{ern.m} 生成有向固定边数随机图，再由 \code{rectify.m} 对入度、出度不均衡进行整流。成功时每个节点的入度和出度落在 $\lfloor M/N\rfloor$ 与 $\lceil M/N\rceil$ 的范围内，但不保证连通性或任意 seed 都成功。接口为 \code{gen_eh_directed(N,M,seed)}。原版部分种子返回自环；当前实现保留随机轨迹，最终仍非法时明确报错，不随机补图。
+
+\subsection{RT、RR、RH：Henneberg 增长图}
+RT、RR 和 RH 分别从三角形、四边形和六边形有向环开始。增长阶段均先随机选择旧节点，再从其入邻居和出邻居的合并集合中选择锚点，随后按作者规则添加新的有向路径。RR/RH 还保留作者的截断、尾部和增删边逻辑。三者接口分别为 \code{gen_rt_directed(N,M,seed)}、\code{gen_rr_directed(N,M,seed)} 和 \code{gen_rh_directed(N,M,seed)}。
+
+成功结果要求无自环、无互惠弧且边数为 $M$。作者源码存在可复现的自环、互惠弧、空邻居和不终止分支；本实现不自动补边、不换种子、不把失败样本包装成成功样本。作者 RR/RH 在候选集合为空时缓存零长度变量并进入不会更新条件的循环。当前实现对该状态报出 \code{graphgen:AuthorSourceStalledCandidate}，保留失败语义而不让批处理永久挂起。
+
+\section{随机正则与 Chung--Lu 模型}
+\subsection{随机正则图}
+随机正则图要求 $0\le d<N$ 且 $Nd$ 为偶数。实现构造并打乱 stub 列表，逐对尝试配成合法边；冲突或自配对的 stub 进入余量，再按照参考适合性检查重新配对。候选不满足参考检查时重启整张图。最终每个节点满足 $d_i=d$，边数为 $M=Nd/2$。接口为 \code{gen_random_regular_undirected(N,d,seed)}。该算法保留参考的配对/重启行为，但不对任意有限 $N,d$ 声称严格均匀；高 $d$ 可能经历较多重启。
+
+\subsection{Chung--Lu}
+给定非负期望度权重 $w_1,\ldots,w_N$，令 $W=\sum_iw_i$。无自环版本对每个 $i<j$ 独立取边，概率为 $p_{ij}=\min(1,w_iw_j/W)$，当 $W=0$ 时输出空图。接口为 \code{gen_chung_lu_undirected(w,seed)}。实际度是随机量；$w_i$ 不是逐节点度的硬约束。概率截断和去自环会使实际期望度偏离输入权重，修正后的期望值写入元数据。
+
+\section{存储结构与后续任务接口}
+\subsection{graph-v1 单图结构}
+每张图保存为独立 MAT v7 文件，目录为：
+\begin{lstlisting}
+dataset/
+  dataset.json
+  configs/generation.json
+  graphs/<graph_id_prefix>/<graph_id>.mat
+  manifests/graphs.jsonl
+  manifests/parts/graphs_<graph_id>_<uuid>.jsonl
+  manifests/generation_runs/<batch_id>.jsonl
+  metrics/
+  splits/
+  training/
+\end{lstlisting}
+MAT 文件固定包含 \code{schema_version}、\code{graph_id}、\code{origin_graph_id}、\code{topology_hash}、\code{N}、\code{M}、\code{directed}、\code{A}、\code{edge_list} 和 \code{meta}，可选字段为 \code{source_edge_order}。其中 $A$ 为稀疏 logical 矩阵，\code{edge_list} 为按 source、target 升序排列的 $M\times2$ uint32 矩阵。无向边只保存 $u<v$ 一次；有向互惠弧分别保存。
+
+规范边表行号定义原始边 ID。后续边删除、攻击轨迹和指标计算应引用这些边 ID，不根据删除后的矩阵重新编号。RGG 的坐标、SBM 的社区、生成参数、来源、seed 和实现摘要均放入 \code{meta}；指标和攻击轨迹写入独立的 \code{metrics/<metric\_set\_id>/}，不回写原始图。
+
+\subsection{身份与摘要}
+\code{topology_hash} 对编号拓扑计算 SHA-256；\code{graph_id} 对规范化生成配方 JSON 计算 SHA-256。配方包含模型、方向、参数、随机设置、实现版本、实现源码摘要和拓扑摘要，不包含路径、数据集名称和生成时间。\code{scientific_sha256} 用于比较同一 graph-id 的科学内容，\code{file_sha256} 用于检测 MAT 文件字节损坏。创建时间、MATLAB 版本和运行耗时不参与科学冲突判断。
+
+\section{实现性能与批量执行}
+代码统一采用稀疏矩阵、批量候选生成和循环外构造，减少高频稀疏索引插入。已有基准在 $N=1002$ 的 32 个工作负载和 $N=5002$ 的 SF、WS、NW 样例上完成。WS、NW、SF 等模型相较历史实现明显加速，但 ER-Gnm、BA、RGG 和 Chung--Lu 等毫秒级负载存在波动，不能宣称所有模型均为全局最优。
+
+当前正式批量入口按计划串行调度单个 MATLAB 进程。I/O 层为独立 graph-id 提供目录锁、不可变 manifest part 和原子索引合并，因此具备后续多进程写入的存储基础；但本版本没有把 \code{parfor} 或多进程调度作为默认生产路径。并行化时应保证每个任务拥有独立 seed、独立 part 文件和独立运行记录，不能让多个 worker 直接追加同一个 JSONL。
+
+\section{验证结果与解释边界}
+MATLAB R2026b 验证覆盖 91 个 MATLAB 文件，Code Analyzer 报告 0 个 error 和 0 个 warning。16 个固定模型样例全部完成生成、保存、读回和科学摘要比较。Python 3.10.20、NumPy 2.2.6 和 SciPy 1.15.3 独立读回 16 个 MAT 文件，验证了数据类型、矩阵形状、边表、方向、节点编号、拓扑摘要、文件摘要和科学摘要。
+
+\begin{table}[htbp]
+\centering
+\caption{固定样例的结构验证配置。该表是软件验证输入，不是统计结论。}
+\small
+\begin{tabular}{lrrr|lrrr}
+\toprule
+模型 & 方向 & $N$ & $M$ & 模型 & 方向 & $N$ & $M$ \\
+\midrule
+ER-Gnp & U & 30 & 47 & ER-Gnm & U & 30 & 60 \\
+BA & U & 30 & 81 & SF & U & 30 & 60 \\
+WS & U & 30 & 90 & NW & U & 30 & 100 \\
+EH & D & 20 & 60 & QS & D & 30 & 45 \\
+RT & D & 30 & 57 & RR & D & 29 & 41 \\
+RH & D & 30 & 36 & SBM & U & 30 & 55 \\
+RGG & U & 30 & 73 & 随机正则 & U & 30 & 60 \\
+Holme--Kim & U & 30 & 80 & Chung--Lu & U & 30 & 47 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+此外，$N=1000$ 的 16 个代表性配置已在 MATLAB R2026b 中执行，均成功返回 $1000\times1000$ 图并通过结构断言。该 smoke test 证明当前参数下程序可运行，不等价于对所有高密度和极端参数的数学证明。静态 SF、随机正则以及某些作者模型在接近容量或高拒绝率时可能显著变慢，作者来源模型还可能按原始规则明确失败。
+
+论文结果部分应从实际生成记录中报告模型、方向、$N$、$M$、完整参数、seed、实现版本和失败策略；不能只报告模型名称，也不能把期望边数、平均度或模型标签当作单张网络的实际统计量。
+
+\section{可直接用于论文的方法表述}
+本研究在 MATLAB R2026b 中生成无向和有向简单网络。每个网络由稀疏 logical 邻接矩阵表示，节点编号固定为 $1,\ldots,N$，不含自环；无向网络的邻接矩阵严格对称，有向网络中 $A_{ij}=1$ 表示从节点 $i$ 指向节点 $j$。对于概率模型，边按照模型定义独立采样；对于固定边数模型，从合法节点对中无放回抽样；对于增长模型，严格保留初始化、目标选择和权重更新顺序。每张图同时保存完整生成参数、随机种子、实现版本、来源标识、规范边表和拓扑摘要，以保证后续边攻击和指标计算能够引用稳定的原始边 ID。指标结果不写入原始图文件，而是按照独立的指标协议保存。
+
+对于来源于已有实现的模型，本文区分“来源协议保持”和“随机数轨迹保持”。当 MATLAB 中的稀疏存储或合法候选列表改变了随机数消费，但未改变条件分布和结构规则时，只声明协议层面的等价；对于作者程序中会产生非法图或不终止的输入，则保存为显式失败记录，不以换种子或补边的方式构造替代网络。
+
+\section{参考文献}
+\begin{thebibliography}{99}
+\bibitem{er} P. Erdős and A. Rényi, ``On random graphs I,'' \emph{Publicationes Mathematicae}, 1959.
+\bibitem{ba} A.-L. Barabási and R. Albert, ``Emergence of scaling in random networks,'' \emph{Science}, vol. 286, pp. 509--512, 1999. doi:10.1126/science.286.5439.509.
+\bibitem{ws} D. J. Watts and S. H. Strogatz, ``Collective dynamics of small-world networks,'' \emph{Nature}, vol. 393, pp. 440--442, 1998. doi:10.1038/30918.
+\bibitem{nw} M. E. J. Newman and D. J. Watts, ``Renormalization group analysis of the small-world network model,'' \emph{Physics Letters A}, vol. 263, pp. 341--346, 1999.
+\bibitem{sf} A. Goh, B. Kahng, and D. Kim, ``Universal behavior of load distribution in scale-free networks,'' \emph{Physical Review Letters}, vol. 87, 278701, 2001. doi:10.1103/PhysRevLett.87.278701.
+\bibitem{sbm} P. W. Holland, K. B. Laskey, and J. Leinhardt, ``Stochastic blockmodels: First steps,'' \emph{Social Networks}, vol. 5, pp. 109--137, 1983.
+\bibitem{rgg} M. D. Penrose, \emph{Random Geometric Graphs}. Oxford University Press, 2003.
+\bibitem{regular} A. Steger and N. C. Wormald, ``Generating random regular graphs quickly,'' \emph{Combinatorics, Probability and Computing}, vol. 8, pp. 377--396, 1999.
+\bibitem{hk} P. Holme and B. J. Kim, ``Growing scale-free networks with tunable clustering,'' \emph{Physical Review E}, vol. 65, 026107, 2002.
+\bibitem{cl} F. Chung and L. Lu, ``The average distances in random graphs with given expected degrees,'' \emph{Proceedings of the National Academy of Sciences}, vol. 99, pp. 15879--15882, 2002.
+\bibitem{qs} F. Y. Lou, B. Wang, and Y. Chen, ``Towards optimal robustness of network controllability: An empirical necessary condition,'' \emph{IEEE Transactions on Circuits and Systems I}, 2020. doi:10.1109/TCSI.2020.2986215.
+\bibitem{eh} F. Y. Lou, B. Wang, and Y. Chen, ``Controllability robustness of Henneberg-growth complex networks,'' \emph{IEEE Access}, 2022. doi:10.1109/ACCESS.2022.3141011.
+\bibitem{nx} NetworkX Developers, ``NetworkX 3.5 random graph generators,'' source snapshot and BSD-3-Clause license retained in the project source catalog, 2025. \url{https://networkx.org/}.
+\end{thebibliography}
+\end{document}
